@@ -1,0 +1,103 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Forms {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <main>
+
+        <div class="section section-md pb-0">
+            <div class="container">
+                <!-- Title -->
+                <div class="row">
+                    <div class="col">
+                        <h2 class="h5">Default Forms</h2>
+                    </div>
+                </div>
+                <!-- End of Title -->
+            </div>
+        </div>
+        <div class="row">
+<form action="customerFormData" id= "customerForm" method= "POST">{% csrf_token %}
+        <!-- Section -->
+        <div class="section section-md pt-0" style="padding-bottom:15px !important">
+ <div class="container">
+
+                <div class="row">
+                   <div class="col-12 ">
+
+                        <div class="row align-items-center">
+                            <div class="col">
+                                 <label for="exampleInputEmail6">First Name</label>
+                            <input type="text" class="form-control" name="fname" id="exampleInputfname">
+                            </div>
+                            <div class="col">
+                                 <label for="exampleInputEmail6">Last Name</label>
+                            <input type="text" class="form-control" name="lname" id="exampleInputlname">
+                            </div>
+                            <div class="col">
+                                 <label for="exampleInputEmail6">IC Number</label>
+                            <input type="text" class="form-control" id="exampleInputIC">
+                            </div>
+                             <div class="col">
+                                 <label for="exampleInputEmail6">Contact Number</label>
+                            <input type="text" class="form-control" id="exampleInputcontact">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+ </div>
+        </div>
+        <div class="section pt-0" style="padding-bottom:15px !important">
+<div class="container">
+     <div class="row">
+                    <div class="col-12 ">
+
+                        <div class="row align-items-center">
+                            <div class="col">
+                                 <label for="exampleInputEmail6">Profession</label>
+                            <input type="text" class="form-control" id="exampleInputprofession">
+                            </div>
+                            <div class="col">
+                                 <label for="exampleInputEmail6">Email ID</label>
+                            <input type="email" class="form-control" id="exampleInputEmailID">
+                            </div>
+                            <div class="col">
+                                 <label for="exampleInputEmail6">Education</label>
+                            <input type="text" class="form-control" id="exampleInputEducation">
+                            </div>
+                             <div class="col">
+                                 <label for="exampleInputEmail6">City</label>
+                            <input type="text" class="form-control" id="exampleInputEmail6">
+                            </div>
+                        </div>
+
+                    </div>
+                    </div>
+ </div>
+        </div>
+
+    <div class="container">
+     <div class="row">
+                    <div class="col-12 ">
+                        <button type="submit" id="submitButton" class="btn btn-primary" style="float:right !important">Submit</button>
+
+                    </div>
+     </div>
+    </div>
+
+    </form>
+        </div>
+        <!-- End of Section -->
+
+    </main>
+
+{% endblock content %}
+
+
