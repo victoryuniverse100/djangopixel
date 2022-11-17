@@ -57,4 +57,4 @@ def customer_form(request):
     password = request.POST.get ( 'lname' )
     print ( email )
     print ( password )
-    return HttpResponse ( "hello" )
+    return HttpResponse ( "welcome" )
