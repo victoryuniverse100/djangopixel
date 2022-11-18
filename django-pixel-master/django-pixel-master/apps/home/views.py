@@ -116,7 +116,7 @@ def customer_form(request):
 
     )
     reg_data.save( )
-    return HttpResponse("Submit form successfully")
+    return HttpResponseRedirect('/clientData/'+reg_data.client_unique_id)
 
 @csrf_exempt
 def client_details(request, client_unique_id):
