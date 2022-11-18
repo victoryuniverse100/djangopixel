@@ -10,6 +10,7 @@ from django.shortcuts import render
 from django.template import loader
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
+from ..home.models import client_data
 
 
 @login_required(login_url="/login/")
@@ -53,8 +54,62 @@ def registration(request):
 @csrf_exempt
 def customer_form(request):
     print (request)
-    email = request.POST.get ( 'fname' )
-    password = request.POST.get ( 'lname' )
-    print ( email )
-    print ( password )
-    return HttpResponse ( "welcome" )
+    fname = request.POST.get ( 'fname' )
+    lname = request.POST.get('lname')
+    dob = request.POST.get('dob')
+    gender = request.POST.get('gender')
+    aadhar_number = request.POST.get('aadhar_number')
+    pan_number = request.POST.get ( 'pan_number' )
+    voter_id = request.POST.get('voter_id')
+    passport_number = request.POST.get('passport_number')
+    drivinglicense_number =request.POST.get('drivinglicense_number')
+    rationcard_number =request.POST.get('rationcard_number')
+    contact_number = request.POST.get('contact_number')
+    profession = request.POST.get('profession')
+    email_id = request.POST.get('email_id')
+    education = request.POST.get('education')
+    city = request.POST.get('city')
+
+
+
+    print (  fname )
+    print ( lname )
+    print (dob)
+    print(gender)
+    print( aadhar_number )
+    print(pan_number)
+    print(voter_id)
+    print(passport_number)
+    print(rationcard_number)
+    print(drivinglicense_number)
+    print(contact_number)
+    print(profession)
+    print(email_id)
+    print(education)
+    print(city)
+
+
+
+
+
+
+    reg_data = client_data (
+    fname = fname,
+    lname = lname,
+    dob = dob,
+    gender =gender,
+    aadhar_number = aadhar_number,
+    pan_number = pan_number,
+    voter_id = voter_id,
+    passport_number = passport_number,
+    rationcard_number =rationcard_number,
+    drivinglicense_number=drivinglicense_number,
+    contact_number = contact_number,
+    profession = profession,
+    email_id = email_id,
+    education = education,
+    city = city,
+
+    )
+    reg_data.save( )
+    return HttpResponse("Submit form successfully")
