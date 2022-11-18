@@ -17,4 +17,13 @@ $(document).ready(function(){
 					}
 				})
 			})
-		})
+
+
+	$("#editButton").click(function() {
+         $('input[type=text]').removeAttr('readonly');
+         $("#editButton").css("display","none");
+         $("#updateButton").css("display","");
+
+    })
+
+})

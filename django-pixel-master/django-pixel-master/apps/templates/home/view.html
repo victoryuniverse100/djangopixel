@@ -1,0 +1,105 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Forms {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <main>
+
+        <div class="section section-md pb-0">
+            <div class="container">
+                <!-- Title -->
+                <div class="row">
+                    <div class="col">
+                        <h2 class="h5"></h2>
+                    </div>
+                </div>
+                <!-- End of Title -->
+            </div>
+        </div>
+        <div class="row">
+<form action="/update_client_data/{{data.client_unique_id}}"  method= "POST">{% csrf_token %}
+        <!-- Section -->
+    <input type="hidden" value="{{data.client_unique_id}} name="client_unique_id">
+        <div class="section section-md pt-0" style="padding-bottom:15px !important">
+ <div class="container">
+
+                <div class="row">
+                   <div class="col-12 ">
+
+                        <div class="row align-items-center">
+                            <div class="col">
+                                 <label for="exampleInputEmail6">First Name</label>
+                            <input type="text" class="form-control" readonly name="fname" value="{{data.fname}}">
+                            </div>
+                            <div class="col">
+                                 <label for="exampleInputEmail6">Last Name</label>
+                            <input type="text" class="form-control" readonly name="lname" value="{{data.lname}}">
+                            </div>
+                            <div class="col">
+                                 <label for="exampleInputEmail6">Aadhar Number</label>
+                            <input type="text" class="form-control" readonly id="exampleInputIC" value="{{data.aadhar_number}}">
+                            </div>
+                             <div class="col">
+                                 <label for="exampleInputEmail6">Contact Number</label>
+                            <input type="text" class="form-control" readonly id="exampleInputcontact" value="{{data.contact_number}}">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+ </div>
+        </div>
+        <div class="section pt-0" style="padding-bottom:15px !important">
+<div class="container">
+     <div class="row">
+                    <div class="col-12 ">
+
+                        <div class="row align-items-center">
+                            <div class="col">
+                                 <label for="exampleInputEmail6">Profession</label>
+                            <input type="text" class="form-control" readonly id="exampleInputprofession" value="{{data.profession}}">
+                            </div>
+                            <div class="col">
+                                 <label for="exampleInputEmail6">Email ID</label>
+                            <input type="email" class="form-control" readonly id="exampleInputEmailID" value="{{data.email_id}}">
+                            </div>
+                            <div class="col">
+                                 <label for="exampleInputEmail6">Education</label>
+                            <input type="text" class="form-control" readonly id="exampleInputEducation" value="{{data.education}}">
+                            </div>
+                             <div class="col">
+                                 <label for="exampleInputEmail6">City</label>
+                            <input type="text" class="form-control" readonly id="exampleInputEmail6" value="{{data.city}}">
+                            </div>
+                        </div>
+
+                    </div>
+                    </div>
+ </div>
+        </div>
+
+    <div class="container">
+     <div class="row">
+                    <div class="col-12 ">
+                        <button type="button" id="editButton" class="btn btn-primary" >Edit</button>
+                        <button type="button" id="" class="btn btn-primary" >Cancel</button>
+                        <button type="submit" id="updateButton" style="display:none" class="btn btn-primary" >Update</button>
+                    </div>
+     </div>
+    </div>
+
+    </form>
+        </div>
+        <!-- End of Section -->
+
+    </main>
+
+{% endblock content %}
+
+
