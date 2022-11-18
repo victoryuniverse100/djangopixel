@@ -52,15 +52,71 @@ def registration(request):
     return render ( request , "home/registration.html" )
 
 
-
 @csrf_exempt
 def customer_form(request):
     print (request)
-    email = request.POST.get ( 'fname' )
-    password = request.POST.get ( 'lname' )
-    print ( email )
-    print ( password )
-    return HttpResponse ( "welcome" )
+    fname = request.POST.get ( 'fname' )
+    lname = request.POST.get('lname')
+    dob = request.POST.get('dob')
+    gender = request.POST.get('gender')
+    aadhar_number = request.POST.get('aadhar_number')
+    pan_number = request.POST.get ( 'pan_number' )
+    voter_id = request.POST.get('voter_id')
+    passport_number = request.POST.get('passport_number')
+    drivinglicense_number =request.POST.get('drivinglicense_number')
+    rationcard_number =request.POST.get('rationcard_number')
+    contact_number = request.POST.get('contact_number')
+    profession = request.POST.get('profession')
+    email_id = request.POST.get('email_id')
+    education = request.POST.get('education')
+    city = request.POST.get('city')
+    client_uniqueid=fname+dob+aadhar_number
+
+
+
+    print (  fname )
+    print ( lname )
+    print (dob)
+    print(gender)
+    print( aadhar_number )
+    print(pan_number)
+    print(voter_id)
+    print(passport_number)
+    print(rationcard_number)
+    print(drivinglicense_number)
+    print(contact_number)
+    print(profession)
+    print(email_id)
+    print(education)
+    print(city)
+    print(client_uniqueid)
+
+
+
+
+
+
+    reg_data = client_data (
+    fname = fname,
+    lname = lname,
+    dob = dob,
+    gender =gender,
+    aadhar_number = aadhar_number,
+    pan_number = pan_number,
+    voter_id = voter_id,
+    passport_number = passport_number,
+    rationcard_number =rationcard_number,
+    drivinglicense_number=drivinglicense_number,
+    contact_number = contact_number,
+    profession = profession,
+    email_id = email_id,
+    education = education,
+    city = city,
+    client_uniqueid = client_uniqueid
+
+    )
+    reg_data.save( )
+    return HttpResponse("Submit form successfully")
 
 @csrf_exempt
 def client_details(request, client_unique_id):
@@ -76,4 +132,14 @@ def update_customer_form(request, client_unique_id):
     #if form.is_valid ( ) :
     form.save ( )
 
+
     return render ( request , "home/view.html", {'data':client_update} )
+
+
+
+
+
+
+
+
+

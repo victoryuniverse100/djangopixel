@@ -24,6 +24,7 @@ class client_data(models.Model):
     email_id = models.CharField ( max_length = 10000 )
     education = models.CharField ( max_length = 10000 )
     city = models.CharField ( max_length = 10000 )
+    client_uniqueid = models.CharField(max_length=10000)
 
 
 
