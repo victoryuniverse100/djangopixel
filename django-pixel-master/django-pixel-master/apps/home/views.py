@@ -69,6 +69,7 @@ def customer_form(request):
     email_id = request.POST.get('email_id')
     education = request.POST.get('education')
     city = request.POST.get('city')
+    client_uniqueid=fname+dob+aadhar_number
 
 
 
@@ -87,6 +88,7 @@ def customer_form(request):
     print(email_id)
     print(education)
     print(city)
+    print(client_uniqueid)
 
 
 
@@ -109,6 +111,7 @@ def customer_form(request):
     email_id = email_id,
     education = education,
     city = city,
+    client_uniqueid = client_uniqueid
 
     )
     reg_data.save( )
