@@ -14,14 +14,14 @@
                 <!-- Title -->
                 <div class="row">
                     <div class="col">
-                        <h2 class="h5">Default Forms</h2>
+                        <h3 class="h5">REGISTRATION FORM</h3>
                     </div>
                 </div>
                 <!-- End of Title -->
             </div>
         </div>
         <div class="row">
-<form action="customerFormData" id= "customerForm" method= "POST">{% csrf_token %}
+<form action="/customerFormData/"  method= "POST">{% csrf_token %}
         <!-- Section -->
         <div class="section section-md pt-0" style="padding-bottom:15px !important">
  <div class="container">
@@ -32,20 +32,77 @@
                         <div class="row align-items-center">
                             <div class="col">
                                  <label for="exampleInputEmail6">First Name</label>
-                            <input type="text" class="form-control" name="fname" id="firstname">
+                            <input type="text" class="form-control" name="fname" id="firstname" required>
                             </div>
                             <div class="col">
                                  <label for="exampleInputEmail6">Last Name</label>
-                            <input type="text" class="form-control" name="lname" id="lastname">
+                            <input type="text" class="form-control" name="lname" id="lastname" required>
                             </div>
                             <div class="col">
-                                 <label for="exampleInputEmail6">IC Number</label>
-                            <input type="text" class="form-control" id="exampleInputIC">
+                                <label for="exampleInputEmail6">Gender</label>
+                                <select class="form control" name="gender" id="gender">
+                                  <option>Male</option>
+                                  <option>Female</option>
+                                </select>
+                            </div>
+
+                            <div class="col">
+                                 <label for="exampleInputEmail6">Date Of Birth</label>
+                            <input type="date" class="form-control" name="dob" id="DOB" required>
+                            </div>
+                            </div>
+                       </div>
+                    </div>
+     </div>
+             <div class="section pt-0" style="padding-bottom:15px !important">
+<div class="container">
+     <div class="row">
+                    <div class="col-12 ">
+
+                        <div class="row align-items-center">
+                           <div class="col">
+                                 <label for="exampleInputEmail6">Aadhar Number</label>
+                            <input type="text" class="form-control" name="aadhar_number" id="aadhar_number" required>
                             </div>
                              <div class="col">
-                                 <label for="exampleInputEmail6">Contact Number</label>
-                            <input type="text" class="form-control" id="exampleInputcontact">
+                                 <label for="exampleInputEmail6">Driving License Number</label>
+                            <input type="text" class="form-control" name="drivinglicense_number" id="drivinglicense_number"required>
                             </div>
+
+                             <div class="col">
+                                 <label for="exampleInputEmail6">Voterid Number</label>
+                            <input type="text" class="form-control" name="voter_id" id="voter_id" required>
+                            </div>
+                            <div class="col">
+                                 <label for="exampleInputEmail6">Passport Number</label>
+                            <input type="text" class="form-control" name="passport_number"id="passport_number" required>
+                            </div>
+                            </div>
+                        </div>
+         </div>
+    </div>
+                 </div>
+             <div class="section pt-0" style="padding-bottom:15px !important">
+<div class="container">
+     <div class="row">
+                    <div class="col-12 ">
+
+                        <div class="row align-items-center">
+
+                            <div class="col">
+                                 <label for="exampleInputEmail6">Pan Number</label>
+                            <input type="text" class="form-control" name="pan_number"id="pan_number">
+                            </div>
+                            <div class="col">
+                                 <label for="exampleInputEmail6">Rationcard Number</label>
+                            <input type="text" class="form-control" name="rationcard_number"id="rationcard_number">
+                            </div>
+
+                            <div class="col">
+                                 <label for="exampleInputEmail6">Profession</label>
+                            <input type="text" class="form-control" name="profession" id="profession" required>
+                            </div>
+
                         </div>
 
                     </div>
@@ -60,24 +117,43 @@
                     <div class="col-12 ">
 
                         <div class="row align-items-center">
+
                             <div class="col">
-                                 <label for="exampleInputEmail6">Profession</label>
-                            <input type="text" class="form-control" id="exampleInputprofession">
-                            </div>
-                            <div class="col">
-                                 <label for="exampleInputEmail6">Email ID</label>
-                            <input type="email" class="form-control" id="exampleInputEmailID">
+                                 <label for="exampleInputEmail6">Contact Number</label>
+                            <input type="text" class="form-control" name="contact_number"id="contact_number" required>
                             </div>
                             <div class="col">
                                  <label for="exampleInputEmail6">Education</label>
-                            <input type="text" class="form-control" id="exampleInputEducation">
+                            <input type="text" class="form-control" name="education" id="education" required>
                             </div>
                              <div class="col">
                                  <label for="exampleInputEmail6">City</label>
-                            <input type="text" class="form-control" id="exampleInputEmail6">
+                            <input type="text" class="form-control" name ="city" id="City" required>
                             </div>
                         </div>
+                    </div>
+     </div>
+</div>
+            <div class="section pt-0" style="padding-bottom:15px !important">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 ">
 
+                            <div class="row align-items-center">
+
+                                <div class="col">
+                                 <label for="exampleInputEmail6">Email ID</label>
+                            <input type="email" class="form-control" name="email_id" id="email_id">
+                            </div>
+                                <div class="col">
+                                <input type="file" class="custom-file-input" id="upload_image" required>
+                                <label class="custom-file-label" for="customFile">Upload Image</label>
+                            </div>
+                                <div class="col">
+                                <input type="file" class="custom-file-input" id="upload_idproof" required>
+                                <label class="custom-file-label" for="customFile">Upload Idproof</label>
+                            </div>
+                        </div>
                     </div>
                     </div>
  </div>
@@ -87,6 +163,7 @@
      <div class="row">
                     <div class="col-12 ">
                         <button type="submit" id="submitButton" class="btn btn-primary" style="float:right !important">Submit</button>
+
 
                     </div>
      </div>
