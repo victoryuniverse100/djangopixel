@@ -21,9 +21,9 @@
             </div>
         </div>
         <div class="row">
-<form action="/update_client_data/{{data.client_unique_id}}"  method= "POST">{% csrf_token %}
+<form action="/update_client_data/{{data.client_uniqueid}}"  method= "POST">{% csrf_token %}
         <!-- Section -->
-    <input type="hidden" value="{{data.client_unique_id}} name="client_unique_id">
+    <input type="hidden" value="{{data.client_uniqueid}} name="client_uniqueid">
         <div class="section section-md pt-0" style="padding-bottom:15px !important">
  <div class="container">
 
@@ -99,6 +99,34 @@
         <!-- End of Section -->
 
     </main>
+{% if messages %}
+<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h6 class="modal-title">Terms of Service</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>With less than a month to go before the European Union enacts new consumer privacy laws for its citizens, companies around the world are updating their terms of service agreements to comply.</p>
+                <p>The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is meant to ensure a common set of data rights in the European Union. It requires organizations to notify users as
+                    soon as possible of high-risk data breaches that could personally affect them.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-secondary">I Got It</button>
+                <button type="button" class="btn btn-link text-danger ml-auto" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% if saved %}
+
+
+{% endif %}
 
 {% endblock content %}
 

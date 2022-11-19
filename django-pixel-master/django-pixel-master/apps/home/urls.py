@@ -12,8 +12,8 @@ urlpatterns = [
     # The home page
     path('', views.index, name='home'),
     url(r'^customerFormData/', views.customer_form, name='customer_form'),
-    path('clientData/<str:client_unique_id>', views.client_details),
-    path('update_client_data/<str:client_unique_id>', views.update_customer_form),
+    path('clientData/<str:client_uniqueid>', views.client_details),
+    path('update_client_data/<str:client_uniqueid>', views.update_customer_form),
 
 
 

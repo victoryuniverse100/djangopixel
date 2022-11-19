@@ -40,11 +40,13 @@
                             </div>
                             <div class="col">
                                 <label for="exampleInputEmail6">Gender</label>
-                                <select class="form control" name="gender" id="gender">
-                                  <option>Male</option>
-                                  <option>Female</option>
+                                <select class="form-control" name="gender" id="gender">
+                                    <option>Select</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
                                 </select>
                             </div>
+
 
                             <div class="col">
                                  <label for="exampleInputEmail6">Date Of Birth</label>
@@ -70,7 +72,7 @@
                             </div>
 
                              <div class="col">
-                                 <label for="exampleInputEmail6">Voterid Number</label>
+                                 <label for="exampleInputEmail6">VoterID</label>
                             <input type="text" class="form-control" name="voter_id" id="voter_id" required>
                             </div>
                             <div class="col">
@@ -102,6 +104,10 @@
                                  <label for="exampleInputEmail6">Profession</label>
                             <input type="text" class="form-control" name="profession" id="profession" required>
                             </div>
+                            <div class="col">
+                                 <label for="exampleInputEmail6">Contact Number</label>
+                            <input type="text" class="form-control" name="contact_number"id="contact_number" required>
+                            </div>
 
                         </div>
 
@@ -118,10 +124,7 @@
 
                         <div class="row align-items-center">
 
-                            <div class="col">
-                                 <label for="exampleInputEmail6">Contact Number</label>
-                            <input type="text" class="form-control" name="contact_number"id="contact_number" required>
-                            </div>
+
                             <div class="col">
                                  <label for="exampleInputEmail6">Education</label>
                             <input type="text" class="form-control" name="education" id="education" required>
@@ -129,6 +132,14 @@
                              <div class="col">
                                  <label for="exampleInputEmail6">City</label>
                             <input type="text" class="form-control" name ="city" id="City" required>
+                            </div>
+                            <div class="col">
+                                 <label for="exampleInputEmail6">Email ID</label>
+                            <input type="email" class="form-control" name="email_id" id="email_id">
+                            </div>
+                            <div class="col">
+                                <label class="custom-file-label" for="customFile">Upload Image</label>
+                                <input type="file" class="form-control" id="upload_image" required>
                             </div>
                         </div>
                     </div>
@@ -140,18 +151,10 @@
                         <div class="col-12 ">
 
                             <div class="row align-items-center">
+                                <div class="col-3">
+                                    <label class="custom-file-label" for="customFile">Upload Idproof</label>
+                                <input type="file" class="form-control" id="upload_idproof" required>
 
-                                <div class="col">
-                                 <label for="exampleInputEmail6">Email ID</label>
-                            <input type="email" class="form-control" name="email_id" id="email_id">
-                            </div>
-                                <div class="col">
-                                <input type="file" class="custom-file-input" id="upload_image" required>
-                                <label class="custom-file-label" for="customFile">Upload Image</label>
-                            </div>
-                                <div class="col">
-                                <input type="file" class="custom-file-input" id="upload_idproof" required>
-                                <label class="custom-file-label" for="customFile">Upload Idproof</label>
                             </div>
                         </div>
                     </div>
@@ -163,9 +166,8 @@
      <div class="row">
                     <div class="col-12 ">
                         <button type="submit" id="submitButton" class="btn btn-primary" style="float:right !important">Submit</button>
-
-
                     </div>
+
      </div>
     </div>
 
@@ -174,7 +176,5 @@
         <!-- End of Section -->
 
     </main>
-
-{% endblock content %}
 
 

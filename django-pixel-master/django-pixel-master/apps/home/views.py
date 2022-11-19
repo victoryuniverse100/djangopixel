@@ -13,6 +13,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 from apps.home.forms import ClientForm
 from apps.home.models import client_data
+from django.contrib import messages
+
 
 
 @login_required(login_url="/login/")
@@ -116,17 +118,19 @@ def customer_form(request):
 
     )
     reg_data.save()
-    return HttpResponseRedirect('/clientData/'+reg_data.client_unique_id)
+    messages.info(request, 'Form submission successful')
+
+    return HttpResponseRedirect('/clientData/'+reg_data.client_uniqueid)
 
 @csrf_exempt
-def client_details(request, client_unique_id):
-  client = client_data.objects.get(client_unique_id=client_unique_id)
-  print ( client.client_unique_id )
+def client_details(request, client_uniqueid):
+  client = client_data.objects.get(client_uniqueid=client_uniqueid)
+  print ( client.client_uniqueid )
   return render ( request , "home/view.html", {'data':client} )
 
 @csrf_exempt
-def update_customer_form(request, client_unique_id):
-    client_update = client_data.objects.get (client_unique_id=client_unique_id)
+def update_customer_form(request, client_uniqueid):
+    client_update = client_data.objects.get (client_unique_id=client_uniqueid)
     form = ClientForm ( request.POST , instance = client_update )
     print (form)
     #if form.is_valid ( ) :
