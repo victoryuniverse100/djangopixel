@@ -130,11 +130,11 @@ def client_details(request, client_uniqueid):
 
 @csrf_exempt
 def update_customer_form(request, client_uniqueid):
-    client_update = client_data.objects.get (client_unique_id=client_uniqueid)
+    client_update = client_data.objects.get (client_uniqueid=client_uniqueid)
     form = ClientForm ( request.POST , instance = client_update )
     print (form)
-    #if form.is_valid ( ) :
-    form.save ( )
+    if form.is_valid ( ) :
+        form.save ( )
 
 
     return render ( request , "home/view.html", {'data':client_update} )
