@@ -13,7 +13,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 from apps.home.forms import ClientForm
 from apps.home.models import client_data
-from django.contrib import messages
+
 
 
 
@@ -118,7 +118,7 @@ def customer_form(request):
 
     )
     reg_data.save()
-    messages.info(request, 'Form submission successful')
+
 
     return HttpResponseRedirect('/clientData/'+reg_data.client_uniqueid)
 
