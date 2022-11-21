@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class client_data(models.Model):
-    client_id=models.AutoField(primary_key=True)
+    client_id=models.CharField(max_length=10000)
     fname = models.CharField(max_length=10000)                       # "2021-08-26T03:22:59.313Z"
     lname = models.CharField(max_length=10000)
     gender =models.CharField(max_length=100)# 2082668
@@ -46,6 +46,7 @@ class client_data(models.Model):
     rationcard_upload = models.ImageField(upload_to='media/idproof/rationcard',default='')
 
     client_uniqueid = models.CharField(max_length=10000)
+    created_date = models.DateField(default='')
 
 
 

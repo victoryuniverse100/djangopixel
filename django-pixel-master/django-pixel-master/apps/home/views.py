@@ -66,7 +66,7 @@ def customer_form(request):
     print (request)
 
 
-    client_id =1000000
+
     fname = request.POST.get ( 'fname' )
     lname = request.POST.get('lname')
     gender = request.POST.get('gender')
@@ -100,6 +100,9 @@ def customer_form(request):
     rationcard_upload = request.POST.get('rationcard_upload')
 
     client_uniqueid=fname+dob+aadhar_number
+    created_date = date.today()
+
+    client_id = created_date
 
 
 
@@ -134,7 +137,9 @@ def customer_form(request):
     rationcard_number = rationcard_number,
     rationcard_upload = rationcard_upload,
 
-    client_uniqueid = client_uniqueid.replace("-","")
+    client_uniqueid = client_uniqueid.replace("-",""),
+    created_date=created_date,
+
 
     )
     reg_data.save()
@@ -143,7 +148,7 @@ def customer_form(request):
 @csrf_exempt
 def client_details(request, client_uniqueid):
   client = client_data.objects.get(client_uniqueid=client_uniqueid)
-  print ( client.client_uniqueid.replace("-","") )
+
   return render ( request , "home/view.html", {'data':client} )
 
 @csrf_exempt
