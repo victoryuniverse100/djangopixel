@@ -2,6 +2,7 @@
 """
 Copyright (c) 2019 - present AppSeed.us
 """
+import datetime
 
 from django import template
 from django.contrib.auth.decorators import login_required
@@ -13,15 +14,18 @@ from django.views.decorators.csrf import csrf_exempt
 
 from apps.home.forms import ClientForm
 from apps.home.models import client_data
+from datetime import date
 
 
 
 
 @login_required(login_url="/login/")
 def index(request):
+
     context = {'segment': 'index'}
 
     html_template = loader.get_template('home/index.html')
+
     return HttpResponse(html_template.render(context, request))
 
 
@@ -54,90 +58,108 @@ def registration(request):
     return render ( request , "home/registration.html" )
 
 
+
+
+
 @csrf_exempt
 def customer_form(request):
     print (request)
+
+
+    client_id =1000000
     fname = request.POST.get ( 'fname' )
     lname = request.POST.get('lname')
-    dob = request.POST.get('dob')
     gender = request.POST.get('gender')
-    aadhar_number = request.POST.get('aadhar_number')
-    pan_number = request.POST.get ( 'pan_number' )
-    voter_id = request.POST.get('voter_id')
-    passport_number = request.POST.get('passport_number')
-    drivinglicense_number =request.POST.get('drivinglicense_number')
-    rationcard_number =request.POST.get('rationcard_number')
-    contact_number = request.POST.get('contact_number')
-    profession = request.POST.get('profession')
-    email_id = request.POST.get('email_id')
+    dob = request.POST.get('dob')
+
     education = request.POST.get('education')
-    city = request.POST.get('city')
+    profession = request.POST.get('profession')
+    company_college_name = request.POST.get('company_college_name')
+    job_college_location = request.POST.get('job_college_location')
+
+    house_block_no = request.POST.get('house_block_no')
+    street_name = request.POST.get('street_name')
+    town_city = request.POST.get('town_city')
+    district = request.POST.get('district')
+    state = request.POST.get('state')
+    postal_code = request.POST.get('postal_code')
+    email_id = request.POST.get('email_id')
+    contact_number = request.POST.get('contact_number')
+
+    aadhar_number = request.POST.get('aadhar_number')
+    aadhar_upload = request.POST.get('aadhar_upload')
+    drivinglicense_number = request.POST.get('drivinglicense_number')
+    drivinglicense_upload = request.POST.get(' drivinglicense_upload')
+    voter_id = request.POST.get('voter_id')
+    voterid_upload = request.POST.get(' voterid_upload')
+    passport_number = request.POST.get('passport_number')
+    passport_upload = request.POST.get('passport_upload')
+    pan_number = request.POST.get('pan_number')
+    pancard_upload = request.POST.get('pancard_upload')
+    rationcard_number =request.POST.get('rationcard_number')
+    rationcard_upload = request.POST.get('rationcard_upload')
+
     client_uniqueid=fname+dob+aadhar_number
 
 
 
-    print (  fname )
-    print ( lname )
-    print (dob)
-    print(gender)
-    print( aadhar_number )
-    print(pan_number)
-    print(voter_id)
-    print(passport_number)
-    print(rationcard_number)
-    print(drivinglicense_number)
-    print(contact_number)
-    print(profession)
-    print(email_id)
-    print(education)
-    print(city)
-    print(client_uniqueid)
-
-
-
-
-
-
-    reg_data = client_data (
+    reg_data=client_data (
+    client_id=client_id,
     fname = fname,
     lname = lname,
+    gender=gender,
     dob = dob,
-    gender =gender,
-    aadhar_number = aadhar_number,
-    pan_number = pan_number,
-    voter_id = voter_id,
-    passport_number = passport_number,
-    rationcard_number =rationcard_number,
-    drivinglicense_number=drivinglicense_number,
-    contact_number = contact_number,
-    profession = profession,
-    email_id = email_id,
     education = education,
-    city = city,
-    client_uniqueid = client_uniqueid
+    profession = profession,
+    company_college_name = company_college_name,
+    job_college_location = job_college_location,
+    house_block_no = house_block_no,
+    street_name = street_name,
+    town_city = town_city,
+    district =district,
+    state = state,
+    postal_code = postal_code,
+    email_id=email_id,
+    contact_number=contact_number,
+    aadhar_number = aadhar_number,
+    aadhar_upload=aadhar_upload,
+    drivinglicense_number=drivinglicense_number,
+    drivinglicense_upload=drivinglicense_upload,
+    voter_id = voter_id,
+    voterid_upload=voterid_upload,
+    passport_number = passport_number,
+    passport_upload=passport_upload,
+    pan_number=pan_number,
+    pancard_upload= pancard_upload,
+    rationcard_number = rationcard_number,
+    rationcard_upload = rationcard_upload,
+
+    client_uniqueid = client_uniqueid.replace("-","")
 
     )
     reg_data.save()
-
-
     return HttpResponseRedirect('/clientData/'+reg_data.client_uniqueid)
 
 @csrf_exempt
 def client_details(request, client_uniqueid):
   client = client_data.objects.get(client_uniqueid=client_uniqueid)
-  print ( client.client_uniqueid )
+  print ( client.client_uniqueid.replace("-","") )
   return render ( request , "home/view.html", {'data':client} )
 
 @csrf_exempt
 def update_customer_form(request, client_uniqueid):
-    client_update = client_data.objects.get (client_unique_id=client_uniqueid)
+    client_update = client_data.objects.get (client_uniqueid=client_uniqueid)
     form = ClientForm ( request.POST , instance = client_update )
     print (form)
-    #if form.is_valid ( ) :
-    form.save ( )
+    if form.is_valid ( ) :
+        form.save ( )
 
 
     return render ( request , "home/view.html", {'data':client_update} )
+
+
+
+
 
 
 
