@@ -16,7 +16,7 @@ urlpatterns = [
     url(r'^customerFormData/', views.customer_form, name='customer_form'),
     path('clientData/<str:client_uniqueid>', views.client_details),
     path('update_client_data/<str:client_uniqueid>', views.update_customer_form),
-    path('', views.upload, name='upload'),
+
 
 
 
