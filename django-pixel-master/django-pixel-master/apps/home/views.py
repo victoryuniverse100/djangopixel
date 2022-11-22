@@ -101,8 +101,9 @@ def customer_form(request):
 
     client_uniqueid=fname+dob+aadhar_number
     created_date = date.today()
+    seq_id=100000
 
-    client_id = created_date
+    client_id = str(created_date)+str(-seq_id)
 
 
 
@@ -139,6 +140,8 @@ def customer_form(request):
 
     client_uniqueid = client_uniqueid.replace("-",""),
     created_date=created_date,
+        seq_id=seq_id,
+
 
 
     )

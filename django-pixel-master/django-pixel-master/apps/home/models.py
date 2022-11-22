@@ -47,6 +47,7 @@ class client_data(models.Model):
 
     client_uniqueid = models.CharField(max_length=10000)
     created_date = models.DateField(default='')
+    seq_id =models.DateField(max_length=10000)
 
 
 
