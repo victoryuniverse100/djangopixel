@@ -21,9 +21,9 @@ $(document).ready(function(){
 
 	$("#editButton").click(function() {
          $('input[type=text]').removeAttr('readonly');
-         $('input[type=date]').removeAttr('readonly');
+         $('#dob').prop('readonly', false);
          $('input[type=select]').removeAttr('readonly');
-         $('input[type=email]').removeAttr('readonly');
+         $('#email_id').prop('readonly', false);
          $("#editButton").css("display","none");
          $("#updateButton").css("display","");
 
