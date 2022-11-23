@@ -20,9 +20,8 @@ urlpatterns = [
 
 
 
-
     # Matches any html file
     re_path(r'^.*\.*', views.pages, name='pages'),
 
     re_path('registration/', views.registration, name="registration"),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]

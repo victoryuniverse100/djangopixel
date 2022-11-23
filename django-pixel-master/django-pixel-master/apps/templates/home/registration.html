@@ -10,11 +10,16 @@
     <main>
 
 
+
         <div class="section section-md pb-0">
+
             <div class="container">
+
+
                 <!-- Title -->
                 <div class="row">
                     <div class="col">
+
                         <h3 class="h5">REGISTRATION FORM</h3>
                     </div>
                 </div>
@@ -22,25 +27,26 @@
             </div>
         </div>
         <div class="row">
-<form action="/customerFormData/"  method= "POST">{% csrf_token %}
+<form action="/customerFormData/"  method= "POST" enctype="multipart/form-data">{% csrf_token %}
         <!-- Section -->
 
-    <div class="section section-md pt-0" style="padding-bottom:15px !important">
- <div class="container">
 
-                <div class="row">
-                   <div class="col-3 ">
+<!--    <div class="section section-md pt-0" style="padding-bottom:15px !important">-->
+<!-- <div class="container">-->
 
-                        <div class="row align-items-center">
-                             <div class="col">
-                                 <label for="exampleInputEmail6">Client ID</label>
-                            <input type="text" class="form-control" name="client_id" id="client_id" autocomplete>
-                            </div>
-                        </div>
-                   </div>
-                </div>
- </div>
-    </div>
+<!--                <div class="row">-->
+<!--                   <div class="col-3 ">-->
+
+<!--                        <div class="row align-items-center">-->
+<!--                             <div class="col">-->
+<!--                                 <label for="exampleInputEmail6">Client ID</label>-->
+<!--                            <input type="text" class="form-control" name="client_id" id="client_id" >-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                   </div>-->
+<!--                </div>-->
+<!-- </div>-->
+<!--    </div>-->
 
     <div class="section section-md pt-0" style="padding-bottom:15px !important">
  <div class="container">
@@ -463,6 +469,8 @@
                             <div class="col">
                                     <label class="custom-file-label" for="exampleInputEmail6">Upload Photo</label>
                                 <input type="file" class="form-control" name="photo_upload" id="photo_upload" required>
+
+
 
                             </div>
                         </div>

@@ -100,15 +100,15 @@ def customer_form(request):
     rationcard_upload = request.POST.get('rationcard_upload')
 
     client_uniqueid=fname+dob+aadhar_number
-    created_date = date.today()
-    seq_id=100000
+    # created_date = date.today()
+    # seq_id=100000
 
-    client_id = str(created_date)+str(-seq_id)
+    # client_id = str(created_date)+str(-seq_id)
 
 
 
-    reg_data=client_data (
-    client_id=client_id,
+    reg_data = client_data (
+    # client_id=client_id,
     fname = fname,
     lname = lname,
     gender=gender,
@@ -139,8 +139,8 @@ def customer_form(request):
     rationcard_upload = rationcard_upload,
 
     client_uniqueid = client_uniqueid.replace("-",""),
-    created_date=created_date,
-        seq_id=seq_id,
+    # created_date=created_date,
+    # seq_id=seq_id,
 
 
 
