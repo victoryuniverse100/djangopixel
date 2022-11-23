@@ -166,8 +166,9 @@ def update_customer_form(request, client_uniqueid):
     return render ( request , "home/view.html", {'data':client_update} )
 
 
-
-
+@csrf_exempt
+def seminarRegistration(request):
+    return render ( request , "home/seminarRegistration.html" )
 
 
 
