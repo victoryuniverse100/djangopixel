@@ -15,7 +15,8 @@ from django.views.decorators.csrf import csrf_exempt
 from apps.home.forms import ClientForm
 from apps.home.models import client_data
 from datetime import date
-
+from django.core.files.storage import FileSystemStorage
+from django.conf import settings
 
 
 
@@ -55,7 +56,8 @@ def pages(request):
         return HttpResponse(html_template.render(context, request))
 
 def registration(request):
-    return render ( request , "home/registration.html" )
+    return render(request, "home/registration.html")
+
 
 
 
@@ -64,8 +66,6 @@ def registration(request):
 @csrf_exempt
 def customer_form(request):
     print (request)
-
-
 
     fname = request.POST.get ( 'fname' )
     lname = request.POST.get('lname')
@@ -87,23 +87,68 @@ def customer_form(request):
     contact_number = request.POST.get('contact_number')
 
     aadhar_number = request.POST.get('aadhar_number')
-    aadhar_upload = request.POST.get('aadhar_upload')
     drivinglicense_number = request.POST.get('drivinglicense_number')
-    drivinglicense_upload = request.POST.get(' drivinglicense_upload')
     voter_id = request.POST.get('voter_id')
-    voterid_upload = request.POST.get(' voterid_upload')
     passport_number = request.POST.get('passport_number')
-    passport_upload = request.POST.get('passport_upload')
     pan_number = request.POST.get('pan_number')
-    pancard_upload = request.POST.get('pancard_upload')
     rationcard_number =request.POST.get('rationcard_number')
-    rationcard_upload = request.POST.get('rationcard_upload')
 
-    client_uniqueid=fname+dob+aadhar_number
-    # created_date = date.today()
-    # seq_id=100000
+    client_uniqueid = fname + dob + aadhar_number
+    created_date = date.today()
 
-    # client_id = str(created_date)+str(-seq_id)
+    context = {}
+    if (request.method == 'POST'):
+
+
+        photo_upload = request.FILES['photo_upload']
+        fs = FileSystemStorage()
+        file_ext=photo_upload.name.split('.')[1]
+        photo = fs.save(settings.MEDIA_ROOT+client_uniqueid+'/photo/'+fname+'photo'+'.'+file_ext, photo_upload)
+
+        aadhar_upload = request.FILES['aadhar_upload']
+        fs = FileSystemStorage()
+        file_ext = aadhar_upload.name.split('.')[1]
+        aadhar = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' +fname+ 'aadhar' + '.' + file_ext, aadhar_upload)
+
+        drivinglicense_upload = request.FILES['drivinglicense_upload']
+        fs = FileSystemStorage()
+        file_ext = drivinglicense_upload.name.split('.')[1]
+        drivinglicense = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' +fname+ 'drivinglicense' + '.' + file_ext, drivinglicense_upload)
+
+        voterid_upload = request.FILES['voterid_upload']
+        fs = FileSystemStorage()
+        file_ext = voterid_upload.name.split('.')[1]
+        voterid = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' +fname+ 'voterid' + '.' + file_ext, voterid_upload)
+
+        passport_upload = request.FILES['passport_upload']
+        fs = FileSystemStorage()
+        file_ext = passport_upload.name.split('.')[1]
+        passport = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' +fname+ 'passport' + '.' + file_ext, passport_upload)
+
+
+        pancard_upload = request.FILES['pancard_upload']
+        fs = FileSystemStorage()
+        file_ext = pancard_upload.name.split('.')[1]
+        pancard = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' + fname +'pancard '+'.' + file_ext, pancard_upload)
+
+        rationcard_upload = request.FILES['rationcard_upload']
+        fs = FileSystemStorage()
+        file_ext =  rationcard_upload.name.split('.')[1]
+        rationcard = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' + fname +'rationcard'+ '.' + file_ext, rationcard_upload)
+
+
+
+        print(fs.url(photo))
+        photo_upload_path=fs.url(photo)
+        aadhar_upload_path = fs.url(aadhar)
+        drivinglicense_upload_path = fs.url(drivinglicense)
+        voterid_upload_path = fs.url(voterid)
+        passport_upload_path = fs.url(passport)
+        pancard_upload_path = fs.url(pancard)
+        rationcard_upload_path = fs.url(rationcard)
+
+        # seq_id=100000
+        # #client_id = created_date
 
 
 
@@ -125,21 +170,25 @@ def customer_form(request):
     postal_code = postal_code,
     email_id=email_id,
     contact_number=contact_number,
+
     aadhar_number = aadhar_number,
-    aadhar_upload=aadhar_upload,
     drivinglicense_number=drivinglicense_number,
-    drivinglicense_upload=drivinglicense_upload,
     voter_id = voter_id,
-    voterid_upload=voterid_upload,
     passport_number = passport_number,
-    passport_upload=passport_upload,
     pan_number=pan_number,
-    pancard_upload= pancard_upload,
     rationcard_number = rationcard_number,
-    rationcard_upload = rationcard_upload,
+
 
     client_uniqueid = client_uniqueid.replace("-",""),
-    # created_date=created_date,
+    created_date=created_date,
+
+    photo_upload_path = photo_upload_path,
+    aadhar_upload_path= aadhar_upload_path,
+    drivinglicense_upload_path= drivinglicense_upload_path,
+    voterid_upload_path= voterid_upload_path,
+    passport_upload_path=passport_upload_path,
+    pancard_upload_path= pancard_upload_path,
+    rationcard_upload_path=rationcard_upload_path,
     # seq_id=seq_id,
 
 

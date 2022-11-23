@@ -29,27 +29,28 @@ class client_data(models.Model):
     postal_code = models.CharField(max_length=10000)
     email_id = models.CharField(max_length=10000)
     contact_number = models.CharField(max_length=10000,default='')    # "L1 of winding 2082667 "
-    photo_upload = models.ImageField(upload_to='media/photo',default= '')
+
 
 
     aadhar_number = models.CharField(max_length=10000)
-    aadhar_upload = models.ImageField(upload_to='media/id proof/aadhar',default='')
     drivinglicense_number = models.CharField(max_length=10000, default='')
-    drivinglicense_upload = models.ImageField(upload_to='media/id proof/driving license',default='')
     voter_id = models.CharField(max_length=10000, default='')
-    voterid_upload = models.ImageField(upload_to='media/id proof/voterid',default='')
     passport_number = models.CharField(max_length=10000, default='')
-    passport_upload = models.ImageField(upload_to='media/idproof/passport',default='')
     pan_number = models.CharField(max_length=10000, default='')
-    pancard_upload = models.ImageField(upload_to='media/idproof/pancard/',default='')
     rationcard_number = models.CharField(max_length=10000, default='')
-    rationcard_upload = models.ImageField(upload_to='media/idproof/rationcard',default='')
+
 
     client_uniqueid = models.CharField(max_length=10000)
-    # created_date = models.DateField(default='')
+    created_date = models.DateField(default='')
     # seq_id =models.DateField(max_length=10000)
 
-
+    photo_upload_path=models.CharField(max_length=10000)
+    aadhar_upload_path=models.CharField(max_length=10000)
+    drivinglicense_upload_path = models.CharField(max_length=10000)
+    voterid_upload_path = models.CharField(max_length=10000)
+    passport_upload_path = models.CharField(max_length=10000)
+    pancard_upload_path = models.CharField(max_length=10000)
+    rationcard_upload_path = models.CharField(max_length=10000)
 
 
 
