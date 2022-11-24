@@ -2,8 +2,8 @@
 """
 Copyright (c) 2019 - present AppSeed.us
 """
-import datetime
 
+import datetime
 from django import template
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
@@ -56,6 +56,7 @@ def pages(request):
         return HttpResponse(html_template.render(context, request))
 
 def registration(request):
+
     return render(request, "home/registration.html")
 
 
@@ -94,7 +95,7 @@ def customer_form(request):
     rationcard_number =request.POST.get('rationcard_number')
 
     client_uniqueid = fname + dob + aadhar_number
-    created_date = date.today()
+
 
     context = {}
     if (request.method == 'POST'):
@@ -147,13 +148,15 @@ def customer_form(request):
         pancard_upload_path = fs.url(pancard)
         rationcard_upload_path = fs.url(rationcard)
 
-        # seq_id=100000
-        # #client_id = created_date
+        created_date = str(date.today()).replace("-","")
+        seq_id=100000
+        client_id = str(created_date)+str('-')+str(seq_id)
+
 
 
 
     reg_data = client_data (
-    # client_id=client_id,
+    client_id=client_id,
     fname = fname,
     lname = lname,
     gender=gender,
@@ -189,7 +192,7 @@ def customer_form(request):
     passport_upload_path=passport_upload_path,
     pancard_upload_path= pancard_upload_path,
     rationcard_upload_path=rationcard_upload_path,
-    # seq_id=seq_id,
+    seq_id=seq_id,
 
 
 
@@ -200,7 +203,6 @@ def customer_form(request):
 @csrf_exempt
 def client_details(request, client_uniqueid):
   client = client_data.objects.get(client_uniqueid=client_uniqueid)
-
   return render ( request , "home/view.html", {'data':client} )
 
 @csrf_exempt

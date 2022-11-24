@@ -1,5 +1,24 @@
 
 
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/pixel.min.css'%}">
-<script src="{% static 'js/pixel.min.js'%}"></script>
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Forms {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head></head>
+
+<body>
+<img class="navbar-brand-dark mb-4" height="35" src="{{ ASSETS_ROOT }}/image/aadhar.jpeg"
+                        alt="Logo light">
+</body>
+</html>
+
+
+<!-- End of Section -->{% endblock content %}

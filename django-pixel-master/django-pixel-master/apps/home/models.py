@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class client_data(models.Model):
-    # client_id=models.CharField(max_length=10000)
+    client_id=models.CharField(max_length=10000)
     fname = models.CharField(max_length=10000)                       # "2021-08-26T03:22:59.313Z"
     lname = models.CharField(max_length=10000)
     gender =models.CharField(max_length=100)# 2082668
@@ -41,16 +41,18 @@ class client_data(models.Model):
 
 
     client_uniqueid = models.CharField(max_length=10000)
-    created_date = models.DateField(default='')
-    # seq_id =models.DateField(max_length=10000)
+    created_date = models.DateField(auto_now_add=True)
+    seq_id =models.CharField(max_length=10000)
 
-    photo_upload_path=models.CharField(max_length=10000)
-    aadhar_upload_path=models.CharField(max_length=10000)
-    drivinglicense_upload_path = models.CharField(max_length=10000)
-    voterid_upload_path = models.CharField(max_length=10000)
-    passport_upload_path = models.CharField(max_length=10000)
-    pancard_upload_path = models.CharField(max_length=10000)
-    rationcard_upload_path = models.CharField(max_length=10000)
+    photo_upload_path=models.URLField(max_length=10000)
+    aadhar_upload_path=models.URLField(max_length=10000)
+    drivinglicense_upload_path = models.URLField(max_length=10000)
+    voterid_upload_path = models.URLField(max_length=10000)
+    passport_upload_path = models.URLField(max_length=10000)
+    pancard_upload_path = models.URLField(max_length=10000)
+    rationcard_upload_path = models.URLField(max_length=10000)
+
+
 
 
 
