@@ -3,6 +3,7 @@
 Copyright (c) 2019 - present AppSeed.us
 """
 
+
 import datetime
 from django import template
 from django.contrib.auth.decorators import login_required
@@ -12,11 +13,12 @@ from django.template import loader
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
-from apps.home.forms import ClientForm
-from apps.home.models import client_data
+from apps.home.forms import ClientForm , SeminarRegistrationForm
+from apps.home.models import client_data , seminar_data
 from datetime import date
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
+
 
 
 
@@ -221,11 +223,77 @@ def update_customer_form(request, client_uniqueid):
 def seminarRegistration(request):
     return render ( request , "home/seminarRegistration.html" )
 
+@csrf_exempt
+def seminar_registration_save(request):
+
+    regid = '20221125-100' #request.POST.get('regid')
+    clientid = '20221125-100001' #request.POST.get('clientid')
+    payirchiid = request.POST.get('payirchiid')
+    payirchiname = request.POST.get('payirchiname')
+    first_payment = request.POST.get('first_payment')
+    second_payment = request.POST.get('second_payment')
+    third_payment = request.POST.get('third_payment')
+    fourth_payment = request.POST.get('fourth_payment')
+    first_payment_date = request.POST.get('first_payment_date')
+    second_payment_date = request.POST.get('second_payment_date')
+    third_payment_date = request.POST.get('third_payment_date')
+    fourth_payment_date = request.POST.get('fourth_payment_date')
+
+    total = request.POST.get('total')
+    balance = request.POST.get('balance')
+    payment_status = request.POST.get('payment_status')
+    introducer = request.POST.get('introducer')
+
+    team_leader = request.POST.get('team_leader')
+    assistant_leader = request.POST.get('assistant_leader')
+    leader = request.POST.get('leader')
+    created_date = date.today()
+
+    sem_reg_data = seminar_data (
+    regid = regid,
+    clientid = clientid ,
+    payirchiid = payirchiid,
+    payirchiname = payirchiname,
+    first_payment = first_payment,
+    second_payment = second_payment,
+    third_payment = third_payment,
+    fourth_payment = fourth_payment,
+    first_payment_date = first_payment_date,
+    second_payment_date = second_payment_date,
+    third_payment_date = third_payment_date,
+    fourth_payment_date = fourth_payment_date,
+
+    total = total,
+    balance = balance,
+    payment_status = payment_status,
+    introducer = introducer,
+
+    team_leader = team_leader,
+    assistant_leader = assistant_leader,
+    leader = leader,
+    created_date = created_date
+
+    )
+
+    print(sem_reg_data)
+    sem_reg_data.save()
+
+    return HttpResponseRedirect('/seminarRegistrationDataView/'+regid)
+
+
+@csrf_exempt
+def seminarRegistrationDataView(request, regid):
+  registration_data = seminar_data.objects.get(regid=regid)
+
+  return render ( request , "home/seminarregistrationview.html", {'data':registration_data} )
 
 
 
-
-
-
-
-
+@csrf_exempt
+def update_seminar_registration_form(request, regid):
+    seminar_registration_update = client_data.objects.get (regid=regid)
+    form = SeminarRegistrationForm ( request.POST , instance = seminar_registration_update )
+    print (form)
+    if form.is_valid ( ) :
+        form.save ( )
+    return HttpResponseRedirect ( '/seminarRegistrationData/' + regid )

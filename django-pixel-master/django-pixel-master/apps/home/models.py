@@ -58,3 +58,34 @@ class client_data(models.Model):
 
     class Meta:
         db_table = 'client_registration'
+
+
+
+class seminar_data(models.Model):
+    # client_id=models.CharField(max_length=10000)
+    regid = models.CharField(max_length=10000)                       # "2021-08-26T03:22:59.313Z"
+    clientid = models.CharField(max_length=10000)
+    payirchiid =models.CharField(max_length=100)# 2082668
+    payirchiname = models.CharField ( max_length = 10000 )
+    first_payment = models.CharField ( max_length = 10000 )
+    second_payment = models.CharField ( max_length = 10000 )
+    third_payment = models.CharField ( max_length = 10000 )
+    fourth_payment = models.CharField ( max_length = 10000 )
+    first_payment_date = models.DateField(default= '')
+    second_payment_date = models.DateField ( default = '' )
+    third_payment_date = models.DateField ( default = '' )
+    fourth_payment_date = models.DateField ( default = '' )
+
+    total = models.CharField(max_length=10000)
+    balance = models.CharField(max_length=10000)
+    payment_status = models.CharField(max_length=10000)
+    introducer = models.CharField(max_length=10000)
+
+    team_leader = models.CharField(max_length=10000)
+    assistant_leader = models.CharField(max_length=10000)
+    leader = models.CharField(max_length=10000)
+    created_date = models.DateField()
+    # seq_id =models.DateField(max_length=10000)
+
+    class Meta:
+        db_table = 'seminar_registration'
