@@ -250,25 +250,25 @@ def seminar_registration_save(request):
     fourth_payment = request.POST.get('fourth_payment')
 
     first_paymentdt = request.POST.get('first_payment_date')
-    if first_paymentdt is not None:
+    if first_paymentdt:
         first_payment_date = first_paymentdt
     else:
         first_payment_date = None
 
     second_paymentdt = request.POST.get('second_payment_date')
-    if second_paymentdt is not None:
+    if second_paymentdt:
         second_payment_date = second_paymentdt
     else:
         second_payment_date = None
 
     third_paymentdt = request.POST.get('third_payment_date')
-    if third_paymentdt is not None:
+    if third_paymentdt:
         third_payment_date = third_paymentdt
     else:
         third_payment_date = None
 
     fourth_paymentdt = request.POST.get('fourth_payment_date')
-    if fourth_paymentdt is not None:
+    if fourth_paymentdt:
         fourth_payment_date = fourth_paymentdt
     else:
         fourth_payment_date = None
