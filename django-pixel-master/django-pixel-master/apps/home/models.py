@@ -6,6 +6,7 @@ Copyright (c) 2019 - present AppSeed.us
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # Create your models here.
 
 class client_data(models.Model):
@@ -71,10 +72,10 @@ class seminar_data(models.Model):
     second_payment = models.CharField ( max_length = 10000 )
     third_payment = models.CharField ( max_length = 10000 )
     fourth_payment = models.CharField ( max_length = 10000 )
-    first_payment_date = models.DateField(default= '')
-    second_payment_date = models.DateField ( default = '' )
-    third_payment_date = models.DateField ( default = '' )
-    fourth_payment_date = models.DateField ( default = '' )
+    first_payment_date = models.DateField(blank=True, null=True)
+    second_payment_date = models.DateField (blank=True, null=True)
+    third_payment_date = models.DateField (blank=True, null=True)
+    fourth_payment_date = models.DateField (blank=True, null=True)
 
     total = models.CharField(max_length=10000)
     balance = models.CharField(max_length=10000)
@@ -84,7 +85,7 @@ class seminar_data(models.Model):
     team_leader = models.CharField(max_length=10000)
     assistant_leader = models.CharField(max_length=10000)
     leader = models.CharField(max_length=10000)
-    created_date = models.DateField()
+    created_date = models.DateTimeField(blank=True, null=True)
     # seq_id =models.DateField(max_length=10000)
 
     class Meta:

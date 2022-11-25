@@ -221,23 +221,57 @@ def update_customer_form(request, client_uniqueid):
 
 @csrf_exempt
 def seminarRegistration(request):
-    return render ( request , "home/seminarRegistration.html" )
+
+    if seminar_data.objects.exists():
+        latest_reg_id = seminar_data.objects.latest ( 'id' )
+        regid = latest_reg_id.regid.rsplit ( '-' , 1 )
+        incrementalregid = int ( regid[1] ) + 1
+
+    else:
+        incrementalregid = 100
+
+    current_date = str(date.today()).replace("-","")
+    regid = str(current_date)+str('-')+str(incrementalregid)
+    return render ( request , "home/seminarRegistration.html", {'regid':regid} )
 
 @csrf_exempt
 def seminar_registration_save(request):
 
-    regid = '20221125-100' #request.POST.get('regid')
+
+    regid = request.POST.get('regid')
     clientid = '20221125-100001' #request.POST.get('clientid')
     payirchiid = request.POST.get('payirchiid')
     payirchiname = request.POST.get('payirchiname')
     first_payment = request.POST.get('first_payment')
+
+
     second_payment = request.POST.get('second_payment')
     third_payment = request.POST.get('third_payment')
     fourth_payment = request.POST.get('fourth_payment')
-    first_payment_date = request.POST.get('first_payment_date')
-    second_payment_date = request.POST.get('second_payment_date')
-    third_payment_date = request.POST.get('third_payment_date')
-    fourth_payment_date = request.POST.get('fourth_payment_date')
+
+    first_paymentdt = request.POST.get('first_payment_date')
+    if first_paymentdt is not None:
+        first_payment_date = first_paymentdt
+    else:
+        first_payment_date = None
+
+    second_paymentdt = request.POST.get('second_payment_date')
+    if second_paymentdt is not None:
+        second_payment_date = second_paymentdt
+    else:
+        second_payment_date = None
+
+    third_paymentdt = request.POST.get('third_payment_date')
+    if third_paymentdt is not None:
+        third_payment_date = third_paymentdt
+    else:
+        third_payment_date = None
+
+    fourth_paymentdt = request.POST.get('fourth_payment_date')
+    if fourth_paymentdt is not None:
+        fourth_payment_date = fourth_paymentdt
+    else:
+        fourth_payment_date = None
 
     total = request.POST.get('total')
     balance = request.POST.get('balance')
@@ -247,7 +281,7 @@ def seminar_registration_save(request):
     team_leader = request.POST.get('team_leader')
     assistant_leader = request.POST.get('assistant_leader')
     leader = request.POST.get('leader')
-    created_date = date.today()
+    created_date =  date.today()
 
     sem_reg_data = seminar_data (
     regid = regid,
@@ -275,7 +309,7 @@ def seminar_registration_save(request):
 
     )
 
-    print(sem_reg_data)
+
     sem_reg_data.save()
 
     return HttpResponseRedirect('/seminarRegistrationDataView/'+regid)
