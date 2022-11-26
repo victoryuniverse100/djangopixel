@@ -77,6 +77,7 @@ def customer_form(request):
     town_city = request.POST.get('town_city')
     district = request.POST.get('district')
     state = request.POST.get('state')
+    country =request.POST.get('country')
     postal_code = request.POST.get('postal_code')
     email_id = request.POST.get('email_id')
     contact_number = request.POST.get('contact_number')
@@ -179,6 +180,7 @@ def customer_form(request):
     town_city = town_city,
     district =district,
     state = state,
+    country =country,
     postal_code = postal_code,
     email_id=email_id,
     contact_number=contact_number,
