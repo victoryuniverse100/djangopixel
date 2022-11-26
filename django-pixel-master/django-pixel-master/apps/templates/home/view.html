@@ -191,12 +191,15 @@
                             <input class="form-control" id="contact_number" name="contact_number" readonly required type="text"
                                        value="{{data.contact_number}}">
                             </div>
+
                             <div class="col">
                                     <label class="custom-file-label" for="exampleInputEmail6">Photo</label>
 
-                                 <img class="navbar-brand-dark mb-4" height="35" src="{{ ASSETS_ROOT }}/img/blog/image-1.jpg"
-                        alt="photo">
+
+                                 <img class="navbar-brand-dark mb-4" height="100" src="{{ ASSETS_ROOT }}/img/blog/image-1.jpg">
+
                             </div>
+
                         </div>
                     </div>
      </div>
@@ -207,7 +210,7 @@
             <div class="section pt-6" style="padding-bottom:15px !important">
 <div class="container">
      <div class="row">
-                    <div class="col-6 ">
+                    <div class="col-12 ">
 
                         <div class="row align-items-center">
                             <div class="col">
@@ -219,17 +222,6 @@
 
                                 <img class="navbar-brand-dark mb-4" height="35" src="{{ ASSETS_ROOT }}/img/blog/image-1.jpg">
                             </div>
-                        </div>
-                    </div>
-     </div>
-</div>
-            </div>
-                <div class="section pt-0" style="padding-bottom:15px !important">
-<div class="container">
-     <div class="row">
-                    <div class="col-6 ">
-
-                        <div class="row align-items-center">
                             <div class="col">
                                  <label for="exampleInputEmail6">Driving License Number</label>
                             <input class="form-control" id="drivinglicense_number" name="drivinglicense_number" readonly required type="text"
@@ -238,18 +230,6 @@
                             <div class="col">
                                  <img class="navbar-brand-dark mb-4" height="35" src="{{ ASSETS_ROOT }}/img/blog/image-1.jpg">
                             </div>
-                        </div>
-                    </div>
-     </div>
-</div>
-                </div>
-
-                   <div class="section pt-0" style="padding-bottom:15px !important">
-<div class="container">
-     <div class="row">
-                    <div class="col-6 ">
-
-                        <div class="row align-items-center">
                             <div class="col">
                                  <label for="exampleInputEmail6">VoterID</label>
                             <input class="form-control" id="voter_id" name="voter_id" readonly required type="text"
@@ -258,17 +238,22 @@
                             <div class="col">
                                  <img class="navbar-brand-dark mb-4" height="35" src="{{ ASSETS_ROOT }}/img/blog/image-1.jpg">
                             </div>
+
+
+
+
                         </div>
                     </div>
      </div>
 </div>
-                </div>
+            </div>
+
 
 
                                 <div class="section pt-0" style="padding-bottom:15px !important">
 <div class="container">
      <div class="row">
-                    <div class="col-6 ">
+                    <div class="col-12 ">
 
                         <div class="row align-items-center">
                             <div class="col">
@@ -279,19 +264,6 @@
                             <div class="col">
                                  <img class="navbar-brand-dark mb-4" height="35" src="{{ ASSETS_ROOT }}/img/blog/image-1.jpg">
                             </div>
-                        </div>
-                    </div>
-     </div>
-</div>
-                </div>
-
-
-                            <div class="section pt-0" style="padding-bottom:15px !important">
-                                <div class="container">
-     <div class="row">
-                    <div class="col-6 ">
-
-                        <div class="row align-items-center">
                             <div class="col">
                                  <label for="exampleInputEmail6">Pan Number</label>
                            <input class="form-control" id="pan_number" name="pan_number" readonly required type="text"
@@ -302,18 +274,7 @@
 
                                  <img class="navbar-brand-dark mb-4" height="35" src="{{ ASSETS_ROOT }}/img/blog/image-1.jpg">
                             </div>
-                        </div>
-                    </div>
-     </div>
-</div>
-                            </div>
-                                <div class="section pt-0" style="padding-bottom:15px !important">
-                                    <div class="container">
-     <div class="row">
-                    <div class="col-6 ">
-
-                        <div class="row align-items-center">
-                            <div class="col">
+                             <div class="col">
                                  <label for="exampleInputEmail6">Rationcard Number</label>
                            <input class="form-control" id="rationcard_number" name="rationcard_number" readonly required type="text"
                                        value="{{data.rationcard_number}}">
@@ -322,23 +283,25 @@
                             <div class="col">
                                  <img class="navbar-brand-dark mb-4" height="35" src="{{ ASSETS_ROOT }}/img/blog/image-1.jpg">
                             </div>
-
                         </div>
                     </div>
      </div>
 </div>
-                                </div>
+                </div>
+
+<div class="section pt-6" style="padding-bottom:15px !important">
 
                                 <div class="container">
                 <div class="row">
                     <div class="col-12 ">
+                        <p align="right">
                         <button class="btn btn-primary" id="editButton" type="button">Edit</button>
                         <button class="btn btn-primary" id="" type="button" onclick="location.href='{% url 'seminarRegistration' %}'">New Seminar Registration</button>
-                        <button class="btn btn-primary" id="updateButton" style="display:none" type="submit">Update
-                        </button>
+                            <button class="btn btn-primary" id="updateButton" style="display:none" type="submit">Update</button></p>
                     </div>
                 </div>
             </div>
+</div>
 
         </form>
     </div>
