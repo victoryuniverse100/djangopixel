@@ -22,9 +22,9 @@
         </div>
     </div>
     <div class="row">
-        <form action="/updateSeminarRegistrationData/{{data.regid}}" method="POST">{% csrf_token %}
+        <form action="/updateSeminarRegistrationData/{{data.regid }}" method="POST">{% csrf_token %}
             <!-- Section -->
-
+<input name="created_date" type="hidden" value="{{data.created_date |date:'Y-m-d'}}">
             <div class="section section-md pt-0" style="padding-bottom:15px !important">
                 <div class="container">
 
@@ -35,17 +35,17 @@
                                 <div class="col">
                                     <label for="exampleInputEmail6">Reg ID</label>
                                     <input type="text" class="form-control" name="regid" id="regid"
-                                           value="{{data.regid}}" readonly>
+                                           value="{{data.regid}}" readonly="true">
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Client ID</label>
                                     <input type="text" class="form-control" name="clientid" id="clientid"
-                                         value="{{data.clientid}}"  readonly>
+                                         value="{{data.clientid}}"  readonly="true">
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Seminar ID</label>
 
-                                    <select class="form-control" name="payirchiid" id="payirchi-id">
+                                    <select class="form-control" name="payirchiid" id="payirchi-id" readonly="true">
                                         <option>Select</option>
                                         <option {% if data.payirchiid == '1' %} selected {% endif %} >1</option>
                                         <option {% if data.payirchiid == '2' %} selected {% endif %} >2</option>
@@ -54,7 +54,7 @@
                                 <div class="col">
                                     <label for="exampleInputEmail6">Seminar Name</label>
 
-                                    <select class="form-control" name="payirchiname" id="payirchi-name">
+                                    <select class="form-control" name="payirchiname" id="payirchi-name" readonly="true">
                                         <option>Select</option>
                                         <option {% if data.payirchiname == 'Yogic Power' %} selected {% endif %} >Yogic Power</option>
                                         <option {% if data.payirchiname == 'Vishudhi' %} selected {% endif %}  >Vishudhi</option>
@@ -77,22 +77,22 @@
                                 <div class="col">
                                     <label for="exampleInputEmail6">First Payment</label>
                                     <input type="text" class="form-control" name="first_payment" id="first-payment"
-                                          value="{{data.first_payment}}" readonly required>
+                                          value="{{data.first_payment}}" readonly="true" >
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">First Payment Date</label>
                                     <input type="date" class="form-control" name="first_payment_date" id="first-payment-date"
-                                            value="{{data.first_payment_date|date:'Y-m-d' }}" readonly required>
+                                            value="{{data.first_payment_date|date:'Y-m-d' }}" readonly="true" >
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Second Payment</label>
                                     <input type="text" class="form-control" name="second_payment" id="second-payment"
-                                           value="{{data.second_payment}}" readonly required>
+                                           value="{{data.second_payment}}" readonly="true" >
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Second Payment Date</label>
                                     <input type="date" class="form-control" name="second_payment_date" id="second-payment-date"
-                                           value="{{data.second_payment_date|date:'Y-m-d' }}" readonly required>
+                                           value="{{data.second_payment_date|date:'Y-m-d' }}" readonly="true" >
 
                                 </div>
 
@@ -112,23 +112,23 @@
                                 <div class="col">
                                     <label for="exampleInputEmail6">Third Payment</label>
                                     <input type="text" class="form-control" name="third_payment" id="third-payment"
-                                           value="{{data.third_payment}}" readonly required>
+                                           value="{{data.third_payment}}" readonly="true" >
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Third Payment Date</label>
                                     <input type="date" class="form-control" name="third_payment_date" id="third-payment-date"
-                                           value="{{data.third_payment_date|date:'Y-m-d' }}" readonly required>
+                                           value="{{data.third_payment_date|date:'Y-m-d' }}" readonly="true" >
 
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Fourth Payment</label>
                                     <input type="text" class="form-control" name="fourth_payment" id="fourth-payment"
-                                           value="{{data.fourth_payment}}" readonly required>
+                                           value="{{data.fourth_payment}}" readonly="true" >
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Fourth Payment Date</label>
                                     <input type="date" class="form-control" name="fourth_payment_date" id="fourth-payment-date"
-                                           value="{{data.fourth_payment_date|date:'Y-m-d' }}" readonly required>
+                                           value="{{data.fourth_payment_date|date:'Y-m-d' }}" readonly="true" >
 
                                 </div>
 
@@ -149,18 +149,18 @@
                                 <div class="col">
                                     <label for="exampleInputEmail6">Total</label>
                                     <input type="text" class="form-control" name="total" id="total"
-                                          value="{{data.total}}" readonly required>
+                                          value="{{data.total}}" readonly="true" >
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Balance</label>
                                     <input type="text" class="form-control" name="balance"
-                                           id="balance" value="{{data.balance}}" readonly required>
+                                           id="balance" value="{{data.balance}}" readonly="true" >
                                 </div>
 
                                 <div class="col">
                                     <label for="exampleInputEmail6">Payment Status</label>
                                     <input type="text" class="form-control" name="payment_status" id="payment-status"
-                                           value="{{data.payment_status}}" readonly required>
+                                           value="{{data.payment_status}}" readonly="true" >
                                 </div>
 
                             </div>
@@ -178,9 +178,9 @@
                             <div class="row align-items-center">
                                 <div class="col">
                                     <label for="exampleInputEmail6">Introducer</label>
-                                    <input class="form-control" list="browsers" name="introducer" id="introducer">
+                                    <input class="form-control" list="intrdcr" name="introducer" id="introducer" value="{{data.introducer}}" readonly="true">
 
-                                    <datalist  id="introducer">
+                                    <datalist  id="intrdcr">
                                         <option value="ABC">
                                         <option value="XYZ">
                                         <option value="Kanniga">
@@ -189,9 +189,9 @@
 
                                 <div class="col">
                                     <label class="custom-file-label" for="exampleInputEmail6">Team Leader</label>
-                                    <input class="form-control" list="browsers" name="team_leader" id="teamleader">
+                                    <input class="form-control" list="tleaders" name="team_leader" id="teamleader" value="{{data.team_leader}}" readonly="true">
 
-                                    <datalist  id="teamleader">
+                                    <datalist  id="tleaders">
                                         <option value="Swathi">
                                         <option value="Vijay">
                                         <option value="Anu">
@@ -200,9 +200,9 @@
 
                                 <div class="col">
                                     <label class="custom-file-label" for="exampleInputEmail6">Assistant Leader</label>
-                                    <input class="form-control" list="browsers" name="assistant_leader" id="assistantleader">
+                                    <input class="form-control" list="assldrs" name="assistant_leader" id="assistantleader" value="{{data.assistant_leader}}" readonly="true">
 
-                                    <datalist  id="assistantleader">
+                                    <datalist  id="assldrs">
                                         <option value="Archana">
                                         <option value="ABC">
                                         <option value="XYZ">
@@ -211,9 +211,9 @@
 
                                 <div class="col">
                                     <label class="custom-file-label" for="exampleInputEmail6"> Leader</label>
-                                    <input class="form-control" list="browsers" name="leader" id="leader">
+                                    <input class="form-control" list="ldrs" name="leader" id="leader" value="{{data.leader}}" readonly="true">
 
-                                    <datalist  id="leader">
+                                    <datalist  id="ldrs">
                                         <option value="Swathi">
                                         <option value="Kanniga">
                                         <option value="Vijay">
@@ -229,9 +229,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 ">
-                        <button class="btn btn-primary" id="" type="button">Edit</button>
+                        <button class="btn btn-primary" id="editSeminar" type="button">Edit Seminar Details</button>
                         <button class="btn btn-primary" id="" type="button" onclick="location.href='{% url 'registration' %}'">New Client Registration</button>
-                        <button class="btn btn-primary" id="" style="display:none" type="submit">Update
+                        <button class="btn btn-primary" id="updateSeminar" style="display:none" type="submit">Update Seminar Details
                         </button>
                     </div>
 
@@ -240,9 +240,10 @@
     </div>
     </form>
     </div>
-    <!-- End of Section -->{% endblock content %}
+
 
 </main>
+{% endblock content %}
 
 
 

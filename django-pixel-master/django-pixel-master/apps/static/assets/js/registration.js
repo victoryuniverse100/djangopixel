@@ -29,4 +29,25 @@ $(document).ready(function(){
 
     })
 
+
+    $("#editSeminar").click(function() {
+         $('#payirchi-id').prop('readonly', false);
+         $('#payirchi-name').prop('readonly', false);
+         $('#first-payment').prop('readonly', false);
+         $('#first-payment-date').prop('readonly', false);
+         $('#second-payment').prop('readonly', false);
+         $('#second-payment-date').prop('readonly', false);
+         $('#third-payment').prop('readonly', false);
+         $('#third-payment-date').prop('readonly', false);
+         $('#fourth-payment').prop('readonly', false);
+         $('#fourth-payment-date').prop('readonly', false);
+         $('#introducer').prop('readonly', false);
+         $('#teamleader').prop('readonly', false);
+         $('#assistantleader').prop('readonly', false);
+         $('#leader').prop('readonly', false);
+         $("#editSeminar").css("display","none");
+         $("#updateSeminar").css("display","");
+
+    })
+
 })
