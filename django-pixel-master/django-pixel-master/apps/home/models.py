@@ -27,6 +27,7 @@ class client_data(models.Model):
     town_city = models.CharField(max_length=10000)
     district = models.CharField(max_length=10000)
     state =models.CharField(max_length=10000)
+    country = models.CharField(max_length=10000)
     postal_code = models.CharField(max_length=10000)
     email_id = models.CharField(max_length=10000)
     contact_number = models.CharField(max_length=10000,default='')    # "L1 of winding 2082667 "
@@ -45,13 +46,13 @@ class client_data(models.Model):
     created_date = models.DateField(auto_now_add=True)
     seq_id =models.CharField(max_length=10000)
 
-    photo_upload_path=models.URLField(max_length=10000)
-    aadhar_upload_path=models.URLField(max_length=10000)
-    drivinglicense_upload_path = models.URLField(max_length=10000)
-    voterid_upload_path = models.URLField(max_length=10000)
-    passport_upload_path = models.URLField(max_length=10000)
-    pancard_upload_path = models.URLField(max_length=10000)
-    rationcard_upload_path = models.URLField(max_length=10000)
+    photo_upload_path=models.CharField(max_length=10000)
+    aadhar_upload_path=models.CharField(max_length=10000)
+    drivinglicense_upload_path = models.CharField(max_length=10000)
+    voterid_upload_path = models.CharField(max_length=10000)
+    passport_upload_path = models.CharField(max_length=10000)
+    pancard_upload_path = models.CharField(max_length=10000)
+    rationcard_upload_path = models.CharField(max_length=10000)
 
 
 
