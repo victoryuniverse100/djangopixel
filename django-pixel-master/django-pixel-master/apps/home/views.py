@@ -150,9 +150,21 @@ def customer_form(request):
         pancard_upload_path = fs.url(pancard)
         rationcard_upload_path = fs.url(rationcard)
 
-        created_date = str(date.today()).replace("-","")
-        seq_id=100000
-        client_id = str(created_date)+str('-')+str(seq_id)
+        created_date =date.today()
+
+
+        if client_data.objects.exists():
+            latest_client_id = client_data.objects.latest('id')
+            client_id = latest_client_id.client_id.rsplit('-', 1)
+            incrementalclientid = int(client_id[1]) + 1
+            print(incrementalclientid)
+
+        else:
+            incrementalclientid = 100000
+
+        seq_id = incrementalclientid
+        current_date = str(date.today()).replace("-", "")
+        client_id = str(current_date) + str('-') + str(incrementalclientid)
 
 
 
