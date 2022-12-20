@@ -64,11 +64,15 @@ def customer_form(request):
 
     fname = request.POST.get ( 'fname' )
     lname = request.POST.get('lname')
+    fathername = request.POST.get('fathername')
+    spousename = request.POST.get('spousename')
+
     gender = request.POST.get('gender')
     dob = request.POST.get('dob')
-
-    education = request.POST.get('education')
     profession = request.POST.get('profession')
+    education = request.POST.get('education')
+
+
     company_college_name = request.POST.get('company_college_name')
     job_college_location = request.POST.get('job_college_location')
 
@@ -106,33 +110,42 @@ def customer_form(request):
         aadhar_upload = request.FILES['aadhar_upload']
         fs = FileSystemStorage()
         file_ext = aadhar_upload.name.split('.')[1]
-        aadhar = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' +fname+ 'aadhar' + '.' + file_ext, aadhar_upload)
+        aadhar = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' +fname+ 'id' + '.' + file_ext, aadhar_upload)
 
         drivinglicense_upload = request.FILES['drivinglicense_upload']
         fs = FileSystemStorage()
         file_ext = drivinglicense_upload.name.split('.')[1]
-        drivinglicense = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' +fname+ 'drivinglicense' + '.' + file_ext, drivinglicense_upload)
+        drivinglicense = fs.save(
+            settings.MEDIA_ROOT + client_uniqueid + '/id/' + fname + 'drivinglicense' + '.' + file_ext,
+            drivinglicense_upload)
 
         voterid_upload = request.FILES['voterid_upload']
         fs = FileSystemStorage()
         file_ext = voterid_upload.name.split('.')[1]
-        voterid = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' +fname+ 'voterid' + '.' + file_ext, voterid_upload)
+        voterid = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' + fname + 'voterid' + '.' + file_ext,
+                          voterid_upload)
 
         passport_upload = request.FILES['passport_upload']
         fs = FileSystemStorage()
         file_ext = passport_upload.name.split('.')[1]
-        passport = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' +fname+ 'passport' + '.' + file_ext, passport_upload)
-
+        passport = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' + fname + 'passport' + '.' + file_ext,
+                           passport_upload)
 
         pancard_upload = request.FILES['pancard_upload']
         fs = FileSystemStorage()
         file_ext = pancard_upload.name.split('.')[1]
-        pancard = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' + fname +'pancard '+'.' + file_ext, pancard_upload)
+        pancard = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' + fname + 'pancard ' + '.' + file_ext,
+                          pancard_upload)
 
         rationcard_upload = request.FILES['rationcard_upload']
         fs = FileSystemStorage()
-        file_ext =  rationcard_upload.name.split('.')[1]
-        rationcard = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' + fname +'rationcard'+ '.' + file_ext, rationcard_upload)
+        file_ext = rationcard_upload.name.split('.')[1]
+        rationcard = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' + fname + 'rationcard' + '.' + file_ext,
+                             rationcard_upload)
+
+
+
+
 
 
 
@@ -141,10 +154,10 @@ def customer_form(request):
         photo_upload_path=fs.url(photo)
         aadhar_upload_path = fs.url(aadhar)
         drivinglicense_upload_path = fs.url(drivinglicense)
-        voterid_upload_path = fs.url(voterid)
-        passport_upload_path = fs.url(passport)
-        pancard_upload_path = fs.url(pancard)
-        rationcard_upload_path = fs.url(rationcard)
+        voterid_upload_path = fs.url(voterid),
+        passport_upload_path = fs.url(passport),
+        pancard_upload_path = fs.url(pancard),
+        rationcard_upload_path = fs.url(rationcard),
 
         created_date =date.today()
 
@@ -169,6 +182,7 @@ def customer_form(request):
     client_id=client_id,
     fname = fname,
     lname = lname,
+
     gender=gender,
     dob = dob,
     education = education,
@@ -219,12 +233,77 @@ def client_details(request , client_uniqueid) :
 
 @csrf_exempt
 def update_customer_form(request , client_uniqueid) :
-    client_update = client_data.objects.get ( client_uniqueid = client_uniqueid )
-    form = ClientForm ( request.POST , instance = client_update )
-    print ( form )
-    if form.is_valid ( ) :
-        form.save ( )
+    # client_update = client_data.objects.get ( client_uniqueid = client_uniqueid )
+    # form = ClientForm ( request.POST , instance = client_update )
+    # print ( form )
+    # if form.is_valid ( ) :
+    #     form.save ( )
+    print (request)
+    client_update = client_data.objects.get(client_uniqueid=client_uniqueid)
+    client_update.photo=request.POST.get('fs.url(photo)')
 
+    client_update.fname = request.POST.get ( 'fname' )
+    client_update.lname = request.POST.get('lname')
+    client_update.gender = request.POST.get('gender')
+    client_update.dob = request.POST.get('dob')
+
+    client_update.education = request.POST.get('education')
+    client_update.profession = request.POST.get('profession')
+    client_update.company_college_name = request.POST.get('company_college_name')
+    client_update.job_college_location = request.POST.get('job_college_location')
+
+    client_update.house_block_no = request.POST.get('house_block_no')
+    client_update.street_name = request.POST.get('street_name')
+    client_update.town_city = request.POST.get('town_city')
+    client_update.district = request.POST.get('district')
+    client_update.state = request.POST.get('state')
+    client_update.country =request.POST.get('country')
+    client_update.postal_code = request.POST.get('postal_code')
+    client_update.email_id = request.POST.get('email_id')
+    client_update.contact_number = request.POST.get('contact_number')
+
+    client_update.aadhar_number = request.POST.get('aadhar_number')
+    client_update.drivinglicense_number = request.POST.get('drivinglicense_number')
+    client_update.voter_id = request.POST.get('voter_id')
+    client_update.passport_number = request.POST.get('passport_number')
+    client_update.pan_number = request.POST.get('pan_number')
+    client_update.rationcard_number =request.POST.get('rationcard_number')
+
+    client_update.client_uniqueid = client_uniqueid
+    client_data.photo_upload_path=request.FILES.get('photo_upload_path')
+
+
+
+    # context = {}
+
+
+        # client_update.photo_upload_path=fs.url(photo)
+        # client_update.aadhar_upload_path = fs.url(aadhar)
+        # client_update.drivinglicense_upload_path = fs.url(drivinglicense)
+        # client_update.voterid_upload_path = fs.url(voterid)
+        # client_update.passport_upload_path = fs.url(passport)
+        # client_update.pancard_upload_path = fs.url(pancard)
+        # client_update.rationcard_upload_path = fs.url(rationcard)
+        #
+        # client_update.created_date =date.today()
+
+        #
+        # if client_data.objects.exists():
+        #     latest_client_id = client_data.objects.latest('id')
+        #     client_id = latest_client_id.client_id.rsplit('-', 1)
+        #     incrementalclientid = int(client_id[1]) + 1
+        #     print(incrementalclientid)
+        #
+        # else:
+        #     incrementalclientid = 100000
+
+       #
+    client_update.client_id = request.POST.get('client_id')
+
+
+
+
+    client_update.save()
     return HttpResponseRedirect ( '/clientData/' + client_uniqueid )
 
 
@@ -245,6 +324,7 @@ def seminarRegistration(request) :
 
 @csrf_exempt
 def seminar_registration_save(request) :
+
     regid = request.POST.get ( 'regid' )
     clientid = '20221125-100001'  # request.POST.get('clientid')
     payirchiid = request.POST.get ( 'payirchiid' )

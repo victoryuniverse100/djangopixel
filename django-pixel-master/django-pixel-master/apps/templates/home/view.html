@@ -25,24 +25,44 @@
             <!-- Section -->
             <div class="section pt-0" style="padding-bottom:15px !important">
             <input name="client_uniqueid" type="hidden" value="{{data.client_uniqueid}}">
-                  <div class="section section-md pt-0" style="padding-bottom:15px !important">
+
+                <div class="section section-md pt-0" style="padding-bottom:15px !important">
+
  <div class="container">
 
+
                 <div class="row">
-                   <div class="col-3 ">
+
+                   <div class="col-9 ">
 
                         <div class="row align-items-center">
-                             <div class="col">
-                                 <label for="exampleInputEmail6">Client ID</label>
+                             <div class="col-4">
+                                 <label for="exampleInputEmail6" >Client ID</label>
                            <input class="form-control" id="client_id" name="client_id" readonly required type="text"
-                                       value="{{data.client_id}}">
+                                       value="{{data.client_id}}" >
+ </div>
+                            <div class="col">
+
                             </div>
+                             </div>
+                            <div class="col">
+
+                            </div>
+                       <div class="col">
+
+                            </div>
+                            </div>
+                            <div class="col">
+                                 <img class="navbar-brand-dark mb-4" height="100" src="{{ ASSETS_ROOT }}/img/blog/profile photo.jpg">
+                                <a href="{{data.photo_upload_path.url}}">{{data.photo_upload_path.url}}</a>
+                            </div>
+
                         </div>
                    </div>
                 </div>
  </div>
     </div>
-
+<div class="section pt-1" style="padding-bottom:15px !important">
             <div class="container">
 
                 <div class="row">
@@ -51,17 +71,17 @@
                         <div class="row align-items-center">
                             <div class="col">
                                 <label for="exampleInputEmail6">First Name</label>
-                                <input class="form-control" id="firstname" name="fname" readonly required type="text"
+                                <input class="form-control" id="firstname" name="fname" readonly  type="text"
                                        value="{{data.fname}}">
                             </div>
                             <div class="col">
                                 <label for="exampleInputEmail6">Last Name</label>
-                                <input class="form-control" id="lastname" name="lname" readonly required type="text"
+                                <input class="form-control" id="lastname" name="lname" readonly  type="text"
                                        value="{{data.lname}}">
                             </div>
                             <div class="col">
                                 <label for="exampleInputEmail6">Gender</label>
-                                <select class="form-control" id="gender" name="gender" readonly>
+                                <select class="form-control" id="gender" name="gender"  readonly>
                                     <option >Select</option>
                                     <option {% if data.gender == 'Male' %} selected {% endif %} >Male</option>
                                     <option {% if data.gender == 'Female' %} selected {% endif %}>Female</option>
@@ -71,7 +91,7 @@
 
                             <div class="col">
                                 <label for="exampleInputEmail6">Date Of Birth</label>
-                                <input class="form-control" id="dob" name="dob" readonly="true" required type="date"
+                                <input class="form-control" id="dob" name="dob" readonly="true"  type="date"
                                        value="{{data.dob|date:'Y-m-d' }}">
                             </div>
                         </div>
@@ -81,7 +101,7 @@
             </div>
 
 
-                            <div class="row align-items-center">
+
                                  <div class="section pt-3" style="padding-bottom:15px !important">
 <div class="container">
      <div class="row">
@@ -90,22 +110,22 @@
                         <div class="row align-items-center">
                             <div class="col">
                                  <label for="exampleInputEmail6">Education</label>
-                             <input class="form-control" id="education" name="education" readonly required type="text"
+                             <input class="form-control" id="education" name="education" readonly  type="text"
                                        value="{{data.education}}">
                             </div>
                             <div class="col">
                                  <label for="exampleInputEmail6">Profession</label>
-                            <input class="form-control" id="profession" name="profession" readonly required type="text"
+                            <input class="form-control" id="profession" name="profession" readonly  type="text"
                                        value="{{data.profession}}">
                             </div>
                             <div class="col">
                                  <label for="exampleInputEmail6">Company/College Name</label>
-                             <input class="form-control" id="company_college_name" name="company_college_name" readonly required type="text"
+                             <input class="form-control" id="company_college_name" name="company_college_name" readonly  type="text"
                                        value="{{data.company_college_name}}">
                             </div>
                             <div class="col">
                                  <label for="exampleInputEmail6">Job/College location</label>
-                            <input class="form-control" id="job_college_location" name="job_college_location" readonly required type="text"
+                            <input class="form-control" id="job_college_location" name="job_college_location" readonly  type="text"
                                        value="{{data.job_college_location}}">
                             </div>
                         </div>
@@ -121,22 +141,22 @@
                         <div class="row align-items-center">
                             <div class="col">
                                  <label for="exampleInputEmail6">House/Block No</label>
-                           <input class="form-control" id="house_block_no" name="house_block_no" readonly required type="text"
+                           <input class="form-control" id="house_block_no" name="house_block_no" readonly  type="text"
                                        value="{{data.house_block_no}}">
                             </div>
                             <div class="col">
                                  <label for="exampleInputEmail6">Street Name</label>
-                            <input class="form-control" id="street_name" name="street_name" readonly required type="text"
+                            <input class="form-control" id="street_name" name="street_name" readonly  type="text"
                                        value="{{data.street_name}}">
                             </div>
                             <div class="col">
                                  <label for="exampleInputEmail6">Town/City</label>
-                           <input class="form-control" id="town_city" name="town_city" readonly required type="text"
+                           <input class="form-control" id="town_city" name="town_city" readonly  type="text"
                                        value="{{data.town_city}}">
                             </div>
                             <div class="col">
                                  <label for="exampleInputEmail6">District</label>
-                               <input class="form-control" id="district" name="district" readonly required type="text"
+                               <input class="form-control" id="district" name="district" readonly  type="text"
                                        value="{{data.district}}">
 
                             </div>
@@ -156,22 +176,22 @@
                         <div class="row align-items-center">
                             <div class="col">
                                  <label for="exampleInputEmail6">State</label>
-                             <input class="form-control" id="state" name="state" readonly required type="text"
+                             <input class="form-control" id="state" name="state" readonly  type="text"
                                        value="{{data.state}}">
                             </div>
                             <div class="col">
                                  <label for="exampleInputEmail6">Country</label>
-                             <input class="form-control" id="country" name="country" readonly required type="text"
+                             <input class="form-control" id="country" name="country" readonly type="text"
                                        value="{{data.country}}">
                             </div>
                             <div class="col">
                                  <label for="exampleInputEmail6">Postal Code</label>
-                            <input class="form-control" id="postal_code" name="postal_code" readonly required type="text"
+                            <input class="form-control" id="postal_code" name="postal_code" readonly  type="text"
                                        value="{{data.postal_code}}">
                             </div>
                             <div class="col">
                                  <label for="exampleInputEmail6">Email ID</label>
-                            <input class="form-control" id="email_id" name="email_id" readonly required type="text"
+                            <input class="form-control" id="email_id" name="email_id" readonly  type="text"
                                        value="{{data.email_id}}">
                             </div>
                             </div>
@@ -183,22 +203,16 @@
             <div class="section pt-0" style="padding-bottom:15px !important">
 <div class="container">
      <div class="row">
-                    <div class="col-6 ">
+                    <div class="col-3 ">
 
                         <div class="row align-items-center">
                             <div class="col">
                                  <label for="exampleInputEmail6">Contact Number</label>
-                            <input class="form-control" id="contact_number" name="contact_number" readonly required type="text"
+                            <input class="form-control" id="contact_number" name="contact_number" readonly  type="text"
                                        value="{{data.contact_number}}">
                             </div>
 
-                            <div class="col">
-                                    <label class="custom-file-label" for="exampleInputEmail6">Photo</label>
 
-
-                                 <img class="navbar-brand-dark mb-4" height="100" src="{{ ASSETS_ROOT }}/img/blog/image-1.jpg">
-
-                            </div>
 
                         </div>
                     </div>
@@ -215,28 +229,28 @@
                         <div class="row align-items-center">
                             <div class="col">
                                  <label for="exampleInputEmail6">Aadhar Number</label>
-                            <input class="form-control" id="aadhar_number" name="aadhar_number" readonly required type="text"
+                            <input class="form-control" id="aadhar_number" name="aadhar_number" readonly  type="text"
                                        value="{{data.aadhar_number}}">
                             </div>
                             <div class="col">
 
-                                <img class="navbar-brand-dark mb-4" height="35" src="{{ ASSETS_ROOT }}/img/blog/image-1.jpg">
+                                <img class="navbar-brand-dark mb-4" height="60" src="{{ ASSETS_ROOT }}/img/blog/aadhar.jpg">
                             </div>
                             <div class="col">
                                  <label for="exampleInputEmail6">Driving License Number</label>
-                            <input class="form-control" id="drivinglicense_number" name="drivinglicense_number" readonly required type="text"
+                            <input class="form-control" id="drivinglicense_number" name="drivinglicense_number" readonly  type="text"
                                        value="{{data.drivinglicense_number}}">
                             </div>
                             <div class="col">
-                                 <img class="navbar-brand-dark mb-4" height="35" src="{{ ASSETS_ROOT }}/img/blog/image-1.jpg">
+                                 <img class="navbar-brand-dark mb-4" height="60" src="{{ ASSETS_ROOT }}/img/blog/dl.jpg">
                             </div>
                             <div class="col">
                                  <label for="exampleInputEmail6">VoterID</label>
-                            <input class="form-control" id="voter_id" name="voter_id" readonly required type="text"
+                            <input class="form-control" id="voter_id" name="voter_id" readonly  type="text"
                                        value="{{data.voter_id}}">
                             </div>
                             <div class="col">
-                                 <img class="navbar-brand-dark mb-4" height="35" src="{{ ASSETS_ROOT }}/img/blog/image-1.jpg">
+                                 <img class="navbar-brand-dark mb-4" height="60" src="{{ ASSETS_ROOT }}/img/blog/voterid.jpg">
                             </div>
 
 
@@ -258,30 +272,30 @@
                         <div class="row align-items-center">
                             <div class="col">
                                  <label for="exampleInputEmail6">Passport Number</label>
-                            <input class="form-control" id="passport_number" name="passport_number" readonly required type="text"
+                            <input class="form-control" id="passport_number" name="passport_number" readonly  type="text"
                                        value="{{data.passport_number}}">
                             </div>
                             <div class="col">
-                                 <img class="navbar-brand-dark mb-4" height="35" src="{{ ASSETS_ROOT }}/img/blog/image-1.jpg">
+                                 <img class="navbar-brand-dark mb-4" height="100" src="{{ ASSETS_ROOT }}/img/blog/passport.jpg">
                             </div>
                             <div class="col">
                                  <label for="exampleInputEmail6">Pan Number</label>
-                           <input class="form-control" id="pan_number" name="pan_number" readonly required type="text"
+                           <input class="form-control" id="pan_number" name="pan_number" readonly  type="text"
                                        value="{{data.pan_number}}">
                             </div>
 
                             <div class="col">
 
-                                 <img class="navbar-brand-dark mb-4" height="35" src="{{ ASSETS_ROOT }}/img/blog/image-1.jpg">
+                                 <img class="navbar-brand-dark mb-4" height="60" src="{{ ASSETS_ROOT }}/img/blog/pan.jpg">
                             </div>
                              <div class="col">
                                  <label for="exampleInputEmail6">Rationcard Number</label>
-                           <input class="form-control" id="rationcard_number" name="rationcard_number" readonly required type="text"
+                           <input class="form-control" id="rationcard_number" name="rationcard_number" readonly  type="text"
                                        value="{{data.rationcard_number}}">
                             </div>
 
                             <div class="col">
-                                 <img class="navbar-brand-dark mb-4" height="35" src="{{ ASSETS_ROOT }}/img/blog/image-1.jpg">
+                                 <img class="navbar-brand-dark mb-4" height="60" src="{{ ASSETS_ROOT }}/img/blog/rationcard.jpg">
                             </div>
                         </div>
                     </div>
