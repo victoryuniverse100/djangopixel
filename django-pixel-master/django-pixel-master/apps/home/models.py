@@ -13,9 +13,11 @@ class client_data(models.Model):
     client_id=models.CharField(max_length=10000)
     fname = models.CharField(max_length=10000)                       # "2021-08-26T03:22:59.313Z"
     lname = models.CharField(max_length=10000)
-    gender =models.CharField(max_length=100)# 2082668
-    dob = models.DateField(default= '')
+    fathername =models.CharField(max_length=10000)
+    spousename =models.CharField(max_length=10000)
 
+    gender =models.CharField(max_length=10000)# 2082668
+    dob = models.DateField(default= '')
     education = models.CharField(max_length=10000)
     profession = models.CharField(max_length=10000)
     company_college_name = models.CharField(max_length=10000)
@@ -33,13 +35,9 @@ class client_data(models.Model):
     contact_number = models.CharField(max_length=10000,default='')    # "L1 of winding 2082667 "
 
 
+    idname =models.CharField(max_length=10000)
+    idnumber = models.CharField(max_length=10000)
 
-    aadhar_number = models.CharField(max_length=10000)
-    drivinglicense_number = models.CharField(max_length=10000, default='')
-    voter_id = models.CharField(max_length=10000, default='')
-    passport_number = models.CharField(max_length=10000, default='')
-    pan_number = models.CharField(max_length=10000, default='')
-    rationcard_number = models.CharField(max_length=10000, default='')
 
 
     client_uniqueid = models.CharField(max_length=10000)
@@ -47,12 +45,8 @@ class client_data(models.Model):
     seq_id =models.CharField(max_length=10000)
 
     photo_upload_path=models.CharField(max_length=10000)
-    aadhar_upload_path=models.CharField(max_length=10000)
-    drivinglicense_upload_path = models.CharField(max_length=10000)
-    voterid_upload_path = models.CharField(max_length=10000)
-    passport_upload_path = models.CharField(max_length=10000)
-    pancard_upload_path = models.CharField(max_length=10000)
-    rationcard_upload_path = models.CharField(max_length=10000)
+    idproof_upload_path=models.CharField(max_length=10000)
+
 
 
 

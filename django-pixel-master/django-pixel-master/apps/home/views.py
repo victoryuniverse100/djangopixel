@@ -86,14 +86,10 @@ def customer_form(request):
     email_id = request.POST.get('email_id')
     contact_number = request.POST.get('contact_number')
 
-    aadhar_number = request.POST.get('aadhar_number')
-    drivinglicense_number = request.POST.get('drivinglicense_number')
-    voter_id = request.POST.get('voter_id')
-    passport_number = request.POST.get('passport_number')
-    pan_number = request.POST.get('pan_number')
-    rationcard_number =request.POST.get('rationcard_number')
+    idnumber = request.POST.get('idnumber')
+    idname = request.POST.get('idname')
 
-    client_uniqueid = fname + dob + aadhar_number
+    client_uniqueid = fname + dob + idnumber
 
 
     context = {}
@@ -107,43 +103,10 @@ def customer_form(request):
         photo = fs.save(settings.MEDIA_ROOT+client_uniqueid+'/photo/'+fname+'photo'+'.'+file_ext, photo_upload)
 
 
-        aadhar_upload = request.FILES['aadhar_upload']
+        idproof_upload = request.FILES['idproof_upload']
         fs = FileSystemStorage()
-        file_ext = aadhar_upload.name.split('.')[1]
-        aadhar = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' +fname+ 'id' + '.' + file_ext, aadhar_upload)
-
-        drivinglicense_upload = request.FILES['drivinglicense_upload']
-        fs = FileSystemStorage()
-        file_ext = drivinglicense_upload.name.split('.')[1]
-        drivinglicense = fs.save(
-            settings.MEDIA_ROOT + client_uniqueid + '/id/' + fname + 'drivinglicense' + '.' + file_ext,
-            drivinglicense_upload)
-
-        voterid_upload = request.FILES['voterid_upload']
-        fs = FileSystemStorage()
-        file_ext = voterid_upload.name.split('.')[1]
-        voterid = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' + fname + 'voterid' + '.' + file_ext,
-                          voterid_upload)
-
-        passport_upload = request.FILES['passport_upload']
-        fs = FileSystemStorage()
-        file_ext = passport_upload.name.split('.')[1]
-        passport = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' + fname + 'passport' + '.' + file_ext,
-                           passport_upload)
-
-        pancard_upload = request.FILES['pancard_upload']
-        fs = FileSystemStorage()
-        file_ext = pancard_upload.name.split('.')[1]
-        pancard = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' + fname + 'pancard ' + '.' + file_ext,
-                          pancard_upload)
-
-        rationcard_upload = request.FILES['rationcard_upload']
-        fs = FileSystemStorage()
-        file_ext = rationcard_upload.name.split('.')[1]
-        rationcard = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' + fname + 'rationcard' + '.' + file_ext,
-                             rationcard_upload)
-
-
+        file_ext = idproof_upload.name.split('.')[1]
+        idproof = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/id/' +fname+ 'id' + '.' + file_ext, idproof_upload)
 
 
 
@@ -152,12 +115,8 @@ def customer_form(request):
         print(fs.url(photo))
 
         photo_upload_path=fs.url(photo)
-        aadhar_upload_path = fs.url(aadhar)
-        drivinglicense_upload_path = fs.url(drivinglicense)
-        voterid_upload_path = fs.url(voterid),
-        passport_upload_path = fs.url(passport),
-        pancard_upload_path = fs.url(pancard),
-        rationcard_upload_path = fs.url(rationcard),
+        idproof_upload_path = fs.url(idproof)
+
 
         created_date =date.today()
 
@@ -182,7 +141,8 @@ def customer_form(request):
     client_id=client_id,
     fname = fname,
     lname = lname,
-
+    fathername=fathername,
+    spousename =spousename,
     gender=gender,
     dob = dob,
     education = education,
@@ -199,24 +159,16 @@ def customer_form(request):
     email_id=email_id,
     contact_number=contact_number,
 
-    aadhar_number = aadhar_number,
-    drivinglicense_number=drivinglicense_number,
-    voter_id = voter_id,
-    passport_number = passport_number,
-    pan_number=pan_number,
-    rationcard_number = rationcard_number,
+    idnumber = idnumber,
+        idname=idname,
 
 
     client_uniqueid = client_uniqueid.replace("-",""),
     created_date=created_date,
 
     photo_upload_path = photo_upload_path,
-    aadhar_upload_path= aadhar_upload_path,
-    drivinglicense_upload_path= drivinglicense_upload_path,
-    voterid_upload_path= voterid_upload_path,
-    passport_upload_path=passport_upload_path,
-    pancard_upload_path= pancard_upload_path,
-    rationcard_upload_path=rationcard_upload_path,
+    idproof_upload_path= idproof_upload_path,
+
     seq_id=seq_id,
 
 
@@ -244,6 +196,9 @@ def update_customer_form(request , client_uniqueid) :
 
     client_update.fname = request.POST.get ( 'fname' )
     client_update.lname = request.POST.get('lname')
+    client_update.fathername = request.POST.get('fathername')
+    client_update.spousename = request.POST.get('spousename')
+
     client_update.gender = request.POST.get('gender')
     client_update.dob = request.POST.get('dob')
 
@@ -263,11 +218,6 @@ def update_customer_form(request , client_uniqueid) :
     client_update.contact_number = request.POST.get('contact_number')
 
     client_update.aadhar_number = request.POST.get('aadhar_number')
-    client_update.drivinglicense_number = request.POST.get('drivinglicense_number')
-    client_update.voter_id = request.POST.get('voter_id')
-    client_update.passport_number = request.POST.get('passport_number')
-    client_update.pan_number = request.POST.get('pan_number')
-    client_update.rationcard_number =request.POST.get('rationcard_number')
 
     client_update.client_uniqueid = client_uniqueid
     client_data.photo_upload_path=request.FILES.get('photo_upload_path')
