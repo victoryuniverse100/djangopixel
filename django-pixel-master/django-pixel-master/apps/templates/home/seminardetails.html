@@ -1,4 +1,4 @@
-% extends "layouts/base.html" %}
+{% extends "layouts/base.html" %}
 
 {% block title %} UI Forms {% endblock %}
 
@@ -25,14 +25,15 @@
   h3{font-style: bold; color: black}
  </STYLE>
 
-                        <h3 class="h8" >Add Seminar Details Form</h3>
+                        <h3 class="h8" >ADD SEMINAR DETAILS FORM</h3>
                     </div>
                 </div>
                 <!-- End of Title -->
             </div>
         </div>
         <div class="row">
-<!--<form action="/customerFormData/"  method= "POST" enctype="multipart/form-data">{% csrf_token %}-->
+<!--<form action="/customerFormData/"  method= "POST" enctype="multipart/form-data">-->
+    {% csrf_token %}
         <!-- Section -->
 
 
@@ -42,16 +43,20 @@
  <div class="container">
 
                 <div class="row">
-                   <div class="col-6">
+                   <div class="col-10">
 
                         <div class="row align-items-center">
 
-                            <div class="col">
+                            <div class="col-2">
                                  <label for="exampleInputEmail6" >Seminar ID</label>
+                                </div>
+                                <div class="col">
                             <input type="text" class="form-control" name="seminarid" id="seminarid" required >
                             </div>
-                            <div class="col">
+                            <div class="col-2">
                                  <label for="exampleInputEmail6">Seminar Location</label>
+                                </div>
+                                <div class="col">
                             <input type="text" class="form-control" name="seminarlocation" id="seminarlocation" >
                             </div>
                              </div>
@@ -63,19 +68,23 @@
  <div class="container">
 
                 <div class="row">
-                   <div class="col-6 ">
+                   <div class="col-10 ">
 
                         <div class="row align-items-center">
 
 
 
 
-                            <div class="col">
+                            <div class="col-2">
                                  <label for="exampleInputEmail6">Seminar Name</label>
+                                </div>
+                                <div class="col">
                             <input type="text" class="form-control" name="seminarname" id="seminarname" >
                             </div>
-                            <div class="col">
+                            <div class="col-2">
                                  <label for="exampleInputEmail6">Country</label>
+                                </div>
+                                <div class="col">
                             <input type="text" class="form-control" name="country" id="country" >
                             </div>
                              </div>
@@ -88,7 +97,7 @@
  <div class="container">
 
                 <div class="row">
-                   <div class="col-6 ">
+                   <div class="col-10 ">
 
                         <div class="row align-items-center">
 
@@ -96,12 +105,16 @@
 
 
 
-                             <div class="col">
+                             <div class="col-2">
                                  <label for="exampleInputEmail6">Seminar Fee</label>
+                                 </div>
+                                 <div class="col">
                             <input type="text" class="form-control" name="seminarfee" id="seminarfee" >
                             </div>
-                             <div class="col">
+                             <div class="col-2">
                                  <label for="exampleInputEmail6">Seminar Date</label>
+                                 </div>
+                                  <div class="col">
                             <input type="text" class="form-control" name="seminardate" id="seminardate" >
                             </div>
                              </div>
@@ -112,7 +125,7 @@
 
       <div class="container">
      <div class="row">
-                    <div class="col-12 ">
+                    <div class="col-10 ">
                         <button type="submit" id="submitButton" class="btn btn-primary" style="float:right !important">Submit</button>
                     </div>
 

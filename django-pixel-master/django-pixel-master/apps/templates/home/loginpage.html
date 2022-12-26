@@ -32,7 +32,9 @@
             </div>
         </div>
         <div class="row">
-<!--<form action="/customerFormData/"  method= "POST" enctype="multipart/form-data">{% csrf_token %}-->
+<!--<form action="/customerFormData/"  method= "POST" enctype="multipart/form-data">-->
+
+    {% csrf_token %}
         <!-- Section -->
 
 
@@ -42,16 +44,37 @@
  <div class="container">
 
                 <div class="row">
-                   <div class="col-12 ">
+                   <div class="col-5">
 
                         <div class="row align-items-center">
 
                             <div class="col">
                                  <label for="exampleInputEmail6" >User Name</label>
+                                </div>
+                                <div class="col">
                             <input type="text" class="form-control" name="username" id="username"  >
                             </div>
+
+                             </div>
+                       </div>
+                    </div>
+     </div>
+                                </div>
+
+
+
+                            <div class="section section-md pt-3" style="padding-bottom:15px !important">
+ <div class="container">
+
+                <div class="row">
+                   <div class="col-5 ">
+
+                        <div class="row align-items-center">
+
                             <div class="col">
                                  <label for="exampleInputEmail6">Password</label>
+                                </div>
+                                <div class="col">
                             <input type="text" class="form-control" name="password" id="password" >
                             </div>
 
@@ -63,8 +86,8 @@
 
                                     <div class="container">
      <div class="row">
-                    <div class="col-12 ">
-                        <button type="submit" id="submitButton" class="btn btn-primary" style="float:right !important">Submit</button>
+                    <div class="col-6 ">
+                        <button type="submit" id="submitButton" class="btn btn-primary" style="float:right !important">Sign in</button>
                     </div>
 
      </div>
@@ -72,3 +95,7 @@
         </div>
     </form>
         </div>
+        <!-- End of Section -->{% endblock content %}
+
+    </main>
+
