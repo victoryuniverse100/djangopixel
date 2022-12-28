@@ -1,0 +1,85 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Forms {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+    <main>
+
+
+
+        <div class="section section-md pb-0">
+
+            <div class="container">
+
+
+                <!-- Title -->
+                <div class="row">
+                    <div class="col">
+                        <STYLE>
+  H3 { text-align: center}
+  h3{font-style: bold; color: black}
+ </STYLE>
+
+                        <h3 class="h8" >MENU</h3>
+                    </div>
+                </div>
+                <!-- End of Title -->
+            </div>
+        </div>
+        <div class="row">
+<!--<form action="/customerFormData/"  method= "POST" enctype="multipart/form-data">-->
+    {% csrf_token %}
+        <!-- Section -->
+
+            <div class="section section-md pt-6" style="padding-bottom:15px !important">
+ <div class="container">
+
+                <div class="row">
+                   <div class="col-3 ">
+
+                        <div class="row align-items-center">
+                            <div class ="col">
+
+
+
+
+                                     <a class="dropdown-item" href="/registration.html">Member Reg</a>
+                                    <a class="dropdown-item" href="/seminarRegistration.html">Seminar Reg</a>
+                                    <a class="dropdown-item" href="/existingmembersearch.html">Member Search</a>
+                                <a class="dropdown-item" href="/existingmemberseminarhistory.html">Member Seminar History</a>
+                                <a class="dropdown-item" href="/roleassign.html">Role Assign</a>
+                                    <a class="dropdown-item" href="/rolegrid.html">Role View</a>
+
+                                     <a class="dropdown-item" href="/seminardetails.html">Add Seminar Details</a>
+                                     <a class="dropdown-item" href="/seminarondayenroll.html">Seminar Onday Enroll</a>
+                                 <a class="dropdown-item" href="/transferscreen.html">Transfer</a>
+                                <a class="dropdown-item" href="/refundscreen.html">Refund</a>
+                                 <a class="dropdown-item" href="/reportmember.html">Member Report</a>
+                                 <a class="dropdown-item" href="/reportseminar.html">Seminar Report</a>
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+     </div>
+                                </div>
+      </div>
+        </div>
+    </form>
+        </div>
+        <!-- End of Section -->{% endblock content %}
+
+    </main>
+
