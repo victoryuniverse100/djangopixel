@@ -35,61 +35,36 @@
 <!--<form action="/customerFormData/"  method= "POST" enctype="multipart/form-data">-->
     {% csrf_token %}
         <!-- Section -->
-
-
-
-
-    <div class="section section-md pt-3" style="padding-bottom:15px !important">
- <div class="container">
-
-                <div class="row">
-                   <div class="col-10 ">
-
-                        <div class="row align-items-center">
-                            <div class="col">
-                                <label for="exampleInputEmail6" >Search Input</label>
+            <div class="section section-md pt-3" style="padding-bottom:15px !important">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-10 ">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <label for="exampleInputEmail6" >Search Input</label>
                                 </div>
-                                 <div class="col">
-                                <select class="form-control" name="existmemberdrop" id="existmemberdrop" >
-                                    <option>Select</option>
-                                    <option>ID</option>
-                                    <option>Firstname</option>
-                                </select>
-                            </div>
-                             <div class="col">
-                            <input type="text" class="form-control" name="existingmemberinput" id="existingmemberinput" >
-                            </div>
-                    <div class="col ">
-                        <button type="button" id="searchButton" class="btn btn-primary" style="float:right !important">Search</button>
-                    </div>
-
-                             </div>
-                       </div>
-                    </div>
-     </div>
+                                <div class="col">
+                                    <select class="form-control" name="existmemberdrop" id="existmemberdrop" >
+                                        <option>Select</option>
+                                        <option>ID</option>
+                                        <option>Firstname</option>
+                                    </select>
                                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                <div class="col">
+                                    <input type="text" class="form-control" name="existingmemberinput" id="existingmemberinput" >
+                                </div>
+                                <div class="col ">
+                                    <button type="button" id="searchButton" class="btn btn-primary" style="float:right !important">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </form>
+        </form>
         </div>
         <!-- End of Section -->{% endblock content %}
-
     </main>
 
 

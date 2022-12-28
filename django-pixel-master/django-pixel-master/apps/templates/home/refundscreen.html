@@ -10,191 +10,136 @@
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
-
-
-    <main>
-
-
-
-        <div class="section section-md pb-0">
-
-            <div class="container">
-
-
-                <!-- Title -->
-                <div class="row">
-                    <div class="col">
-                        <STYLE>
-  H3 { text-align: center}
-  h3{font-style: bold; color: black}
- </STYLE>
-
-                        <h3 class="h8" >REFUND SCREEN</h3>
-                    </div>
-                </div>
+ <main>
+     <div class="section section-md pb-0">
+         <div class="container">
+             <!-- Title -->
+             <div class="row">
+                 <div class="col">
+                     <STYLE>
+                     H3 { text-align: center}
+                     h3{font-style: bold; color: black}
+</STYLE>
+                     <h3 class="h8" >REFUND SCREEN</h3>
+                 </div>
+             </div>
                 <!-- End of Title -->
-            </div>
-        </div>
-        <div class="row">
+         </div>
+     </div>
+     <div class="row">
 <!--<form action="/customerFormData/"  method= "POST" enctype="multipart/form-data">-->
     {% csrf_token %}
         <!-- Section -->
-
-
-
-
-    <div class="section section-md pt-3" style="padding-bottom:15px !important">
- <div class="container">
-
-                <div class="row">
-                   <div class="col-12">
-
-                        <div class="row align-items-center">
-
-                                 <div class="col">
-                                     <label for="exampleInputEmail6" >Search Input</label>
-                                <select class="form-control" name="droprefund" id="droprefund" >
-                                    <option>Select</option>
-                                    <option>Name</option>
-                                    <option>ID Proof Number</option>
-                                    <option>Contact No</option>
-                                </select>
-                            </div>
-
+         <div class="section section-md pt-3" style="padding-bottom:15px !important">
+             <div class="container">
+                 <div class="row">
+                     <div class="col-12">
+                         <div class="row align-items-center">
+                             <div class="col">
+                                 <label for="exampleInputEmail6" >Search Input</label>
+                                 <select class="form-control" name="droprefund" id="droprefund" >
+                                     <option>Select</option>
+                                     <option>Name</option>
+                                     <option>ID Proof Number</option>
+                                     <option>Contact No</option>
+                                 </select>
+                             </div>
                              <div class="col">
                                  <label for="exampleInputEmail6" >Input</label>
-                            <input type="text" class="form-control" name="refundinput" id="refundinput" >
-                            </div>
-
+                                 <input type="text" class="form-control" name="refundinput" id="refundinput" >
+                             </div>
                              <div class="col">
                                  <label for="exampleInputEmail6" >Seminar Name</label>
-                                <select class="form-control" name="seminarnameinput" id="seminarnameinput" >
-                                    <option>Select</option>
-                                    <option>Yogic Power</option>
-                                    <option>Vishudi</option>
-                                    <option>UND</option>
-                                </select>
-                            </div>
-
+                                 <select class="form-control" name="seminarnameinput" id="seminarnameinput" >
+                                     <option>Select</option>
+                                     <option>Yogic Power</option>
+                                     <option>Vishudi</option>
+                                     <option>UND</option>
+                                 </select>
+                             </div>
                              <div class="col">
                                  <label for="exampleInputEmail6" >Seminar No</label>
-                                <select class="form-control" name="seminarnoinput" id="seminarnoinput" >
-                                    <option>Select</option>
-                                    <option>IN1</option>
-                                    <option>IN2</option>
-                                    <option>IN3</option>
-                                </select>
-                            </div>
-
- <div class="section section-md pt-4" style="padding-bottom:15px !important">
-                                    <div class="container">
-     <div class="row">
-                    <div class="col-12 ">
-                        <button type="button" id="refundsearchbutton" class="btn btn-primary" style="float:right !important">Search</button>
-                    </div>
-     </div>
-
-     </div>
-    </div>
-
-
-
+                                 <select class="form-control" name="seminarnoinput" id="seminarnoinput" >
+                                     <option>Select</option>
+                                     <option>IN1</option>
+                                     <option>IN2</option>
+                                     <option>IN3</option>
+                                 </select>
                              </div>
-                       </div>
-                    </div>
-     </div>
-                                </div>
-
-
-
-
-             <div class="section section-md pt-6" style="padding-bottom:15px !important">
- <div class="container">
-
-                <div class="row">
-                   <div class="col-12 ">
-
-                        <div class="row align-items-center">
-
-                            <div class="col">
-                                <style>
-table, th, td {
-  border:1px solid black;
-
-
-  height: 50px;
-  width: 90px;
-  text-align: center;
-  vertical-align: middle;
-
-}
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="section section-md pt-4" style="padding-bottom:15px !important">
+             <div class="container">
+                 <div class="row">
+                     <div class="col-12 ">
+                         <button type="button" id="refundsearchbutton" class="btn btn-primary" style="float:right !important">Search</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="section section-md pt-6" style="padding-bottom:15px !important">
+             <div class="container">
+                 <div class="row">
+                     <div class="col-12 ">
+                         <div class="row align-items-center">
+                             <div class="col">
+                                 <style>
+                                 table, th, td {
+                                 border:1px solid black;
+                                 height: 50px;
+                                 width: 90px;
+                                 text-align: center;
+                                 vertical-align: middle;
+                                 }
 </style>
-                             <table style="width:100%">
-
-
-  <tr>
-
-    <th>S.No</th>
-    <th>Name</th>
-      <th>ID Proof No</th>
-
-
-      <th>Seminar Name</th>
-      <th>Enrolled Status</th>
-
-      <th>Action</th>
-
-  </tr>
-  <tr>
-     <td style="height: 1.3em; padding: 4px 6px;"></td>
-      <td></td>
-      <td></td>
-    <td></td>
-      <td></td>
-
-    <td>
-     <div class="col-9 ">
-                        <button type="button" id="refund" class="btn btn-primary" style="float:right !important">Refund</button>
-                    </div>
-
-    </td>
-  </tr>
-  <tr>
-    <td style="height: 1.3em; padding: 4px 6px;"></td>
-        <td ></td>
-    <td></td>
-      <td></td>
-    <td></td>
-
-
-    <td>
-       <div class="col-9 ">
-                        <button type="button" id="refund" class="btn btn-primary" style="float:right !important">Refund</button>
-                    </div>
-
-
-    </td>
-  </tr>
-</table>
-                                    </div>
+                                 <table style="width:100%">
+                                     <tr>
+                                         <th>S.No</th>
+                                         <th>Name</th>
+                                         <th>ID Proof No</th>
+                                         <th>Seminar Name</th>
+                                         <th>Enrolled Status</th>
+                                         <th>Action</th>
+                                     </tr>
+                                     <tr>
+                                         <td style="height: 1.3em; padding: 4px 6px;"></td>
+                                         <td></td>
+                                         <td></td>
+                                         <td></td>
+                                         <td></td>
+                                         <td>
+                                             <div class="col-9 ">
+                                                 <button type="button" id="refund" class="btn btn-primary" style="float:right !important">Refund</button>
+                                             </div>
+                                         </td>
+                                     </tr>
+                                     <tr>
+                                         <td style="height: 1.3em; padding: 4px 6px;"></td>
+                                         <td ></td>
+                                         <td></td>
+                                         <td></td>
+                                         <td></td>
+                                         <td>
+                                             <div class="col-9 ">
+                                                 <button type="button" id="refund" class="btn btn-primary" style="float:right !important">Refund</button>
+                                             </div>
+                                         </td>
+                                     </tr>
+                                 </table>
                              </div>
-                       </div>
-                    </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
      </div>
-                                </div>
-
-    </div>
-
-
-
-
-
-
-             </form>
-        </div>
+     </form>
+     </div>
         <!-- End of Section -->{% endblock content %}
-
-    </main>
+ </main>
 
 
 

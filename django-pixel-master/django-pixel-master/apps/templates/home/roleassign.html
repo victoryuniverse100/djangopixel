@@ -6,90 +6,69 @@
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
-
-
-    <main>
-
-
-
-        <div class="section section-md pb-0">
-
-            <div class="container">
-
-
-                <!-- Title -->
-                <div class="row">
-                    <div class="col">
-                        <STYLE>
-  H3 { text-align: center}
-  h3{font-style: bold; color: black}
- </STYLE>
-
-                        <h3 class="h8" >ROLE ASSIGNING </h3>
-                    </div>
+<main>
+    <div class="section section-md pb-0">
+        <div class="container">
+            <!-- Title -->
+            <div class="row">
+                <div class="col">
+                    <STYLE>
+                     H3 { text-align: center}
+                     h3{font-style: bold; color: black}
+</STYLE>
+                    <h3 class="h8" >ROLE ASSIGNING </h3>
                 </div>
-                <!-- End of Title -->
             </div>
+                <!-- End of Title -->
         </div>
-        <div class="row">
+    </div>
+    <div class="row">
 <!--<form action="/customerFormData/"  method= "POST" enctype="multipart/form-data">-->
     {% csrf_token %}
         <!-- Section -->
-
-
-
-
-    <div class="section section-md pt-3" style="padding-bottom:15px !important">
- <div class="container">
-
+        <div class="section section-md pt-3" style="padding-bottom:15px !important">
+            <div class="container">
                 <div class="row">
                    <div class="col-12 ">
-
-                        <div class="row align-items-center">
-
-                            <div class="col">
-                                 <label for="exampleInputEmail6" >Enter Name</label>
-                            <input type="text" class="form-control" name="name" id="name" required >
+                       <div class="row align-items-center">
+                           <div class="col">
+                               <label for="exampleInputEmail6" >Enter Name</label>
+                               <input type="text" class="form-control" name="name" id="name" required >
                             </div>
-                              <div class="col">
-                                <label for="exampleInputEmail6" >Role</label>
-                                <select class="form-control" name="gender" id="gender" >
-                                    <option>Select</option>
-                                    <option>Leader</option>
-                                    <option>Assistant Leader</option>
-                                    <option>Team Leader</option>
-                                </select>
-                            </div>
-                            <div class="col ">
-                        <button type="button" id="addrolebutton" class="btn btn-primary" style="float:right !important">Add Role</button>
-                    </div>
-                            <div class="col ">
-                        <button type="button" id="viewrolebutton" class="btn btn-primary" style="float:right !important">View Role</button>
-                    </div>
-                             </div>
-                    </div
-     </div>
-</div>
+                           <div class="col">
+                               <label for="exampleInputEmail6" >Role</label>
+                               <select class="form-control" name="gender" id="gender" >
+                                   <option>Select</option>
+                                   <option>Leader</option>
+                                   <option>Assistant Leader</option>
+                                   <option>Team Leader</option>
+                               </select>
+                           </div>
+                           <div class="col ">
+                               <button type="button" id="addrolebutton" class="btn btn-primary" style="float:right !important">Add Role</button>
+                           </div>
+                           <div class="col ">
+                               <button type="button" id="viewrolebutton" class="btn btn-primary" style="float:right !important">View Role</button>
+                           </div>
+                       </div>
+                   </div
+                </div>
             </div>
-
-<div class="section section-md pt-12" style="padding-bottom:15px !important">
-
-                             <div class="container">
-     <div class="row">
+        </div>
+        <div class="section section-md pt-12" style="padding-bottom:15px !important">
+            <div class="container">
+                <div class="row">
                     <div class="col-12 ">
-
-<button type="submit" id="rolesubmitButton" class="btn btn-primary" style="float:right !important">Submit</button>
+                        <button type="submit" id="rolesubmitButton" class="btn btn-primary" style="float:right !important">Submit</button>
                     </div>
-
-     </div>
+                </div>
+            </div>
+        </div>
     </div>
-        </div>
-        </div>
     </form>
-        </div>
+    </div>
         <!-- End of Section -->{% endblock content %}
-
-    </main>
+</main>
 
 
 

@@ -6,134 +6,104 @@
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
-
-
-    <main>
-
-
-
-        <div class="section section-md pb-0">
-
-            <div class="container">
-
-
-                <!-- Title -->
-                <div class="row">
-                    <div class="col">
-                        <STYLE>
-  H3 { text-align: center}
-  h3{font-style: bold; color: black}
- </STYLE>
-
-                        <h3 class="h8" >ADD SEMINAR DETAILS FORM</h3>
-                    </div>
+<main>
+    <div class="section section-md pb-0">
+        <div class="container">
+            <!-- Title -->
+            <div class="row">
+                <div class="col">
+                    <STYLE>
+                    H3 { text-align: center}
+                    h3{font-style: bold; color: black}
+</STYLE>
+                    <h3 class="h8" >ADD SEMINAR DETAILS FORM</h3>
                 </div>
-                <!-- End of Title -->
             </div>
+            <!-- End of Title -->
         </div>
-        <div class="row">
+    </div>
+    <div class="row">
 <!--<form action="/customerFormData/"  method= "POST" enctype="multipart/form-data">-->
     {% csrf_token %}
         <!-- Section -->
-
-
-
-
-    <div class="section section-md pt-3" style="padding-bottom:15px !important">
- <div class="container">
-
+        <div class="section section-md pt-3" style="padding-bottom:15px !important">
+            <div class="container">
                 <div class="row">
-                   <div class="col-10">
-
+                    <div class="col-10">
                         <div class="row align-items-center">
-
                             <div class="col-2">
-                                 <label for="exampleInputEmail6" >Seminar ID</label>
-                                </div>
-                                <div class="col">
-                            <input type="text" class="form-control" name="seminarid" id="seminarid" required >
+                                <label for="exampleInputEmail6" >Seminar ID</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="seminarid" id="seminarid" required >
                             </div>
                             <div class="col-2">
-                                 <label for="exampleInputEmail6">Seminar Location</label>
-                                </div>
-                                <div class="col">
-                            <input type="text" class="form-control" name="seminarlocation" id="seminarlocation" >
+                                <label for="exampleInputEmail6">Seminar Location</label>
                             </div>
-                             </div>
-                       </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="seminarlocation" id="seminarlocation" >
+                            </div>
+                        </div>
                     </div>
-     </div>
-                                </div>
-    <div class="section section-md pt-3" style="padding-bottom:15px !important">
- <div class="container">
-
+                </div>
+            </div>
+        </div>
+        <div class="section section-md pt-3" style="padding-bottom:15px !important">
+            <div class="container">
                 <div class="row">
-                   <div class="col-10 ">
-
-                        <div class="row align-items-center">
-
-
-
-
-                            <div class="col-2">
-                                 <label for="exampleInputEmail6">Seminar Name</label>
-                                </div>
-                                <div class="col">
-                            <input type="text" class="form-control" name="seminarname" id="seminarname" >
-                            </div>
-                            <div class="col-2">
-                                 <label for="exampleInputEmail6">Country</label>
-                                </div>
-                                <div class="col">
-                            <input type="text" class="form-control" name="country" id="country" >
-                            </div>
-                             </div>
-                       </div>
-                    </div>
-     </div>
-                                </div>
-
-     <div class="section section-md pt-3" style="padding-bottom:15px !important">
- <div class="container">
-
-                <div class="row">
-                   <div class="col-10 ">
-
-                        <div class="row align-items-center">
-
-
-
-
-
-                             <div class="col-2">
-                                 <label for="exampleInputEmail6">Seminar Fee</label>
-                                 </div>
-                                 <div class="col">
-                            <input type="text" class="form-control" name="seminarfee" id="seminarfee" >
-                            </div>
-                             <div class="col-2">
-                                 <label for="exampleInputEmail6">Seminar Date</label>
-                                 </div>
-                                  <div class="col">
-                            <input type="text" class="form-control" name="seminardate" id="seminardate" >
-                            </div>
-                             </div>
-                       </div>
-                    </div>
-     </div>
-                                </div>
-
-      <div class="container">
-     <div class="row">
                     <div class="col-10 ">
-                        <button type="submit" id="submitButton" class="btn btn-primary" style="float:right !important">Submit</button>
+                        <div class="row align-items-center">
+                            <div class="col-2">
+                                <label for="exampleInputEmail6">Seminar Name</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="seminarname" id="seminarname" >
+                            </div>
+                            <div class="col-2">
+                                <label for="exampleInputEmail6">Country</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="country" id="country" >
+                            </div>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section-md pt-3" style="padding-bottom:15px !important">
+            <div class="container">
 
-     </div>
+                <div class="row">
+                   <div class="col-10 ">
+
+                        <div class="row align-items-center">
+                            <div class="col-2">
+                                <label for="exampleInputEmail6">Seminar Fee</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="seminarfee" id="seminarfee" >
+                            </div>
+                            <div class="col-2">
+                                <label for="exampleInputEmail6">Seminar Date</label>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="seminardate" id="seminardate" >
+                            </div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-10 ">
+                    <button type="submit" id="submitButton" class="btn btn-primary" style="float:right !important">Submit</button>
+                </div>
+            </div>
+        </div>
     </div>
-        </div>
     </form>
-        </div>
+    </div>
         <!-- End of Section -->{% endblock content %}
 
     </main>
