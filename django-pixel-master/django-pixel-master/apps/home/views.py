@@ -55,7 +55,7 @@ def pages(request) :
 
 
 def registration(request) :
-    return render ( request , "home/registration.html" )
+    return render ( request , "home/reportseminar.html" )
 
 
 @csrf_exempt

@@ -1,0 +1,105 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Forms {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+    <main>
+
+
+
+        <div class="section section-md pb-0">
+
+            <div class="container">
+
+
+                <!-- Title -->
+                <div class="row">
+                    <div class="col">
+                        <STYLE>
+  H3 { text-align: center}
+  h3{font-style: bold; color: black}
+ </STYLE>
+
+                        <h3 class="h8" >SEMINAR ON DAY ENROLL</h3>
+                    </div>
+                </div>
+                <!-- End of Title -->
+            </div>
+        </div>
+        <div class="row">
+<!--<form action="/customerFormData/"  method= "POST" enctype="multipart/form-data">-->
+    {% csrf_token %}
+        <!-- Section -->
+
+
+
+
+    <div class="section section-md pt-3" style="padding-bottom:15px !important">
+ <div class="container">
+
+                <div class="row">
+                   <div class="col-10 ">
+
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <label for="exampleInputEmail6" >Search Input</label>
+                                </div>
+                                 <div class="col">
+                                <select class="form-control" name="enrollinput" id="enrollinput" >
+                                    <option>Select</option>
+                                    <option>Name</option>
+                                    <option>ID Proof Number</option>
+                                </select>
+                            </div>
+                             <div class="col">
+                            <input type="text" class="form-control" name="memberinput" id="memberinput" >
+                            </div>
+                    <div class="col ">
+                        <button type="submit" id="submitButton" class="btn btn-primary" style="float:right !important">Search</button>
+                    </div>
+
+                             </div>
+                       </div>
+                    </div>
+     </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </form>
+        </div>
+        <!-- End of Section -->{% endblock content %}
+
+    </main>
+
+

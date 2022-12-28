@@ -1,0 +1,189 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Forms {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+    <main>
+
+
+
+        <div class="section section-md pb-0">
+
+            <div class="container">
+
+
+                <!-- Title -->
+                <div class="row">
+                    <div class="col">
+                        <STYLE>
+  H3 { text-align: center}
+  h3{font-style: bold; color: black}
+ </STYLE>
+
+                        <h3 class="h8" >SEMINAR REPORT</h3>
+                    </div>
+                </div>
+                <!-- End of Title -->
+            </div>
+        </div>
+        <div class="row">
+<!--<form action="/customerFormData/"  method= "POST" enctype="multipart/form-data">-->
+    {% csrf_token %}
+        <!-- Section -->
+
+
+
+
+    <div class="section section-md pt-3" style="padding-bottom:15px !important">
+ <div class="container">
+
+                <div class="row">
+                   <div class="col-10 ">
+
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <label for="exampleInputEmail6" >Search Input</label>
+                                </div>
+                                 <div class="col">
+                                <select class="form-control" name="searchseminarinput" id="searchseminarinput" >
+                                    <option>Select</option>
+                                    <option>Seminar ID</option>
+                                    <option>Seminar Name</option>
+
+                                </select>
+                            </div>
+                             <div class="col">
+                            <input type="text" class="form-control" name="reportseminarinput" id="reportseminarinput" >
+                            </div>
+                    <div class="col ">
+                        <button type="button" id="submitButton" class="btn btn-primary" style="float:right !important">Search</button>
+                    </div>
+
+
+
+
+                             </div>
+                       </div>
+                    </div>
+     </div>
+                                </div>
+
+
+
+
+             <div class="section section-md pt-6" style="padding-bottom:15px !important">
+ <div class="container">
+
+                <div class="row">
+                   <div class="col-12 ">
+
+                        <div class="row align-items-center">
+
+                            <div class="col">
+                                <style>
+table, th, td {
+  border:1px solid black;
+
+
+  height: 50px;
+  width: 90px;
+  text-align: center;
+  vertical-align: middle;
+
+}
+</style>
+                             <table style="width:100%">
+
+
+  <tr>
+
+    <th>S.No</th>
+      <th>Seminar ID</th>
+    <th>Seminar Name</th>
+      <th>Register</th>
+
+    <th>Full Payment</th>
+      <th>Partial Payment</th>
+      <th>Transfer</th>
+      <th>Refund</th>
+      <th>Enrolled</th>
+
+      <th>Action</th>
+
+  </tr>
+  <tr>
+     <td style="height: 1.3em; padding: 4px 6px;"></td>
+      <td></td>
+      <td></td>
+    <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>
+     <div class="col-10 ">
+                        <button type="button" id="submitButton" class="btn btn-primary" style="float:right !important">View</button>
+                    </div>
+
+    </td>
+  </tr>
+  <tr>
+    <td style="height: 1.3em; padding: 4px 6px;"></td>
+        <td ></td>
+    <td></td>
+      <td></td>
+    <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+
+
+    <td>
+       <div class="col-10 ">
+                        <button type="button" id="submitButton" class="btn btn-primary" style="float:right !important">View</button>
+                    </div>
+
+
+    </td>
+  </tr>
+</table>
+                                    </div>
+                             </div>
+                       </div>
+                    </div>
+     </div>
+                                </div>
+
+    </div>
+
+                                    <div class="container">
+     <div class="row">
+                    <div class="col-12 ">
+                        <button type="button" id="submitButton" class="btn btn-primary" style="float:right !important">Download</button>
+                    </div>
+
+     </div>
+    </div>
+
+
+
+
+
+
+             </form>
+        </div>
+        <!-- End of Section -->{% endblock content %}
+
+    </main>
+
+
+
+
+
