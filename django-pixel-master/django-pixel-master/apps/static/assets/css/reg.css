@@ -1,71 +1,135 @@
+
 *{
-padding:0;
-margin:0;
-box-sizing:border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
 }
-.menu-bar
-{
-background  : #ffccff;
-text-align:center;
+body{
+  font-family: sans-serif;
+  overflow: hidden;
+  user-select: none;
 }
+nav .logo{
+  color: white;
+  font-size: 33px;
+  font-weight: bold;
+  line-height: 95px;
+  padding-left: 100px;
 
-.menu-bar ul
-{
-display:inline-flex;
-list-style:none;
-color:#fff;
 }
-
-.menu-bar ul li
-{
-width:120px;
-margin:15px;
-padding:15px;
+nav{
+  height: 95px;
+  background: #063247;
+  box-shadow: 0 3px 1px rgba(0,0,0,.4);
 }
-
-.menu-bar ul li a{
-text-decoration:none;
-color: #0000ff;
+nav ul{
+  float: right;
+  margin-right: 90px;
 }
-
-.menu-bar ul li:hover
-{
-background: #2bab0d;
-border-radius:3px;}
-
-.submenu-1
-{
-display:none;
+nav ul li{
+  display: inline-block;
 }
-.menu-bar ul li:hover .submenu-1
-{
-display:block;
-position:absolute;
-background : #ffccff;
-margin-top:15px;
-margin-left:-15px;
+nav ul li a{
+  color: white;
+  display: block;
+  padding: 0 15px;
+  line-height: 90px;
+  font-size: 25px;
+  background: #063247;
+  transition: .5s;
 }
-
-.menu-bar ul li:hover .submenu-1 ul
-{
-display:block;
-margin:5px;
+nav ul li a:hover,
+nav ul li a.active{
+  color: #23dbdb;
 }
-.menu-bar ul li:hover .submenu-1 ul li
-{
-width:110px;
-padding:10px;
-border-bottom:1 px dotted #fff;
-background:transparent;
-border-radius:0;
-text-align:left;
+nav ul ul{
+  position: absolute;
+  top: 85px;
+  border-top: 3px solid #23dbdb;
+  opacity: 0;
+  visibility: hidden;
 }
-.menu-bar ul li:hover .submenu-1 ul li:last-child
-{
-border-bottom:none;
+nav ul li:hover > ul{
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+  transition: .3s linear;
 }
-
-.menu-bar ul li:hover .submenu-1 ul li:hover
-{
-color:red;
+nav ul ul li{
+  width: 150px;
+  display: list-item;
+  position: relative;
+  border: 1px solid #042331;
+  border-top: none;
+}
+nav ul ul li a{
+  line-height: 50px;
+}
+nav ul ul ul{
+  border-top: none;
+}
+nav ul ul ul li{
+  position: relative;
+  top: -70px;
+  left: 150px;
+}
+nav ul ul li a i{
+  margin-left: 45px;
+}
+section{
+  background: url(bg.jpeg);
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+}
+nav ul li{
+  display: inline-block;
+}
+nav ul li a{
+  color: white;
+  display: block;
+  padding: 0 15px;
+  line-height: 70px;
+  font-size: 15px;
+  background: #063247;
+  transition: .1s;
+}
+nav ul li a:hover,
+nav ul li a.active{
+  color: #23dbdb;
+}
+nav ul ul{
+  position: absolute;
+  top: 85px;
+  border-top: 1px solid #23dbdb;
+  opacity: 0;
+  visibility: hidden;
+}
+nav ul li:hover > ul{
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+  transition: .3s linear;
+}
+nav ul ul li{
+  width: 150px;
+  display: list-item;
+  position: relative;
+  border: 1px solid #042331;
+  border-top: none;
+}
+nav ul ul li a{
+  line-height: 50px;
+}
+nav ul ul ul{
+  border-top: none;
+}
+nav ul ul ul li{
+  position: relative;
+  top: -70px;
+  left: 150px;
+}
+nav ul ul li a i{
+  margin-left: 95px;
 }

@@ -6,63 +6,66 @@
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
- <img class="navbar-brand-dark" src="{{ ASSETS_ROOT }}/img/rptlogo.jpeg" style="float:left" width="80" height="80">
-  <div class="section section-md pt-4" style="padding-bottom:0px !important">
-    <h3 class="title" style="text-align:center" >RPT SOCIETY</h3>
-  </div>
-<div class="section section-md pt-3" >
-<div class="menu-bar">
-<ul>
-    <li ><a href="#">Member</a>
-    <div class="submenu-1">
-        <ul>
-            <li ><a href="/registration.html">Member Registration</a></li>
-            <li ><a href="/existingmemberseminarhistory.html">Member Seminar History</a></li>
-            <li ><a href="/existingmembersearch.html">Member Search</a></li>
-        </ul>
 
-    </div></li>
-    <li><a href="#">Seminar</a>
-     <div class="submenu-1">
-        <ul>
-            <li ><a href="/seminarRegistration.html">Seminar Registration</a></li>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<link type="text/css" href="{{ ASSETS_ROOT }}/css/reg.css" rel="stylesheet">
+      <nav>
+          <img class="navbar-brand-dark" src="{{ ASSETS_ROOT }}/img/rptlogo1.png" style="float:left" width="90" height="90">
+         <label class="logo">RPT SOCIETY</label>
+         <ul>
+
+            <li>
+               <a href="#">Member
+               <i class="fas fa-caret-down"></i>
+               </a>
+               <ul>
+                 <li ><a href="/registration.html">Member Registration</a></li>
+                  <li ><a href="/existingmemberseminarhistory.html">Member Seminar History</a></li>
+                  <li ><a href="/existingmembersearch.html">Member Search</a></li>
+               </ul>
+            </li>
+            <li>
+               <a href="#">Seminar
+               <i class="fas fa-caret-down"></i>
+               </a>
+               <ul>
+                   <li ><a href="/seminarRegistration.html">Seminar Registration</a></li>
             <li ><a href="/seminardetails.html">Add Seminar Details</a></li>
             <li ><a href="/seminarondayenroll.html">Seminar Onday Enroll</a></li>
-        </ul>
-     </div>
-    </li>
-    <li><a href="#">Add Role</a>
-    <div class="submenu-1">
-        <ul>
-            <li ><a href="/roleassign.html">Role Assign</a></li>
-            <li ><a href="/rolegrid.html">Role View</a></li>
-        </ul>
-    </div>
-    </li>
-    <li><a href="/transferscreen.html">Transfer</a></li>
-    <li><a href="/refundscreen.html">Refund</a></li>
-    <li><a href="#">Report</a>
-        <div class="submenu-1">
-        <ul>
-            <li ><a href="/reportmember.html">Member Report</a></li>
-            <li ><a href="/reportseminar.html">Seminar Report</a></li>
+                  </ul>
+                  </li>
+                  <li>
+                     <a href="#">Add Role
+                     <i class="fas fa-caret-down"></i>
+                     </a>
+                     <ul>
+                       <li ><a href="/roleassign.html">Role Assign</a></li>
+                        <li ><a href="/rolegrid.html">Role View</a></li>
+                     </ul>
+                  </li>
+            <li><a href="/transferscreen.html">Transfer</a></li>
+            <li><a href="/refundscreen.html">Refund</a></li>
 
-        </ul>
-        </div>
-    </li>
+            <li>
+                     <a href="#">Report
+                     <i class="fas fa-caret-down"></i>
+                     </a>
+                     <ul>
+                       <li ><a href="/reportmember.html">Member Report</a></li>
+                        <li ><a href="/reportseminar.html">Seminar Report</a></li>
 
+                     </ul>
 
-
-</ul>
-    </div>
-</div>
+                  </li>
+             <li><a  href="#">Logout</a></li>
 
 
 
 
+         </ul>
+
+      </nav>
+      <section></section>
 
 
-
- <!-- End of Section -->{% endblock content %}
-
-</main>
+<!-- End of Section -->{% endblock content %}
