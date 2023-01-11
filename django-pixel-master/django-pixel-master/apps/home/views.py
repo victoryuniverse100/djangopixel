@@ -19,11 +19,12 @@ from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 
 
+
 @login_required ( login_url = "/login/" )
 def index(request) :
     context = {'segment' : 'index'}
 
-    html_template = loader.get_template ( 'home/index.html' )
+    html_template = loader.get_template ( 'home/registration.html' )
 
     return HttpResponse ( html_template.render ( context , request ) )
 
@@ -55,12 +56,15 @@ def pages(request) :
 
 
 def registration(request) :
+
+
     return render ( request , "home/registration.html" )
 
 
 @csrf_exempt
 def customer_form(request):
     print (request)
+
 
     fname = request.POST.get ( 'fname' )
     lname = request.POST.get('lname')
