@@ -61,7 +61,7 @@
 
 <!-- Pixel CSS -->
 <link type="text/css" href="{{ ASSETS_ROOT }}/css/pixel.css" rel="stylesheet">
-
+<link type="text/css" href="{{ ASSETS_ROOT }}/css/reg.css" rel="stylesheet">
 
 <!-- Specific Page JS goes HERE  -->    
 {% block stylesheets %}{% endblock stylesheets %}
@@ -69,11 +69,12 @@
 </head>
 <body>
 
-<!-- {% include 'includes/navigation.html' %}-->
-
+<!--{% include 'includes/navigation.html' %}-->
+{% include 'includes/menu.html' %}
     {% block content %}{% endblock content %}
 
     {% include 'includes/scripts.html' %}
+
 
 
 

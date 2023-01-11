@@ -7,7 +7,7 @@
 }
 body{
   font-family: sans-serif;
-  overflow: hidden;
+  overflow: auto !important;
   user-select: none;
 }
 nav .logo{
@@ -77,12 +77,12 @@ nav ul ul ul li{
 nav ul ul li a i{
   margin-left: 45px;
 }
-section{
+/*section{
   background: url(bg.jpeg);
   background-position: center;
   background-size: cover;
   height: 100vh;
-}
+}*/
 nav ul li{
   display: inline-block;
 }
