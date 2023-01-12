@@ -55,10 +55,36 @@ def pages(request) :
         return HttpResponse ( html_template.render ( context , request ) )
 
 
+
+
+def refund(request) :
+    return render ( request , "home/refundscreen.html" )
+
 def registration(request) :
-
-
+    print('hello')
+    print(request.user.username)
+    print('hi')
     return render ( request , "home/registration.html" )
+
+@csrf_exempt
+def memberHistory(request) :
+    return render ( request , "home/memberhistory.html" )
+
+def memberSearch(request) :
+    return render ( request , "home/membersearch.html" )
+
+def memberSearch(request) :
+    return render ( request , "home/seminardetails.html" )
+
+def memberSearch(request) :
+    return render ( request , "home/membersearch.html" )
+
+def memberSearch(request) :
+    return render ( request , "home/membersearch.html" )
+
+
+
+
 
 
 @csrf_exempt

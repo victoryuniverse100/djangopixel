@@ -12,15 +12,23 @@
         {% include 'includes/preloader.html' %}
 
         <!-- Section -->
-        <section class="min-vh-100 d-flex align-items-center section-image overlay-soft-dark">
+        <section class="min-vh-100 d-flex align-items-center section-image overlay-soft-dark" >
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 d-flex align-items-center justify-content-center">
                         <div class="signin-inner my-4 my-lg-0 bg-white shadow-soft border rounded border-gray-300 p-4 p-lg-5 w-100 fmxw-500">
                             <div class="text-center text-md-center mb-4 mt-md-0">
-
+                                <h1 class="mb-0 h3">
+                                    <a href="https://appseed.us/product/pixel-bootstrap/django/" target="_blank"></a>  Login
+                                </h1>
                                 <br />
-
+                                <span class="font-weight-normal">
+                                    {% if msg %}
+                                        {{ msg | safe }}
+                                    {% else %}
+                                        Add your credentials
+                                    {% endif %}
+                                </span>
                             </div>
                             <form method="post" action="" class="mt-4">
 
@@ -31,7 +39,7 @@
                                     <label for="email">Username</label>
                                     <div class="input-group">
                                         <span class="input-group-text" id="basic-addon1"><span class="fas fa-user"></span></span>
-                                        {{  form.username }}
+                                        {{ form.username }}
                                     </div>
                                 </div>
                                 <!-- End of Form -->
@@ -44,7 +52,7 @@
                                             {{ form.password }}
                                         </div>
                                     </div>
-                                     <div class="form-group mb-4">
+                                      <div class="form-group mb-4">
                                         <label for="country">Country</label>
                                         <div class="input-group">
 
@@ -59,15 +67,25 @@
                                     </div>
                                     <!-- End of Form -->
                                     <div class="d-flex justify-content-between align-items-center mb-4">
-                                        <div class="form-check mb-2">
-
-                                            <button type="button" name="login" class="btn btn-primary"style="margin-right: 50px">Reset Password</button>
-                                            <button type="button" name="login" class="btn btn-primary"style="margin-left: 50px">Sign in</button>
+                                        <div class="form-check mb-0">
+                                            <input class="form-check-input" type="checkbox" value="" id="remember">
+                                            <label class="form-check-label mb-0" for="remember">
+                                              Remember me
+                                            </label>
                                         </div>
 
                                     </div>
                                 </div>
 
+
+                                 <div class="d-grid">
+                                    <button type="submit" name="login" class="btn btn-primary">Sign in</button>
+                                </div>
+                                 <div class="section section-md pt-3" style="padding-bottom:15px !important">
+                                 <div class="d-grid">
+                                    <button type="submit" name="reset_password" class="btn btn-primary">Reset Password</button>
+                                </div>
+                                 </div>
                             </form>
 
                             <br />

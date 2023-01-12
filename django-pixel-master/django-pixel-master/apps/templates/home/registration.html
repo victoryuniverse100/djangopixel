@@ -1,5 +1,5 @@
 {% extends "layouts/base.html" %}
-
+{% include "layouts/menu.html" %}
 {% block title %} UI Forms {% endblock %}
 
 <!-- Specific Page CSS goes HERE  -->
@@ -79,7 +79,10 @@
 
                             <div class="section section-md pt-3" style="padding-bottom:15px !important">
  <div class="container">
-
+<p>{{ request.user.username }}
+</p>
+     <p>{{ request.user.id }}</p>
+     <p>{{ request.user.email }}</p>
                 <div class="row">
                    <div class="col-12 ">
 
