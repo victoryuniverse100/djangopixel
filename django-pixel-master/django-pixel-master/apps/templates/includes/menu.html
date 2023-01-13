@@ -20,8 +20,8 @@
                </a>
                <ul>
                    <li ><a href="{% url 'seminarRegistration' %}">Seminar Registration</a></li>
-            <li ><a href="seminardetails.html">Add Seminar Details</a></li>
-            <li ><a href="/seminarondayenroll.html">Seminar Onday Enroll</a></li>
+            <li ><a href="{% url 'addSeminar' %}">Add Seminar Details</a></li>
+            <li ><a href="{% url 'ondayEnroll' %}">Seminar Onday Enroll</a></li>
                   </ul>
                   </li>
                   <li>
@@ -29,11 +29,11 @@
                      <i class="fas fa-caret-down"></i>
                      </a>
                      <ul>
-                       <li ><a href="/roleassign.html">Role Assign</a></li>
-                        <li ><a href="/rolegrid.html">Role View</a></li>
+                       <li ><a href="{% url 'roleAssign' %}">Role Assign</a></li>
+                        <li ><a href="{% url 'roleView' %}">Role View</a></li>
                      </ul>
                   </li>
-            <li><a href="/transferscreen.html">Transfer</a></li>
+            <li><a href="{% url 'transfer' %}">Transfer</a></li>
             <li><a href="{% url 'refund' %}">Refund</a></li>
 
             <li>
@@ -41,8 +41,8 @@
                      <i class="fas fa-caret-down"></i>
                      </a>
                      <ul>
-                       <li ><a href="reportmember.html">Member Report</a></li>
-                        <li ><a href="/reportseminar.html">Seminar Report</a></li>
+                       <li ><a href="{% url 'reportMember' %}">Member Report</a></li>
+                        <li ><a href="{% url 'reportSeminar' %}">Seminar Report</a></li>
 
                      </ul>
 

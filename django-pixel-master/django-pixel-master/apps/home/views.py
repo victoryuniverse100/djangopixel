@@ -57,8 +57,7 @@ def pages(request) :
 
 
 
-def refund(request) :
-    return render ( request , "home/refundscreen.html" )
+
 
 def registration(request) :
     print('hello')
@@ -73,14 +72,32 @@ def memberHistory(request) :
 def memberSearch(request) :
     return render ( request , "home/membersearch.html" )
 
-def memberSearch(request) :
+def addSeminar(request) :
     return render ( request , "home/seminardetails.html" )
 
-def memberSearch(request) :
-    return render ( request , "home/membersearch.html" )
+def ondayEnroll(request) :
+    return render ( request , "home/seminarondayenroll.html" )
 
-def memberSearch(request) :
-    return render ( request , "home/membersearch.html" )
+def roleAssign(request) :
+    return render ( request , "home/roleassign.html" )
+
+def roleView(request) :
+    return render ( request , "home/rolegrid.html" )
+
+def transfer(request) :
+    return render ( request , "home/transferscreen.html" )
+
+
+def refund(request) :
+    return render ( request , "home/refundscreen.html" )
+
+
+def reportMember(request) :
+    return render ( request , "home/reportmember.html" )
+
+def reportSeminar(request) :
+    return render ( request , "home/reportseminar.html" )
+
 
 
 

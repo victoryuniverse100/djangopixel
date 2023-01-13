@@ -13,5 +13,8 @@ urlpatterns = [
     path('register/', register_user, name="register"),
     path("logout/", LogoutView.as_view(), name="logout"),
     re_path('registration/', views.registration, name="registration"),
-# re_path('memberHistory/', views.memberHistory, name="memberHistory"),
+    re_path('reportMember/', views.reportMember, name="reportmember"),
+    re_path('reportSeminar/', views.reportSeminar, name="reportseminar"),
+
+    # re_path('memberHistory/', views.memberHistory, name="memberHistory"),
 ]
