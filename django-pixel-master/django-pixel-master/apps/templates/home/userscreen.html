@@ -1,0 +1,95 @@
+{% extends "layouts/base.html" %}
+{% include "layouts/menu.html" %}
+{% block title %} UI Forms {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+ <div class="section section-md pb-0">
+         <div class="container">
+             <!-- Title -->
+             <div class="row">
+                 <div class="col">
+                     <STYLE>
+                     H3 { text-align: center}
+                     h3{font-style: bold; color: black}
+</STYLE>
+                     <h3 class="h8" >USER SCREEN</h3>
+                 </div>
+             </div>
+                <!-- End of Title -->
+         </div>
+     </div>
+
+
+         <div class="section section-md pt-4" style="padding-bottom:15px !important">
+             <div class="container">
+                 <div class="row">
+                     <div class="col-12 ">
+                         <button type="button" id="refundsearchbutton" class="btn btn-primary" style="float:right">Add new user</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="section section-md pt-4" style="padding-bottom:15px !important">
+             <div class="container">
+                 <div class="row">
+                     <div class="col-12 ">
+                         <div class="row align-items-center">
+                             <div class="col">
+                                 <style>
+                                 table, th, td {
+                                 border:1px solid black;
+                                 height: 50px;
+                                 width: 90px;
+                                 text-align: center;
+                                 vertical-align: middle;
+                                 }
+</style>
+                                 <table style="width:100%">
+                                     <tr>
+                                         <th>S.No</th>
+                                         <th>Name</th>
+                                         <th>Type Of User</th>
+                                         <th>Contact No</th>
+
+                                         <th>Action</th>
+                                     </tr>
+                                     <tr>
+                                         <td style="height: 1.3em; padding: 5px 5px;"></td>
+                                         <td></td>
+                                         <td></td>
+                                         <td></td>
+
+                                         <td>
+
+                                             <div class="col-12 ">
+                                                 <button type="button" id="viewuser" class="btn btn-primary" style="float:left padding: 1px 1px;">View</button>
+                                                 <button type="button" id="edituser" class="btn btn-primary" style="float:right  padding: 1px 15px;">Edit</button>
+                                             </div>
+                                         </td>
+                                     </tr>
+                                     <tr>
+                                         <td style="height: 1.3em; padding: 4px 10px;"></td>
+                                         <td ></td>
+                                         <td></td>
+                                         <td></td>
+
+                                         <td>
+                                             <div class="col-12 ">
+                                                 <button type="button" id="viewuser" class="btn btn-primary" style="float:left padding: 1px 1px;">View</button>
+                                                 <button type="button" id="edituser" class="btn btn-primary" style="float:right padding: 1px 1px;">Edit</button>
+                                             </div>
+                                         </td>
+                                     </tr>
+                                 </table>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+
+ <!-- End of Section -->{% endblock content %}

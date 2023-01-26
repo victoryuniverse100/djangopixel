@@ -27,6 +27,8 @@ urlpatterns = [
     re_path('refund/', views.refund, name="refund"),
     re_path('reportMember/', views.reportMember, name="reportMember"),
     re_path('reportSeminar/', views.reportSeminar, name="reportSeminar"),
+    re_path('userScreen/', views.userScreen, name="userScreen"),
+    re_path('addUser/', views.addUser, name="addUser"),
 
 
     url ( r'^seminarRegistrationDataSave/' , views.seminar_registration_save , name = 'seminar_registration_form' ) ,

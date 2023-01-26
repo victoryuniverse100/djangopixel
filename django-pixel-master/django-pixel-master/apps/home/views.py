@@ -98,6 +98,12 @@ def reportMember(request) :
 def reportSeminar(request) :
     return render ( request , "home/reportseminar.html" )
 
+def userScreen(request) :
+    return render ( request , "home/userscreen.html" )
+
+def addUser(request) :
+    return render ( request , "home/adduser.html" )
+
 
 
 

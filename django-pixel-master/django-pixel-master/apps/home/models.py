@@ -44,8 +44,8 @@ class client_data(models.Model):
     created_date = models.DateField(auto_now_add=True)
     seq_id =models.CharField(max_length=10000)
 
-    photo_upload_path=models.CharField(max_length=10000)
-    idproof_upload_path=models.CharField(max_length=10000)
+    photo_upload_path=models.ImageField()
+    idproof_upload_path=models.ImageField()
 
 
 
@@ -85,3 +85,10 @@ class seminar_data(models.Model):
 
     class Meta:
         db_table = 'seminar_registration'
+
+class usergroup(models.Model):
+    user_type = models.CharField(max_length=10000)
+    created_date = models.DateTimeField(blank=True, null=True)
+
+    class Meta:
+        db_table ='user_group'
