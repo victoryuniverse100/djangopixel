@@ -21,13 +21,13 @@
                 <!-- End of Title -->
          </div>
      </div>
-
-
+<form action="/userFormData/"  method= "POST" enctype="multipart/form-data">
+{% csrf_token %}
          <div class="section section-md pt-4" style="padding-bottom:15px !important">
              <div class="container">
                  <div class="row">
                      <div class="col-12 ">
-                         <button type="button" id="refundsearchbutton" class="btn btn-primary" style="float:right">Add new user</button>
+                         <button type="submit" id="addnewuser" class="btn btn-primary" style="float:right">Add new user</button>
                      </div>
                  </div>
              </div>

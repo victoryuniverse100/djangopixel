@@ -13,10 +13,11 @@ from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
 from apps.home.forms import ClientForm , SeminarRegistrationForm
-from apps.home.models import client_data , seminar_data
+from apps.home.models import client_data , seminar_data ,usergroup
 from datetime import date
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
+from django.contrib.auth.models import User
 
 
 
@@ -101,13 +102,38 @@ def reportSeminar(request) :
 def userScreen(request) :
     return render ( request , "home/userscreen.html" )
 
-def addUser(request) :
-    return render ( request , "home/adduser.html" )
+def user_form(request):
+    key = usergroup.objects.all()
+    return render(request, "home/adduser.html", {'data': key})
 
+# def addUser(request) :
+#     key=usergroup.objects.all()
+#     return render ( request , "home/adduser.html" ,{'data':key})
 
-
-
-
+def adduser_form(request):
+    first_name = request.POST.get('first_name')
+    last_name =request.POST.get('last_name')
+    username =request.POST.get('username')
+    password =request.POST.get('password')
+    usertype =request.POST.get('usertype')
+    print (usertype)
+    email =request.POST.get('email')
+    country =request.POST.get('country')
+    location=request.POST.get('location')
+    contact_no =request.POST.get('contact_no')
+    user_data=User(
+        first_name =first_name,
+        last_name =last_name,
+        username =username,
+        password=password,
+        usertype =usertype,
+        email =email,
+        country=country,
+        location=location,
+        contact_no=contact_no,
+    )
+    user_data.save()
+    return render ( request , "home/userscreen.html" )
 
 
 @csrf_exempt

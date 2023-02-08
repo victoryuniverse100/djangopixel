@@ -23,9 +23,9 @@
         </div>
     </div>
     <div class="row">
-<!--<form action="/customerFormData/"  method= "POST" enctype="multipart/form-data">-->
+<form action="/adduserFormData/"  method= "POST" enctype="multipart/form-data">
     {% csrf_token %}
-        <!-- Section -->
+
          <div class="section section-md pt-4" style="padding-bottom:15px !important">
             <div class="container">
                 <div class="row">
@@ -35,13 +35,13 @@
                                 <label for="exampleInputEmail6" >First Name</label>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="firstname" id="firstname" required >
+                                <input type="text" class="form-control" name="first_name" id="first_name" required >
                             </div>
                             <div class="col-2">
                                 <label for="exampleInputEmail6">Last Name</label>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="lastname" id="lastname" >
+                                <input type="text" class="form-control" name="last_name" id="last_name" >
                             </div>
                         </div>
                     </div>
@@ -77,15 +77,19 @@
                         <div class="row align-items-center">
                             <div class="col-2">
                                 <label for="exampleInputEmail6">User Type</label>
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" name="usertype" id="usertype" >
+                                 </div>
+                             <div class="col">
+                                 <select class="form-control" name="usertype" id="usertype" >
+                                     {% for i in data %}
+                                     <option value="{{i.user_type}}">{{i.user_type}}</option>
+                                     {%endfor%}
+                                </select>
                             </div>
                             <div class="col-2">
                                 <label for="exampleInputEmail6">Mail ID</label>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="mailid" id="mailid" >
+                                <input type="text" class="form-control" name="email" id="email" >
                             </div>
                         </div>
                     </div>
@@ -149,6 +153,7 @@
         </div>
     </div>
 
-        <!-- End of Section -->{% endblock content %}
+
+    {% endblock content %}
 
     </main>

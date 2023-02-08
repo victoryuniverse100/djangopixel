@@ -14,6 +14,10 @@ urlpatterns = [
     # The home page
     path('', views.index, name='home'),
     url(r'^customerFormData/', views.customer_form, name='customer_form'),
+    url(r'^adduserFormData/', views.adduser_form, name='adduser_form'),
+    url(r'^userFormData/', views.user_form, name='adduser_form'),
+
+
     path('clientData/<str:client_uniqueid>', views.client_details),
     path('update_client_data/<str:client_uniqueid>', views.update_customer_form),
     re_path('seminarRegistration/', views.seminarRegistration, name="seminarRegistration"),
@@ -28,7 +32,7 @@ urlpatterns = [
     re_path('reportMember/', views.reportMember, name="reportMember"),
     re_path('reportSeminar/', views.reportSeminar, name="reportSeminar"),
     re_path('userScreen/', views.userScreen, name="userScreen"),
-    re_path('addUser/', views.addUser, name="addUser"),
+    # re_path('addUser/', views.addUser, name="addUser"),
 
 
     url ( r'^seminarRegistrationDataSave/' , views.seminar_registration_save , name = 'seminar_registration_form' ) ,
