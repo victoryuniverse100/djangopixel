@@ -100,7 +100,9 @@ def reportSeminar(request) :
     return render ( request , "home/reportseminar.html" )
 
 def userScreen(request) :
-    return render ( request , "home/userscreen.html" )
+    key1 = User.objects.all()
+    return render(request, "home/userscreen.html", {'data': key1})
+
 
 def user_form(request):
     key = usergroup.objects.all()
