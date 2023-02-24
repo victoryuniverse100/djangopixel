@@ -69,7 +69,7 @@
                                          <td>
 
                                              <div class="col-12 ">
-                                                 <button type="button" id="viewuser" class="btn btn-primary" style="float:left padding: 1px 1px;">View</button>
+                                                 <button type="button" id="viewuser" class="btn btn-primary"  onclick="location.href='{% url 'userdata' %}' ">View</button>
                                                  <button type="button" id="edituser" class="btn btn-primary" style="float:right  padding: 1px 15px;">Edit</button>
                                              </div>
                                          </td>
@@ -95,6 +95,7 @@
                  </div>
              </div>
          </div>
+</form>
 
 
  <!-- End of Section -->{% endblock content %}

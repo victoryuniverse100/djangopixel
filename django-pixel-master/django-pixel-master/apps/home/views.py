@@ -18,6 +18,7 @@ from datetime import date
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 
 
@@ -98,7 +99,7 @@ def reportMember(request) :
 
 def reportSeminar(request) :
     return render ( request , "home/reportseminar.html" )
-
+@csrf_exempt
 def userScreen(request) :
     key1 = User.objects.all()
     return render(request, "home/userscreen.html", {'data': key1})
@@ -108,17 +109,12 @@ def user_form(request):
     key = usergroup.objects.all()
     return render(request, "home/adduser.html", {'data': key})
 
-# def addUser(request) :
-#     key=usergroup.objects.all()
-#     return render ( request , "home/adduser.html" ,{'data':key})
-
 def adduser_form(request):
     first_name = request.POST.get('first_name')
     last_name =request.POST.get('last_name')
     username =request.POST.get('username')
     password =request.POST.get('password')
     usertype =request.POST.get('usertype')
-    print (usertype)
     email =request.POST.get('email')
     country =request.POST.get('country')
     location=request.POST.get('location')
@@ -135,7 +131,41 @@ def adduser_form(request):
         contact_no=contact_no,
     )
     user_data.save()
-    return render ( request , "home/userscreen.html" )
+    messages.success(request, 'New user added successfully.')
+    return render ( request , "home/adduser.html" )
+@csrf_exempt
+def user_details(request) :
+    user = User.objects.all()
+    return render ( request , "home/userview.html" , {'data' : user} )
+
+# def update_userform(request ):
+#     print (request)
+#     user_update =User.objects.all()
+#     user_update. first_name=request.POST.get(' first_name')
+#     user_update.last_name= request.POST.get(' last_name')
+#     user_update.username = request.POST.get(' username')
+#     user_update.password = request.POST.get(' password')
+#     user_update.usertype = request.POST.get(' usertype')
+#     user_update.email = request.POST.get(' email')
+#     user_update.country = request.POST.get(' country')
+#     user_update.location = request.POST.get(' location')
+#     user_update.contact_no = request.POST.get(' contact_no')
+#     user_update.save()
+#
+#
+#     return HttpResponseRedirect('/userData/' )
+#
+
+def addseminar_form(request):
+    seminarid = request.POST.get('seminarid')
+    seminarlocation = request.POST.get('seminarlocation')
+    seminarname = request.POST.get(' seminarname')
+    country = request.POST.get('country')
+    seminarfee = request.POST.get('seminarfee')
+    seminardate = request.POST.get('seminardate')
+
+    addseminar_data=addseminar_details
+
 
 
 @csrf_exempt

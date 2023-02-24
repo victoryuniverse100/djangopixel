@@ -19,9 +19,13 @@ urlpatterns = [
 
 
     path('clientData/<str:client_uniqueid>', views.client_details),
+    path('userData/', views.user_details),
     path('update_client_data/<str:client_uniqueid>', views.update_customer_form),
+
+
     re_path('seminarRegistration/', views.seminarRegistration, name="seminarRegistration"),
     re_path('memberHistory/', views.memberHistory, name="memberHistory"),
+    re_path('userdata/',views.user_details,name='userdata'),
     re_path('memberSearch/', views.memberSearch, name="memberSearch"),
     re_path('addSeminar/', views.addSeminar, name="addSeminar"),
     re_path('ondayEnroll/', views.ondayEnroll, name="ondayEnroll"),
@@ -32,7 +36,7 @@ urlpatterns = [
     re_path('reportMember/', views.reportMember, name="reportMember"),
     re_path('reportSeminar/', views.reportSeminar, name="reportSeminar"),
     re_path('userScreen/', views.userScreen, name="userScreen"),
-    # re_path('addUser/', views.addUser, name="addUser"),
+
 
 
     url ( r'^seminarRegistrationDataSave/' , views.seminar_registration_save , name = 'seminar_registration_form' ) ,

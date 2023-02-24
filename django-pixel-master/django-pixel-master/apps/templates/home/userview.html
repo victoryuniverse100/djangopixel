@@ -6,25 +6,23 @@
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
+
 <main>
+
     <div class="section section-md pb-0">
         <div class="container">
             <!-- Title -->
             <div class="row">
                 <div class="col">
-                    <STYLE>
-                    H3 { text-align: center}
-                    h3{font-style: bold; color: black}
-</STYLE>
-                    <h3 class="h8" >ADD USER DETAILS FORM</h3>
+                    <h2 class="h5"></h2>
                 </div>
             </div>
             <!-- End of Title -->
         </div>
     </div>
     <div class="row">
-<form action="/adduserFormData/"  method= "POST" enctype="multipart/form-data">
-    {% csrf_token %}
+
+        <form action="userData/" method="POST">{% csrf_token %}
 
          <div class="section section-md pt-4" style="padding-bottom:15px !important">
             <div class="container">
@@ -33,15 +31,21 @@
                         <div class="row align-items-center">
                             <div class="col-2">
                                 <label for="exampleInputEmail6" >First Name</label>
+
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="first_name" id="first_name" required >
+
+                                 <input class="form-control" id="first_name" name="first_name" readonly  type="text"
+                                       value="{{data.first_name}}">
+
                             </div>
                             <div class="col-2">
                                 <label for="exampleInputEmail6">Last Name</label>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="last_name" id="last_name" >
+
+                                 <input class="form-control" id="last_name" name="last_name" readonly  type="text"
+                                       value="{{data.last_name}}">
                             </div>
                         </div>
                     </div>
@@ -57,13 +61,17 @@
                                 <label for="exampleInputEmail6">User Name</label>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="username" id="username" >
+
+                                 <input class="form-control" id="username" name="username" readonly  type="text"
+                                       value="{{data.username}}">
                             </div>
                             <div class="col-2">
                                 <label for="exampleInputEmail6">Password</label>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="password" id="password" >
+
+                                 <input class="form-control" id="password" name="password" readonly  type="text"
+                                       value="{{data.password}}">
                             </div>
                         </div>
                     </div>
@@ -79,17 +87,17 @@
                                 <label for="exampleInputEmail6">User Type</label>
                                  </div>
                              <div class="col">
-                                 <select class="form-control" name="usertype" id="usertype" >
-                                     {% for i in data %}
-                                     <option value="{{i.user_type}}">{{i.user_type}}</option>
-                                     {%endfor%}
-                                </select>
+
+                                  <input class="form-control" id="usertype" name="usertype" readonly  type="text"
+                                       value="{{data.usertype}}">
                             </div>
                             <div class="col-2">
                                 <label for="exampleInputEmail6">Mail ID</label>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="email" id="email" >
+
+                                 <input class="form-control" id="email" name="email" readonly  type="text"
+                                       value="{{data.email}}">
                             </div>
                         </div>
                     </div>
@@ -106,19 +114,17 @@
                             </div>
                             <div class="col">
 
-                                 <select class="form-control" name="country" id="country" >
-                                    <option>Select</option>
-                                    <option>India</option>
-                                    <option>London</option>
-                                    <option>Malaysia</option>
-                                    <option>Singapore</option>
-                                </select>
+
+                                 <input class="form-control" id="country" name="country" readonly  type="text"
+                                       value="{{data.country}}">
                             </div>
                             <div class="col-2">
                                 <label for="exampleInputEmail6">Location</label>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="location" id="location" >
+
+                                 <input class="form-control" id="location" name="location" readonly  type="text"
+                                       value="{{data.location}}">
                             </div>
                         </div>
                     </div>
@@ -134,9 +140,13 @@
                                 <label for="exampleInputEmail6">Contact No</label>
                             </div>
                             <div class="col-4">
-                                <input type="text" class="form-control" name="contact_no" id="contact_no" >
-                            </div>
 
+                                 <input class="form-control" id="contact_no" name="contact_no" readonly  type="text"
+                                       value="{{data.contact_no}}">
+                                  <p align="right">
+
+
+                            </div>
 
 
                         </div>
@@ -144,16 +154,25 @@
                 </div>
             </div>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-10 ">
-                    <button type="submit" id="submitButton" class="btn btn-primary" style="float:right">Submit</button>
+
+
+            <div class="section pt-6" style="padding-bottom:15px !important">
+
+                                <div class="container">
+                <div class="row">
+                    <div class="col-12 ">
+                        <p align="right">
+
+                            <button class="btn btn-primary" id="updateButton" style="display:none" type="submit">Update</button></p>
+                    </div>
                 </div>
             </div>
-        </div>
 </form>
+
     </div>
+    <!-- End of Section -->
 
-    {% endblock content %}
+</main>
 
-    </main>
+
+{% endblock content %}
