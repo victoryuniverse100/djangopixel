@@ -102,11 +102,13 @@ def reportSeminar(request) :
 @csrf_exempt
 def userScreen(request) :
     key1 = User.objects.all()
+
     return render(request, "home/userscreen.html", {'data': key1})
 
 
 def user_form(request):
     key = usergroup.objects.all()
+
     return render(request, "home/adduser.html", {'data': key})
 
 def adduser_form(request):
@@ -130,9 +132,15 @@ def adduser_form(request):
         location=location,
         contact_no=contact_no,
     )
+
     user_data.save()
-    messages.success(request, 'New user added successfully.')
-    return render ( request , "home/adduser.html" )
+    messages.success(request, username +" added successfully")
+
+
+    return render ( request , "home/userscreen.html" )
+
+
+
 @csrf_exempt
 def user_details(request) :
     user = User.objects.all()
