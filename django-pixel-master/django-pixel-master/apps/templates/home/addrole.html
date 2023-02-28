@@ -25,7 +25,7 @@
         </div>
     </div>
     <div class="row">
-<form action="/adduserFormData/"  method= "POST" enctype="multipart/form-data">
+<form action="/addroleFormData/"  method= "POST" enctype="multipart/form-data">
     {% csrf_token %}
 
          <div class="section section-md pt-4" style="padding-bottom:15px !important">
@@ -34,17 +34,22 @@
                     <div class="col-10">
                         <div class="row align-items-center">
                             <div class="col-2">
-                                <label for="exampleInputEmail6" >First Name</label>
+                                <label for="exampleInputEmail6" >Name</label>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="first_name" id="first_name" required >
+                                <input type="text" class="form-control" name="name" id="name" required >
                             </div>
-                            <div class="col-2">
-                                <label for="exampleInputEmail6">Last Name</label>
-                            </div>
+                           <div class="col-2">
+                               <label for="exampleInputEmail6" >Role Type</label>
+                               </div>
                             <div class="col">
-                                <input type="text" class="form-control" name="last_name" id="last_name" >
-                            </div>
+                               <select class="form-control" name="role_type" id="role_type" >
+                                   <option>Select</option>
+                                   <option>Leader</option>
+                                   <option>Assistant Leader</option>
+                                   <option>Team Leader</option>
+                               </select>
+                           </div>
                         </div>
                     </div>
                 </div>
@@ -54,54 +59,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-10">
-                        <div class="row align-items-center">
-                            <div class="col-2">
-                                <label for="exampleInputEmail6">User Name</label>
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" name="username" id="username" >
-                            </div>
-                            <div class="col-2">
-                                <label for="exampleInputEmail6">Password</label>
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" name="password" id="password" >
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="section section-md pt-3" style="padding-bottom:15px !important">
-            <div class="container">
-                <div class="row">
-                    <div class="col-10 ">
-                        <div class="row align-items-center">
-                            <div class="col-2">
-                                <label for="exampleInputEmail6">User Type</label>
-                                 </div>
-                             <div class="col">
-                                 <select class="form-control" name="usertype" id="usertype" >
-                                     {% for i in data %}
-                                     <option value="{{i.user_type}}">{{i.user_type}}</option>
-                                     {%endfor%}
-                                </select>
-                            </div>
-                            <div class="col-2">
-                                <label for="exampleInputEmail6">Mail ID</label>
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control" name="email" id="email" >
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      <div class="section section-md pt-3" style="padding-bottom:15px !important">
-            <div class="container">
-                <div class="row">
-                    <div class="col-10 ">
                         <div class="row align-items-center">
                             <div class="col-2">
                                 <label for="exampleInputEmail6">Country</label>
@@ -116,8 +73,8 @@
                                     <option>Singapore</option>
                                 </select>
                             </div>
-                            <div class="col-2">
-                                <label for="exampleInputEmail6">Location</label>
+                             <div class="col-2">
+                                <label for="exampleInputEmail6">location</label>
                             </div>
                             <div class="col">
                                 <input type="text" class="form-control" name="location" id="location" >
@@ -132,20 +89,21 @@
                 <div class="row">
                     <div class="col-10 ">
                         <div class="row align-items-center">
+
+
                             <div class="col-2">
                                 <label for="exampleInputEmail6">Contact No</label>
                             </div>
                             <div class="col-4">
                                 <input type="text" class="form-control" name="contact_no" id="contact_no" >
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
         <div class="container">
             <div class="row">
                 <div class="col-10 ">

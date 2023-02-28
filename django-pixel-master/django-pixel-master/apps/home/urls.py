@@ -15,12 +15,15 @@ urlpatterns = [
     path('', views.index, name='home'),
     url(r'^customerFormData/', views.customer_form, name='customer_form'),
     url(r'^adduserFormData/', views.adduser_form, name='adduser_form'),
+    url(r'^addroleFormData/', views.addrole_form, name='addrole_form'),
     url(r'^userFormData/', views.user_form, name='adduser_form'),
+    url(r'^roleFormData/', views.role_form, name='addrole_form'),
 
 
     path('clientData/<str:client_uniqueid>', views.client_details),
-    path('userData/', views.user_details),
+    path('userData/<str:user_id>', views.user_details),
     path('update_client_data/<str:client_uniqueid>', views.update_customer_form),
+    path('update_user_data/<str:user_id>', views.update_user_form),
 
 
     re_path('seminarRegistration/', views.seminarRegistration, name="seminarRegistration"),
@@ -36,6 +39,7 @@ urlpatterns = [
     re_path('reportMember/', views.reportMember, name="reportMember"),
     re_path('reportSeminar/', views.reportSeminar, name="reportSeminar"),
     re_path('userScreen/', views.userScreen, name="userScreen"),
+    # re_path('roledata/',views.roledata,name='roledata'),
 
 
 

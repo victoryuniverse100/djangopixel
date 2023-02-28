@@ -104,3 +104,14 @@ class addseminar_details(models.Model):
     class Meta:
         db_table = 'add_seminar'
 
+class role(models.Model):
+    name =models.CharField(max_length=10000)
+    role_type = models.CharField(max_length=10000)
+    contact_no =models.CharField(max_length=10000)
+    country =models.CharField(max_length=10000)
+    location =models.CharField(max_length=10000)
+    logged_userid =models.CharField(max_length=10000)
+    created_date =models.CharField(max_length=10000)
+
+    class Meta:
+        db_table = 'add_role'

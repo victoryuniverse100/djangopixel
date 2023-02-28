@@ -13,7 +13,7 @@ from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
 from apps.home.forms import ClientForm , SeminarRegistrationForm
-from apps.home.models import client_data , seminar_data ,usergroup
+from apps.home.models import client_data , seminar_data ,usergroup,role
 from datetime import date
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
@@ -79,8 +79,9 @@ def addSeminar(request) :
 
 def ondayEnroll(request) :
     return render ( request , "home/seminarondayenroll.html" )
-
+@csrf_exempt
 def roleAssign(request) :
+
     return render ( request , "home/roleassign.html" )
 
 def roleView(request) :
@@ -99,16 +100,15 @@ def reportMember(request) :
 
 def reportSeminar(request) :
     return render ( request , "home/reportseminar.html" )
+
 @csrf_exempt
 def userScreen(request) :
     key1 = User.objects.all()
-
     return render(request, "home/userscreen.html", {'data': key1})
 
 
 def user_form(request):
     key = usergroup.objects.all()
-
     return render(request, "home/adduser.html", {'data': key})
 
 def adduser_form(request):
@@ -121,7 +121,10 @@ def adduser_form(request):
     country =request.POST.get('country')
     location=request.POST.get('location')
     contact_no =request.POST.get('contact_no')
+
+
     user_data=User(
+
         first_name =first_name,
         last_name =last_name,
         username =username,
@@ -140,39 +143,73 @@ def adduser_form(request):
     return render ( request , "home/userscreen.html" )
 
 
+@csrf_exempt
+def user_details (request,user_id):
+    user = User.objects.get(user_id=user_id)
+    return render(request, "home/userview.html", {'data': user})
+
 
 @csrf_exempt
-def user_details(request) :
-    user = User.objects.all()
-    return render ( request , "home/userview.html" , {'data' : user} )
+def update_user_form(request,user_id):
+    print (request)
+    user_update = User.objects.get(user_id=user_id)
+    user_update.user_id=request.POST.get('user_id')
+    user_update.first_name=request.POST.get(' first_name')
+    user_update.last_name= request.POST.get(' last_name')
+    user_update.username = request.POST.get(' username')
+    user_update.password = request.POST.get(' password')
+    user_update.usertype = request.POST.get(' usertype')
+    user_update.email = request.POST.get(' email')
+    user_update.country = request.POST.get(' country')
+    user_update.location = request.POST.get(' location')
+    user_update.contact_no = request.POST.get(' contact_no')
 
-# def update_userform(request ):
-#     print (request)
-#     user_update =User.objects.all()
-#     user_update. first_name=request.POST.get(' first_name')
-#     user_update.last_name= request.POST.get(' last_name')
-#     user_update.username = request.POST.get(' username')
-#     user_update.password = request.POST.get(' password')
-#     user_update.usertype = request.POST.get(' usertype')
-#     user_update.email = request.POST.get(' email')
-#     user_update.country = request.POST.get(' country')
-#     user_update.location = request.POST.get(' location')
-#     user_update.contact_no = request.POST.get(' contact_no')
-#     user_update.save()
-#
-#
-#     return HttpResponseRedirect('/userData/' )
-#
 
-def addseminar_form(request):
-    seminarid = request.POST.get('seminarid')
-    seminarlocation = request.POST.get('seminarlocation')
-    seminarname = request.POST.get(' seminarname')
-    country = request.POST.get('country')
-    seminarfee = request.POST.get('seminarfee')
-    seminardate = request.POST.get('seminardate')
 
-    addseminar_data=addseminar_details
+    user_update.save()
+
+
+    return HttpResponseRedirect('/userData/' + user_id )
+
+def role_form(request):
+   key2 = role.objects.all()
+   return render(request, "home/addrole.html", {'data': key2})
+
+def addrole_form(request):
+    name = request.POST.get('name')
+    role_type =request.POST.get('role_type')
+    contact_no =request.POST.get('contact_no')
+    country =request.POST.get('country')
+    location=request.POST.get('location')
+
+    role_data=role(
+
+        name =name,
+        role_type =role_type,
+        contact_no =contact_no,
+        country=country,
+        location=location,
+
+    )
+
+    role_data.save()
+    messages.success(request, name +" added successfully")
+
+
+    return render ( request , "home/roleassign.html" )
+
+
+
+
+# def addseminar_form(request):
+#     seminarid = request.POST.get('seminarid')
+#     seminarlocation = request.POST.get('seminarlocation')
+#     seminarname = request.POST.get(' seminarname')
+#     country = request.POST.get('country')
+#     seminarfee = request.POST.get('seminarfee')
+#     seminardate = request.POST.get('seminardate')
+#
+#     addseminar_data=addseminar_details
 
 
 
@@ -283,12 +320,12 @@ def customer_form(request):
 
 
     client_uniqueid = client_uniqueid.replace("-",""),
-    created_date=created_date,
+    created_date = created_date,
 
     photo_upload_path = photo_upload_path,
     idproof_upload_path= idproof_upload_path,
 
-    seq_id=seq_id,
+    seq_id= seq_id,
 
 
 
