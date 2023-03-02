@@ -66,17 +66,14 @@
                                        {% for i in data %}
                                      <tr>
                                          <td>{{i.id}}</td>
-
-
                                          <td>{{i.username}}</td>
-
                                          <td>{{i.usertype}}</td>
                                          <td>{{i.contact_no}}</td>
 
                                          <td>
 
                                              <div class="col-12 ">
-                                                 <button type="button" id="viewuser" class="btn btn-primary"  onclick="location.href='{% url 'userdata' %}' ">View</button>
+                                                 <button type="button" id="viewuser" class="btn btn-primary"  onclick="location.href='{% url 'userdata:id'id=1 %}' ">View</button>
                                                  <button type="button" id="edituser" class="btn btn-primary" style="float:right  padding: 1px 15px;">Edit</button>
                                              </div>
                                          </td>
@@ -96,6 +93,7 @@
 <!--                                         </td>-->
 <!--                                     </tr>-->
                                  </table>
+
                              </div>
                          </div>
                      </div>

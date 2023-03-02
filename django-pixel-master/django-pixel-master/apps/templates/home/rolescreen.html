@@ -1,13 +1,12 @@
 {% extends "layouts/base.html" %}
-
+{% include "layouts/menu.html" %}
 {% block title %} UI Forms {% endblock %}
 
 <!-- Specific Page CSS goes HERE  -->
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
-<main>
-    <div class="section section-md pb-0">
+<div class="section section-md pb-0">
         <div class="container">
             <!-- Title -->
             <div class="row">
@@ -36,6 +35,7 @@
                     {% endfor %}
                     {% endif %}
                          <button type="submit" id="addnewuser" class="btn btn-primary" style="float:right">Add role</button>
+                         <p>{{data.role_type}}</p>
                      </div>
                  </div>
              </div>
@@ -62,21 +62,18 @@
                                          <th>Role Type</th>
                                          <th>Contact No</th>
                                          <th>Action</th>
+
                                      </tr>
-                                       {% for r in data %}
+                                       {% for i in data %}
                                      <tr>
-                                         <td>{{r.id}}</td>
-
-
-                                         <td>{{r.name}}</td>
-
-                                         <td>{{r.role_type}}</td>
-                                         <td>{{r.contact_no}}</td>
-
+<!--                                         <td>{{i.id}}</td>-->
+<!--                                         <td>{{i.name}}</td>-->
+<!--                                         <td>{{i.role_type}}</td>-->
+<!--                                         <td>{{i.contact_no}}</td>-->
                                          <td>
 
                                              <div class="col-12 ">
-                                                 <button type="button" id="viewuser" class="btn btn-primary"  onclick="location.href='{% url 'data' %}' ">View</button>
+<!--                                                 <button type="button" id="viewuser" class="btn btn-primary"  onclick="location.href='{% url 'data' %}' ">View</button>-->
                                                  <button type="button" id="edituser" class="btn btn-primary" style="float:right  padding: 1px 15px;">Edit</button>
                                              </div>
                                          </td>

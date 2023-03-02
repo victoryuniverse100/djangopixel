@@ -71,6 +71,7 @@ def registration(request) :
 def memberHistory(request) :
     return render ( request , "home/memberhistory.html" )
 
+
 def memberSearch(request) :
     return render ( request , "home/membersearch.html" )
 
@@ -79,13 +80,10 @@ def addSeminar(request) :
 
 def ondayEnroll(request) :
     return render ( request , "home/seminarondayenroll.html" )
-@csrf_exempt
-def roleAssign(request) :
-
-    return render ( request , "home/roleassign.html" )
 
 def roleView(request) :
     return render ( request , "home/rolegrid.html" )
+
 
 def transfer(request) :
     return render ( request , "home/transferscreen.html" )
@@ -104,7 +102,16 @@ def reportSeminar(request) :
 @csrf_exempt
 def userScreen(request) :
     key1 = User.objects.all()
+    print(key1)
     return render(request, "home/userscreen.html", {'data': key1})
+
+@csrf_exempt
+def roleAssign(request) :
+    roledata = role.objects.all()
+    print (role.objects.all())
+    print(usergroup.objects.all())
+    return render(request, "home/rolescreen.html",{'data':roledata})
+
 
 
 def user_form(request):
@@ -144,8 +151,8 @@ def adduser_form(request):
 
 
 @csrf_exempt
-def user_details (request,user_id):
-    user = User.objects.get(user_id=user_id)
+def user_details (request,id):
+    user = User.objects.get(id=id)
     return render(request, "home/userview.html", {'data': user})
 
 
@@ -171,9 +178,11 @@ def update_user_form(request,user_id):
 
     return HttpResponseRedirect('/userData/' + user_id )
 
+
+
+
 def role_form(request):
-   key2 = role.objects.all()
-   return render(request, "home/addrole.html", {'data': key2})
+    return render(request, "home/addrole.html")
 
 def addrole_form(request):
     name = request.POST.get('name')
@@ -196,7 +205,7 @@ def addrole_form(request):
     messages.success(request, name +" added successfully")
 
 
-    return render ( request , "home/roleassign.html" )
+    return render ( request , "home/rolescreen.html" )
 
 
 
