@@ -21,6 +21,25 @@
                 <!-- End of Title -->
          </div>
      </div>
+
+<form action="/roleFormData/"  method= "POST" enctype="multipart/form-data">
+{% csrf_token %}
+    <div class="section section-md pt-4" style="padding-bottom:15px !important">
+             <div class="container">
+                 <div class="row">
+                     <div class="col-12 ">
+                         {% if messages %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{message.tags}}">
+                        {{message}}
+                    </div>
+                    {% endfor %}
+                    {% endif %}
+                         <button type="submit" id="addnewuser" class="btn btn-primary" style="float:right">Add Role</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
  <div class="section section-md pt-4" style="padding-bottom:15px !important">
              <div class="container">
                  <div class="row">
@@ -40,30 +59,27 @@
                                      <tr>
                                          <th>S.No</th>
                                          <th>Name</th>
-<!--                                         <th>Type Of User</th>-->
-<!--                                         <th>Contact No</th>-->
-
-<!--                                         <th>Action</th>-->
+                                         <th>Type Of User</th>
+                                         <th>Contact No</th>
+                                         <th>Action</th>
                                      </tr>
  {% for i in role %}
                                      <tr>
                                          <td>{{i.id}}</td>
                                          <td>{{i.name}}</td>
-                                          </tr>
-                                     {%endfor%}
-<!--                                     <tr>-->
-<!--                                         <td style="height: 1.3em; padding: 4px 10px;"></td>-->
-<!--                                         <td ></td>-->
-<!--                                         <td></td>-->
-<!--                                         <td></td>-->
+                                         <td>{{i.role_type}}</td>
+                                          <td>{{i.contact_no}}</td>
 
-<!--                                         <td>-->
-<!--                                             <div class="col-12 ">-->
-<!--                                                 <button type="button" id="viewuser" class="btn btn-primary" style="float:left padding: 1px 1px;">View</button>-->
-<!--                                                 <button type="button" id="edituser" class="btn btn-primary" style="float:right padding: 1px 1px;">Edit</button>-->
-<!--                                             </div>-->
-<!--                                         </td>-->
-<!--                                     </tr>-->
+
+                                         <td>
+                                             <div class="col-12 ">
+                                                 <button type="button" id="viewuser" class="btn btn-primary" style="float:left padding: 1px 1px;">View</button>
+                                                 <button type="button" id="edituser" class="btn btn-primary" style="float:right padding: 1px 1px;">Edit</button>
+                                             </div>
+                                         </td>
+                                     </tr>
+                                     {%endfor%}
+
                                  </table>
 
                              </div>
