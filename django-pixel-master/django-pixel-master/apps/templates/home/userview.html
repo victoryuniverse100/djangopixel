@@ -22,8 +22,8 @@
     </div>
     <div class="row">
 
-        <form action="update_user_data//{{data.user_id}}" method="POST">{% csrf_token %}
- <input name="data.user_id" type="hidden" value="{{data.user_id}}">
+        <form action="update_user_data//{{data.id}}" method="POST">{% csrf_token %}
+ <input name="data.id" type="hidden" value="{{data.id}}">
 
          <div class="section section-md pt-4" style="padding-bottom:15px !important">
             <div class="container">
@@ -35,10 +35,10 @@
 
                             </div>
                             <div class="col">
- {% for i in data %}
+
                                  <input class="form-control" id="first_name" name="first_name" readonly  type="text"
                                        value="{{i.first_name}}">
- {%endfor%}
+
                             </div>
                             <div class="col-2">
                                 <label for="exampleInputEmail6">Last Name</label>

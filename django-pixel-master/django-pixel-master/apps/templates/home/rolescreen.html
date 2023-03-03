@@ -6,41 +6,22 @@
 {% block stylesheets %}{% endblock stylesheets %}
 
 {% block content %}
-<div class="section section-md pb-0">
-        <div class="container">
-            <!-- Title -->
-            <div class="row">
-                <div class="col">
-                    <STYLE>
+ <div class="section section-md pb-0">
+         <div class="container">
+             <!-- Title -->
+             <div class="row">
+                 <div class="col">
+                     <STYLE>
                      H3 { text-align: center}
                      h3{font-style: bold; color: black}
 </STYLE>
-                    <h3 class="h8" >ROLE ASSIGNING </h3>
-                </div>
-            </div>
-                <!-- End of Title -->
-        </div>
-    </div>
-<form action="/roleFormData/"  method= "POST" enctype="multipart/form-data">
-{% csrf_token %}
-         <div class="section section-md pt-4" style="padding-bottom:15px !important">
-             <div class="container">
-                 <div class="row">
-                     <div class="col-12 ">
-                         {% if messages %}
-                    {% for message in messages %}
-                    <div class="alert alert-{{message.tags}}">
-                        {{message}}
-                    </div>
-                    {% endfor %}
-                    {% endif %}
-                         <button type="submit" id="addnewuser" class="btn btn-primary" style="float:right">Add role</button>
-                         <p>{{data.role_type}}</p>
-                     </div>
+                     <h3 class="h8" >ROLE SCREEN</h3>
                  </div>
              </div>
+                <!-- End of Title -->
          </div>
-   <div class="section section-md pt-4" style="padding-bottom:15px !important">
+     </div>
+ <div class="section section-md pt-4" style="padding-bottom:15px !important">
              <div class="container">
                  <div class="row">
                      <div class="col-12 ">
@@ -59,25 +40,16 @@
                                      <tr>
                                          <th>S.No</th>
                                          <th>Name</th>
-                                         <th>Role Type</th>
-                                         <th>Contact No</th>
-                                         <th>Action</th>
+<!--                                         <th>Type Of User</th>-->
+<!--                                         <th>Contact No</th>-->
 
+<!--                                         <th>Action</th>-->
                                      </tr>
-                                       {% for i in data %}
+ {% for i in role %}
                                      <tr>
-<!--                                         <td>{{i.id}}</td>-->
-<!--                                         <td>{{i.name}}</td>-->
-<!--                                         <td>{{i.role_type}}</td>-->
-<!--                                         <td>{{i.contact_no}}</td>-->
-                                         <td>
-
-                                             <div class="col-12 ">
-<!--                                                 <button type="button" id="viewuser" class="btn btn-primary"  onclick="location.href='{% url 'data' %}' ">View</button>-->
-                                                 <button type="button" id="edituser" class="btn btn-primary" style="float:right  padding: 1px 15px;">Edit</button>
-                                             </div>
-                                         </td>
-                                     </tr>
+                                         <td>{{i.id}}</td>
+                                         <td>{{i.name}}</td>
+                                          </tr>
                                      {%endfor%}
 <!--                                     <tr>-->
 <!--                                         <td style="height: 1.3em; padding: 4px 10px;"></td>-->
@@ -93,14 +65,13 @@
 <!--                                         </td>-->
 <!--                                     </tr>-->
                                  </table>
+
                              </div>
                          </div>
                      </div>
                  </div>
              </div>
          </div>
-</form>
-
         <!-- End of Section -->{% endblock content %}
 
 

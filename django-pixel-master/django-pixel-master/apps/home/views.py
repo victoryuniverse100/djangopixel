@@ -105,13 +105,12 @@ def userScreen(request) :
     print(key1)
     return render(request, "home/userscreen.html", {'data': key1})
 
-@csrf_exempt
-def roleAssign(request) :
-    roledata = role.objects.all()
-    print (role.objects.all())
-    print(usergroup.objects.all())
-    return render(request, "home/rolescreen.html",{'data':roledata})
 
+@csrf_exempt
+def roleScreen(request) :
+    roleData = role.objects.all()
+    #return HttpResponse("hello")
+    return render(request, "home/rolescreen.html", {'role':roleData})
 
 
 def user_form(request):
@@ -157,10 +156,10 @@ def user_details (request,id):
 
 
 @csrf_exempt
-def update_user_form(request,user_id):
+def update_user_form(request,id):
     print (request)
-    user_update = User.objects.get(user_id=user_id)
-    user_update.user_id=request.POST.get('user_id')
+    user_update = User.objects.get(id=id)
+    user_update.user_id=request.POST.get('id')
     user_update.first_name=request.POST.get(' first_name')
     user_update.last_name= request.POST.get(' last_name')
     user_update.username = request.POST.get(' username')
