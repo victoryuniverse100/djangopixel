@@ -35,6 +35,10 @@
                     {% endfor %}
                     {% endif %}
                          <button type="submit" id="addnewuser" class="btn btn-primary" style="float:right">Add new user</button>
+                         <p>{{ request.user.username }}
+</p>
+     <p>{{ request.user.id }}</p>
+     <p>{{ request.user.email }}</p>
                      </div>
                  </div>
              </div>

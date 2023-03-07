@@ -539,6 +539,7 @@ def addrole_form(request):
     country =request.POST.get('country')
     location=request.POST.get('location')
 
+
     addrole_data=role(
 
         name =name,
@@ -546,6 +547,7 @@ def addrole_form(request):
         contact_no =contact_no,
         country=country,
         location=location,
+
 
     )
 
