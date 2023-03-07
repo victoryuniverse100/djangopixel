@@ -435,8 +435,6 @@ def addSeminar(request) :
 def ondayEnroll(request) :
     return render ( request , "home/seminarondayenroll.html" )
 
-def roleView(request) :
-    return render ( request , "home/rolegrid.html" )
 
 
 def transfer(request) :
@@ -460,11 +458,7 @@ def userScreen(request) :
     return render(request, "home/userscreen.html", {'data': key1})
 
 
-@csrf_exempt
-def roleScreen(request) :
-    roleData = role.objects.all()
-    #return HttpResponse("hello")
-    return render(request, "home/rolescreen.html", {'role':roleData})
+
 
 
 def user_form(request):
@@ -509,29 +503,30 @@ def user_details (request,id):
     return render(request, "home/userview.html", {'data': user})
 
 
-@csrf_exempt
-def update_user_form(request,id):
-    print (request)
-    user_update = User.objects.get(id=id)
+def update_user_form(request , id) :
 
-    user_update.first_name=request.POST.get(' first_name')
-    user_update.last_name= request.POST.get(' last_name')
-    user_update.username = request.POST.get(' username')
-    user_update.password = request.POST.get(' password')
-    user_update.usertype = request.POST.get(' usertype')
-    user_update.email = request.POST.get(' email')
-    user_update.country = request.POST.get(' country')
-    user_update.location = request.POST.get(' location')
+    user_update = User.objects.get ( id = id )
+    user_update.first_name = request.POST.get ( 'first_name' )
+    user_update.last_name = request.POST.get ( 'last_name ' )
+    user_update.username = request.POST.get ( 'username' )
+    user_update.password = request.POST.get ( 'password' )
+    user_update.usertype = request.POST.get ( 'usertype' )
+    user_update.email = request.POST.get('email')
+    user_update.country = request.POST.get('country')
+    user_update.location = request.POST.get('location')
     user_update.contact_no = request.POST.get(' contact_no')
 
 
 
     user_update.save()
 
+    return HttpResponseRedirect( '/userdata/' + id)
 
-    return HttpResponseRedirect('/userData/' + id )
-
-
+@csrf_exempt
+def roleScreen(request) :
+    roleData = role.objects.all()
+    #return HttpResponse("hello")
+    return render(request, "home/rolescreen.html", {'role':roleData})
 
 
 def role_form(request):
@@ -544,7 +539,7 @@ def addrole_form(request):
     country =request.POST.get('country')
     location=request.POST.get('location')
 
-    role_data=role(
+    addrole_data=role(
 
         name =name,
         role_type =role_type,
@@ -554,11 +549,33 @@ def addrole_form(request):
 
     )
 
-    role_data.save()
+    addrole_data.save()
     messages.success(request, name +" added successfully")
 
 
     return render ( request , "home/rolescreen.html" )
+
+
+@csrf_exempt
+def roleView(request,id):
+    roleview_data = role.objects.get(id=id)
+    print (roleview_data)
+    return render ( request , "home/roleview.html" , {'data' : roleview_data} )
+
+@csrf_exempt
+def update_role_form(request , id) :
+
+    role_update = role.objects.get ( id = id )
+    role_update.name = request.POST.get ( 'name' )
+    role_update.role_type = request.POST.get ( 'role_type' )
+    role_update.contact_no = request.POST.get ( 'contact_no' )
+    role_update.country = request.POST.get ( 'country' )
+    role_update.location = request.POST.get ( 'location' )
+
+
+    role_update.save()
+
+    return HttpResponseRedirect( '/roleformdata/' + id)
 
 
 

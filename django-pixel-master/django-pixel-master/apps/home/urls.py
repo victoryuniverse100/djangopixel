@@ -15,25 +15,25 @@ urlpatterns = [
     path('', views.index, name='home'),
     url(r'^customerFormData/', views.customer_form, name='customer_form'),
     url(r'^adduserFormData/', views.adduser_form, name='adduser_form'),
-    url(r'^addroleFormData/', views.addrole_form, name='addrole_form'),
     url(r'^userFormData/', views.user_form, name='adduser_form'),
     url(r'^roleFormData/', views.role_form, name='role_form'),
 
 
 
+
     path('clientData/<str:client_uniqueid>', views.client_details),
-    path('userData/<str:id>', views.user_details),
+    path('userData/<int:id>', views.user_details),
     path('update_client_data/<str:client_uniqueid>', views.update_customer_form),
-    path('update_user_data/<str:id>', views.update_user_form),
+
 
 
     re_path('seminarRegistration/', views.seminarRegistration, name="seminarRegistration"),
     re_path('memberHistory/', views.memberHistory, name="memberHistory"),
-    path('userdata/<int:id>',views.user_details,name='userdata'),
+
     re_path('memberSearch/', views.memberSearch, name="memberSearch"),
     re_path('addSeminar/', views.addSeminar, name="addSeminar"),
     re_path('ondayEnroll/', views.ondayEnroll, name="ondayEnroll"),
-    re_path('roleView/', views.roleView, name="roleView"),
+
     re_path('transfer/', views.transfer, name="transfer"),
     re_path('refund/', views.refund, name="refund"),
     re_path('reportMember/', views.reportMember, name="reportMember"),
@@ -42,13 +42,24 @@ urlpatterns = [
     re_path('roleScreen/', views.roleScreen, name="roleScreen"),
 
 
-    # re_path('roledata/',views.roledata,name='roledata'),
+
 
 
 
     url ( r'^seminarRegistrationDataSave/' , views.seminar_registration_save , name = 'seminar_registration_form' ) ,
     path('seminarRegistrationDataView/<str:regid>', views.seminarRegistrationDataView),
     path('updateSeminarRegistrationData/<str:regid>', views.update_seminar_registration_form),
+
+
+    path('userdata/<int:id>', views.user_details, name='userdata'),
+    path('update_user_form/<str:id>', views.update_user_form),
+
+    path('roleformdata/<int:id>', views.roleView, name='roleformdata'),
+    path('update_role_form/<str:id>', views.update_role_form),
+
+
+
+
 
 
     # Matches any html file

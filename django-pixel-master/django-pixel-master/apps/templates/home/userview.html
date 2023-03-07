@@ -1,5 +1,5 @@
 {% extends "layouts/base.html" %}
-
+{% include "layouts/menu.html" %}
 {% block title %} UI Forms {% endblock %}
 
 <!-- Specific Page CSS goes HERE  -->
@@ -22,8 +22,8 @@
     </div>
     <div class="row">
 
-        <form action="update_user_data//{{data.id}}" method="POST">{% csrf_token %}
- <input name="data.id" type="hidden" value="{{data.id}}">
+        <form action="update_user_form/{{data.id }}" method="POST">{% csrf_token %}
+
 
          <div class="section section-md pt-4" style="padding-bottom:15px !important">
             <div class="container">
@@ -53,7 +53,9 @@
                 </div>
             </div>
         </div>
-        <div class="section section-md pt-4" style="padding-bottom:15px !important">
+
+         <div class="section pt-3" style="padding-bottom:15px !important">
+
             <div class="container">
                 <div class="row">
                     <div class="col-10">
@@ -62,8 +64,7 @@
                                 <label for="exampleInputEmail6">User Name</label>
                             </div>
                             <div class="col">
-
-                                 <input class="form-control" id="username" name="username" readonly  type="text"
+                                <input class="form-control" id="username" name="username" readonly  type="text"
                                        value="{{data.username}}">
                             </div>
                             <div class="col-2">
@@ -157,9 +158,8 @@
         </div>
 
 
-         <div class="section pt-6" style="padding-bottom:15px !important">
 
-                                <div class="container">
+                               <div class="container">
                 <div class="row">
                     <div class="col-12 ">
                         <p align="right">
@@ -167,15 +167,16 @@
                             <button class="btn btn-primary" id="updateButton" style="display:none" type="submit">Update</button></p>
                     </div>
                 </div>
+
             </div>
-</div>
 
-</form>
 
+              </form>
     </div>
-    <!-- End of Section -->
+ <!-- End of Section -->
 
 </main>
+
 
 
 {% endblock content %}

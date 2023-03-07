@@ -72,9 +72,9 @@
 
 
                                          <td>
-                                             <div class="col-12 ">
-                                                 <button type="button" id="viewuser" class="btn btn-primary" style="float:left padding: 1px 1px;">View</button>
-                                                 <button type="button" id="edituser" class="btn btn-primary" style="float:right padding: 1px 1px;">Edit</button>
+                                              <div class="col-12 ">
+                                                 <button type="button" id="viewuser" class="btn btn-primary"  onclick="location.href='{% url 'roleformdata' id=i.id  %}' ">View</button>
+                                                  <button class="btn btn-primary" id="editButton" type="button">Edit</button>
                                              </div>
                                          </td>
                                      </tr>

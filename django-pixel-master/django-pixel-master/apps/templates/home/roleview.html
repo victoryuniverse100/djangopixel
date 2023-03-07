@@ -1,0 +1,121 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Forms {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<main>
+  <div class="section section-md pb-0">
+        <div class="container">
+            <!-- Title -->
+            <div class="row">
+                <div class="col">
+                    <h3 class="h5"></h3>
+                </div>
+            </div>
+            <!-- End of Title -->
+        </div>
+    </div>
+    <div class="row">
+        <form action="/update_role_form/{{data.id }}" method="POST">{% csrf_token %}
+
+           <div class="section section-md pt-4" style="padding-bottom:15px !important">
+            <div class="container">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="row align-items-center">
+                            <div class="col-2">
+                                <label for="exampleInputEmail6" >Name</label>
+
+                            </div>
+                            <div class="col">
+
+                                 <input class="form-control" id="name" name="name" readonly  type="text"
+                                       value="{{data.name}}">
+
+                            </div>
+                            <div class="col-2">
+                                <label for="exampleInputEmail6">Role Type</label>
+                            </div>
+                            <div class="col">
+
+                                 <input class="form-control" id="role_type" name="role_type" readonly  type="text"
+                                       value="{{data.role_type}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+             <div class="section pt-3" style="padding-bottom:15px !important">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="row align-items-center">
+                            <div class="col-2">
+                                <label for="exampleInputEmail6">Country</label>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" id="country" name="country" readonly  type="text"
+                                       value="{{data.country}}">
+                            </div>
+                            <div class="col-2">
+                                <label for="exampleInputEmail6">Location</label>
+                            </div>
+                            <div class="col">
+
+                                 <input class="form-control" id="location" name="location" readonly  type="text"
+                                       value="{{data.location}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+             <div class="section section-md pt-3" style="padding-bottom:15px !important">
+            <div class="container">
+                <div class="row">
+                    <div class="col-10 ">
+                        <div class="row align-items-center">
+
+
+                            <div class="col-2">
+                                <label for="exampleInputEmail6">Contact No</label>
+                            </div>
+                            <div class="col-4">
+                                 <input class="form-control" id="contact_no" name="contact_no" readonly  type="text"
+                                       value="{{data.contact_no}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 ">
+                        <p align="right">
+                        <button class="btn btn-primary" id="editButton" type="button">Edit</button>
+                            <button class="btn btn-primary" id="updateButton" style="display:none" type="submit">Update</button></p>
+                    </div>
+                </div>
+
+            </div>
+
+
+              </form>
+    </div>
+ <!-- End of Section -->
+
+</main>
+
+
+
+{% endblock content %}
