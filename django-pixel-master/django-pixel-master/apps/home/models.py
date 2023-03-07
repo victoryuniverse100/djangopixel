@@ -5,6 +5,7 @@ Copyright (c) 2019 - present AppSeed.us
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 # Create your models here.
@@ -111,7 +112,8 @@ class role(models.Model):
     country =models.CharField(max_length=10000)
     location =models.CharField(max_length=10000)
     logged_userid =models.CharField(max_length=10000)
-    created_date =models.CharField(max_length=10000)
+
+    created_date = models.DateTimeField(default=timezone.now)
 
     class Meta:
         db_table = 'add_role'

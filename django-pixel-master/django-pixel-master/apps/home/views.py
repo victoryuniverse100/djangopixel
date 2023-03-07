@@ -499,8 +499,8 @@ def adduser_form(request):
 
 @csrf_exempt
 def user_details (request,id):
-    user = User.objects.get(id=id)
-    return render(request, "home/userview.html", {'data': user})
+    userdata = User.objects.get(id=id)
+    return render(request, "home/userview.html", {'data': userdata})
 
 
 def update_user_form(request , id) :
@@ -577,6 +577,10 @@ def update_role_form(request , id) :
 
     return HttpResponseRedirect( '/roleformdata/' + id)
 
+def editrole(request,id):
+    roleedit_data = role.objects.get(id=id)
+    print(roleedit_data)
+    return render(request, "home/roleedit.html", {'data': roleedit_data})
 
 
 

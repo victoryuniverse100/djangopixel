@@ -15,8 +15,9 @@ urlpatterns = [
     path('', views.index, name='home'),
     url(r'^customerFormData/', views.customer_form, name='customer_form'),
     url(r'^adduserFormData/', views.adduser_form, name='adduser_form'),
-    url(r'^userFormData/', views.user_form, name='adduser_form'),
+    url(r'^userFormData/', views.user_form, name='add_form'),
     url(r'^roleFormData/', views.role_form, name='role_form'),
+    url(r'^addroleFormData/', views.addrole_form, name='addrole_form'),
 
 
 
@@ -56,6 +57,8 @@ urlpatterns = [
 
     path('roleformdata/<int:id>', views.roleView, name='roleformdata'),
     path('update_role_form/<str:id>', views.update_role_form),
+
+    path('roleeditdata/<int:id>', views.editrole, name='roleeditdata'),
 
 
 
