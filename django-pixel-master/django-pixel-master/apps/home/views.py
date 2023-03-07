@@ -538,11 +538,13 @@ def role_form(request):
     return render(request, "home/addrole.html")
 
 def addrole_form(request):
+    print(request.user.username)
     name = request.POST.get('name')
     role_type =request.POST.get('role_type')
     contact_no =request.POST.get('contact_no')
     country =request.POST.get('country')
     location=request.POST.get('location')
+    logged_userid=request.user.id
 
 
     addrole_data=role(
@@ -552,6 +554,7 @@ def addrole_form(request):
         contact_no =contact_no,
         country=country,
         location=location,
+        logged_userid=logged_userid,
 
 
     )
