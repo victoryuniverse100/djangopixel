@@ -18,6 +18,7 @@ urlpatterns = [
     url(r'^userFormData/', views.user_form, name='add_form'),
     url(r'^roleFormData/', views.role_form, name='role_form'),
     url(r'^addroleFormData/', views.addrole_form, name='addrole_form'),
+    url(r'^addseminarFormData/', views.addseminar_form, name='addseminar_form'),
 
 
 
@@ -59,7 +60,7 @@ urlpatterns = [
     path('update_role_form/<str:id>', views.update_role_form),
 
     path('roleeditdata/<int:id>', views.editrole, name='roleeditdata'),
-    path('roleuserdata/<int:id>', views.edituser, name='roleuserdata'),
+    path('edituserdata/<int:id>', views.edituser, name='edituserdata'),
 
 
 

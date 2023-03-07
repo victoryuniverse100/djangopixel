@@ -13,7 +13,7 @@ from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
 from apps.home.forms import ClientForm , SeminarRegistrationForm
-from apps.home.models import client_data , seminar_data ,usergroup,role
+from apps.home.models import client_data , seminar_data ,usergroup,role,addseminar_details
 from datetime import date
 from django.core.files.storage import FileSystemStorage
 from django.conf import settings
@@ -525,7 +525,7 @@ def update_user_form(request , id) :
 def edituser(request,id):
     useredit_data = User.objects.get(id=id)
     print(useredit_data)
-    return render(request, "home/useredit.html", {'data': useredit_data})
+    return render(request, "home/edituser.html", {'data': useredit_data})
 
 @csrf_exempt
 def roleScreen(request) :
@@ -591,12 +591,21 @@ def editrole(request,id):
 
 
 
-# def addseminar_form(request):
-#     seminarid = request.POST.get('seminarid')
-#     seminarlocation = request.POST.get('seminarlocation')
-#     seminarname = request.POST.get(' seminarname')
-#     country = request.POST.get('country')
-#     seminarfee = request.POST.get('seminarfee')
-#     seminardate = request.POST.get('seminardate')
-#
-#     addseminar_data=addseminar_details
+def addseminar_form(request):
+    seminarid = request.POST.get('seminarid')
+    seminarlocation = request.POST.get('seminarlocation')
+    seminarname = request.POST.get('seminarname')
+    country = request.POST.get('country')
+    seminarfee = request.POST.get('seminarfee')
+    seminardate = request.POST.get('seminardate')
+
+    addseminar_data=addseminar_details(
+        seminarid= seminarid,
+        seminarlocation=seminarlocation,
+        seminarname=seminarname,
+        country=country,
+        seminarfee=seminarfee,
+        seminardate=seminardate,
+    )
+    addseminar_data.save()
+    return render ( request , "home/seminardetails.html" )
