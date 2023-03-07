@@ -507,20 +507,25 @@ def update_user_form(request , id) :
 
     user_update = User.objects.get ( id = id )
     user_update.first_name = request.POST.get ( 'first_name' )
-    user_update.last_name = request.POST.get ( 'last_name ' )
+    user_update.last_name = request.POST.get ( 'last_name' )
     user_update.username = request.POST.get ( 'username' )
     user_update.password = request.POST.get ( 'password' )
     user_update.usertype = request.POST.get ( 'usertype' )
     user_update.email = request.POST.get('email')
     user_update.country = request.POST.get('country')
     user_update.location = request.POST.get('location')
-    user_update.contact_no = request.POST.get(' contact_no')
+    user_update.contact_no = request.POST.get('contact_no')
 
 
 
     user_update.save()
 
     return HttpResponseRedirect( '/userdata/' + id)
+
+def edituser(request,id):
+    useredit_data = User.objects.get(id=id)
+    print(useredit_data)
+    return render(request, "home/useredit.html", {'data': useredit_data})
 
 @csrf_exempt
 def roleScreen(request) :

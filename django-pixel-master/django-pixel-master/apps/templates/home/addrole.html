@@ -26,6 +26,8 @@
     </div>
     <div class="row">
 <form action="/addroleFormData/"  method= "POST" enctype="multipart/form-data">
+
+
     {% csrf_token %}
 
          <div class="section section-md pt-4" style="padding-bottom:15px !important">
@@ -97,6 +99,13 @@
                             <div class="col-4">
                                 <input type="text" class="form-control" name="contact_no" id="contact_no" >
                             </div>
+                            <div class="col-2">
+                              <label for="exampleInputEmail6" >Userid</label>
+                        </div>
+                             <div class="col-2">
+
+                                  <p>{{ request.user.id }}</p>
+                             </div>
                         </div>
                     </div>
                 </div>

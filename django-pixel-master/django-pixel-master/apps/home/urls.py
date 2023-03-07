@@ -59,6 +59,7 @@ urlpatterns = [
     path('update_role_form/<str:id>', views.update_role_form),
 
     path('roleeditdata/<int:id>', views.editrole, name='roleeditdata'),
+    path('roleuserdata/<int:id>', views.edituser, name='roleuserdata'),
 
 
 
