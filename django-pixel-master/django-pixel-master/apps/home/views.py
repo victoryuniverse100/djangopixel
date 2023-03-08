@@ -596,6 +596,7 @@ def editrole(request,id):
 
 def addseminar_form(request):
     seminarid = request.POST.get('seminarid')
+    print(seminarid)
     seminarlocation = request.POST.get('seminarlocation')
     seminarname = request.POST.get('seminarname')
     country = request.POST.get('country')
@@ -603,12 +604,17 @@ def addseminar_form(request):
     seminardate = request.POST.get('seminardate')
 
     addseminar_data=addseminar_details(
-        seminarid= seminarid,
-        seminarlocation=seminarlocation,
-        seminarname=seminarname,
-        country=country,
-        seminarfee=seminarfee,
-        seminardate=seminardate,
+
+        seminarid = seminarid,
+        seminarlocation = seminarlocation,
+        seminarname = seminarname,
+        country = country,
+        seminarfee = seminarfee,
+        seminardate = seminardate,
     )
     addseminar_data.save()
     return render ( request , "home/seminardetails.html" )
+
+def seminar_form(request):
+    keyseminar = addseminar_details.objects.all()
+    return render(request, "home/addseminar.html", {'data': keyseminar})

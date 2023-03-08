@@ -19,6 +19,7 @@ urlpatterns = [
     url(r'^roleFormData/', views.role_form, name='role_form'),
     url(r'^addroleFormData/', views.addrole_form, name='addrole_form'),
     url(r'^addseminarFormData/', views.addseminar_form, name='addseminar_form'),
+    url(r'^seminarFormData/', views.seminar_form, name='seminar_form'),
 
 
 
