@@ -1,5 +1,5 @@
 {% extends "layouts/base.html" %}
-
+{% include "layouts/menu.html" %}
 {% block title %} UI Forms {% endblock %}
 
 <!-- Specific Page CSS goes HERE  -->
@@ -64,10 +64,18 @@
                                      </tr>
 {% for i in data %}
                                      <tr>
-                                         <td>i.seminarname</td>
-                                         <td></td>
-                                         <td></td>
-                                         <td></td>
+                                         <td>{{i.id}}</td>
+                                         <td>{{i.seminarid}}</td>
+                                         <td>{{i.seminarname}}</td>
+                                         <td>{{i.country}}</td>
+                                           <td>
+
+                                             <div class="col-12 ">
+                                                <button type="button" id="viewrole" class="btn btn-primary"  onclick="location.href='{% url 'addseminarformdata' id=i.id  %}' ">View</button>
+                                                              <button type="button" id="editrole" class="btn btn-primary"  onclick="location.href='{% url 'addseminareditdata' id=i.id  %}' ">Edit</button>
+                                             </div>
+                                         </td>
+
                                      </tr>
                                       {%endfor%}
                                  </table>

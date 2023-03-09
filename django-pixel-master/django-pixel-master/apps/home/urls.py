@@ -63,6 +63,10 @@ urlpatterns = [
     path('roleeditdata/<int:id>', views.editrole, name='roleeditdata'),
     path('edituserdata/<int:id>', views.edituser, name='edituserdata'),
 
+    path('addseminarformdata/<int:id>', views.addseminarView, name='addseminarformdata'),
+    path('update_addseminar_form/<str:id>', views.update_addseminar_form),
+    path('addseminareditdata/<int:id>', views.editaddseminar, name='addseminareditdata'),
+
 
 
 

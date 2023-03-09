@@ -1,0 +1,127 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Forms {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<main>
+  <div class="section section-md pb-0">
+        <div class="container">
+            <!-- Title -->
+            <div class="row">
+                <div class="col">
+                    <h3 class="h5"></h3>
+                </div>
+            </div>
+            <!-- End of Title -->
+        </div>
+    </div>
+    <div class="row">
+        <form action="/update_addseminar_form/{{data.id }}" method="POST">{% csrf_token %}
+
+           <div class="section section-md pt-4" style="padding-bottom:15px !important">
+            <div class="container">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="row align-items-center">
+                            <div class="col-2">
+                                <label for="exampleInputEmail6" >Seminar ID</label>
+
+                            </div>
+                            <div class="col">
+
+                                 <input class="form-control" id="seminarid" name="seminarid"  type="text"
+                                       value="{{data.seminarid}}">
+
+                            </div>
+                            <div class="col-2">
+                                <label for="exampleInputEmail6">Seminar Name</label>
+                            </div>
+                            <div class="col">
+
+                                 <input class="form-control" id="seminarname" name="seminarname"   type="text"
+                                       value="{{data.seminarname}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+             <div class="section pt-3" style="padding-bottom:15px !important">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-10">
+                        <div class="row align-items-center">
+                            <div class="col-2">
+                                <label for="exampleInputEmail6">Seminar Fee</label>
+                            </div>
+                            <div class="col">
+                                <input class="form-control" id="seminarfee" name="seminarfee"   type="text"
+                                       value="{{data.seminarfee}}">
+                            </div>
+                              <div class="col-2">
+                                <label for="exampleInputEmail6">Seminar Date</label>
+                              </div>
+                             <div class="col">
+                                <input class="form-control" id="seminardate" name="seminardate" ="true"  type="date"
+                                       value="{{data.seminardate|date:'Y-m-d' }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+             <div class="section section-md pt-3" style="padding-bottom:15px !important">
+            <div class="container">
+                <div class="row">
+                    <div class="col-10 ">
+                        <div class="row align-items-center">
+
+
+                            <div class="col-2">
+                                <label for="exampleInputEmail6">Country</label>
+                            </div>
+                            <div class="col-4">
+                                 <input class="form-control" id="country" name="country"   type="text"
+                                       value="{{data.country}}">
+                            </div>
+                              <div class="col-2">
+                                <label for="exampleInputEmail6">Seminar Location</label>
+                            </div>
+                            <div class="col-4">
+                                 <input class="form-control" id="seminarlocation" name="seminarlocation"   type="text"
+                                       value="{{data.seminarlocation}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 ">
+                        <p align="right">
+                        <button class="btn btn-primary" id="editButton" type="button">Edit</button>
+                            <button class="btn btn-primary" id="updateButton" style="display:none" type="submit">Update</button></p>
+                    </div>
+                </div>
+
+            </div>
+
+
+              </form>
+    </div>
+ <!-- End of Section -->
+
+</main>
+
+
+
+{% endblock content %}

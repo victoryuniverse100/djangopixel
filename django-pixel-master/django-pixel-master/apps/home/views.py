@@ -429,8 +429,7 @@ def memberHistory(request) :
 def memberSearch(request) :
     return render ( request , "home/membersearch.html" )
 
-def addSeminar(request) :
-    return render ( request , "home/seminardetails.html" )
+
 
 def ondayEnroll(request) :
     return render ( request , "home/seminarondayenroll.html" )
@@ -593,6 +592,13 @@ def editrole(request,id):
     return render(request, "home/roleedit.html", {'data': roleedit_data})
 
 
+@csrf_exempt
+def addSeminar(request) :
+    keyseminar = addseminar_details.objects.all()
+    return render(request, "home/seminardetails.html", {'data': keyseminar})
+
+
+
 
 def addseminar_form(request):
     seminarid = request.POST.get('seminarid')
@@ -618,3 +624,30 @@ def addseminar_form(request):
 def seminar_form(request):
     keyseminar = addseminar_details.objects.all()
     return render(request, "home/addseminar.html", {'data': keyseminar})
+
+@csrf_exempt
+def addseminarView(request,id):
+    addseminarview_data = addseminar_details.objects.get(id=id)
+
+    return render ( request , "home/addseminarview.html" , {'data' : addseminarview_data} )
+
+@csrf_exempt
+def update_addseminar_form(request , id) :
+
+    addseminar_update = addseminar_details.objects.get ( id = id )
+    addseminar_update.seminarid = request.POST.get ( 'seminarid' )
+    addseminar_update.seminarname = request.POST.get ( 'seminarname' )
+    addseminar_update.seminarfee = request.POST.get ( 'seminarfee' )
+    addseminar_update.seminardate= request.POST.get ( 'seminardate' )
+    addseminar_update.country = request.POST.get('country')
+    addseminar_update.seminarlocation = request.POST.get ( 'seminarlocation' )
+
+
+    addseminar_update.save()
+
+    return HttpResponseRedirect( '/addseminarformdata/' + id)
+
+def editaddseminar(request,id):
+    addseminaredit_data = addseminar_details.objects.get(id=id)
+
+    return render(request, "home/addseminaredit.html", {'data':  addseminaredit_data})

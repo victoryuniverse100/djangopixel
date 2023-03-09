@@ -100,7 +100,7 @@ class addseminar_details(models.Model):
     seminarname = models.CharField(max_length=10000)
     country = models.CharField(max_length=10000)
     seminarfee = models.CharField(max_length=10000)
-    seminardate = models.CharField(max_length=10000)
+    seminardate = models.DateField(default= '')
 
     class Meta:
         db_table = 'add_seminar'
