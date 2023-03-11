@@ -47,6 +47,7 @@ class client_data(models.Model):
 
     photo_upload_path=models.ImageField()
     idproof_upload_path=models.ImageField()
+    logged_userid = models.CharField(max_length=10000)
 
 
 
@@ -82,6 +83,7 @@ class seminar_data(models.Model):
     assistant_leader = models.CharField(max_length=10000)
     leader = models.CharField(max_length=10000)
     created_date = models.DateTimeField(blank=True, null=True)
+    logged_userid = models.CharField(max_length=10000)
     # seq_id =models.DateField(max_length=10000)
 
     class Meta:
@@ -101,6 +103,9 @@ class addseminar_details(models.Model):
     country = models.CharField(max_length=10000)
     seminarfee = models.CharField(max_length=10000)
     seminardate = models.DateField(default= '')
+    logged_userid = models.CharField(max_length=10000)
+
+    created_date = models.DateTimeField(default=timezone.now)
 
     class Meta:
         db_table = 'add_seminar'

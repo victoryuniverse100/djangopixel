@@ -648,6 +648,6 @@ def update_addseminar_form(request , id) :
     return HttpResponseRedirect( '/addseminarformdata/' + id)
 
 def editaddseminar(request,id):
-    addseminaredit_data = addseminar_details.objects.get(id=id)
+    addseminaredit = addseminar_details.objects.get(id=id)
 
-    return render(request, "home/addseminaredit.html", {'data':  addseminaredit_data})
+    return render(request, "home/addseminaredit.html", {'data':  addseminaredit})
