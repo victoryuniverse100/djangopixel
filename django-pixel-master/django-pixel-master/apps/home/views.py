@@ -19,6 +19,7 @@ from django.core.files.storage import FileSystemStorage
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 
 
@@ -595,7 +596,10 @@ def editrole(request,id):
 @csrf_exempt
 def addSeminar(request) :
     keyseminar = addseminar_details.objects.all()
-    return render(request, "home/seminardetails.html", {'data': keyseminar})
+    paginator = Paginator(keyseminar, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, "home/seminardetails.html", {'data':page_obj })
 
 
 
@@ -608,6 +612,7 @@ def addseminar_form(request):
     country = request.POST.get('country')
     seminarfee = request.POST.get('seminarfee')
     seminardate = request.POST.get('seminardate')
+    logged_userid = request.user.id
 
     addseminar_data=addseminar_details(
 
@@ -617,6 +622,7 @@ def addseminar_form(request):
         country = country,
         seminarfee = seminarfee,
         seminardate = seminardate,
+        logged_userid=logged_userid,
     )
     addseminar_data.save()
     return render ( request , "home/seminardetails.html" )

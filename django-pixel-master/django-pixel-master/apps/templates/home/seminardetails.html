@@ -39,7 +39,10 @@
              </div>
          </div>
 
+
+
 <div class="section section-md pt-4" style="padding-bottom:15px !important">
+
              <div class="container">
                  <div class="row">
                      <div class="col-12 ">
@@ -79,6 +82,30 @@
                                      </tr>
                                       {%endfor%}
                                  </table>
+{% if data.has_other_pages %}
+                                 <nav aria-label="Page navigation example">
+    <ul class="pagination">
+  {% if data.has_previous %}
+    <li><a href="?page={{ data.previous_page_number }}">&laquo;</a></li>
+  {% else %}
+    <li class="disabled"><span>&laquo;</span></li>
+  {% endif %}
+  {% for i in data.paginator.page_range %}
+    {% if data.number == i %}
+       <li class="active"><span>{{ i }} <span class="sr-only">(current)</span>
+  .     </span></li>
+  {% else %}
+    <li><a href="?page={{ i }}">{{ i }}</a></li>
+  {% endif %}
+{% endfor %}
+{% if data.has_next %}
+  <li><a href="?page={{ data.next_page_number }}">&raquo;</a></li>
+     {% else %}
+     <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+ </ul>
+                                 </nav>
+ {% endif %}
 
                              </div>
                          </div>
@@ -86,6 +113,10 @@
                  </div>
              </div>
          </div>
+
+
+
+
         <!-- End of Section -->{% endblock content %}
 
 
