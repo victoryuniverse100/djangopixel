@@ -31,7 +31,7 @@ urlpatterns = [
 
 
     re_path('seminarRegistration/', views.seminarRegistration, name="seminarRegistration"),
-    re_path('memberHistory/', views.memberHistory, name="memberHistory"),
+    # re_path('memberHistory/', views.memberHistory, name="memberHistory"),
 
     re_path('memberSearch/', views.memberSearch, name="memberSearch"),
     re_path('addSeminar/', views.addSeminar, name="addSeminar"),

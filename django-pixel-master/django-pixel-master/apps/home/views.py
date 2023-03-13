@@ -423,8 +423,8 @@ def update_seminar_registration_form(request , regid) :
     return HttpResponseRedirect ( '/seminarRegistrationDataView/' + regid )
 
 @csrf_exempt
-def memberHistory(request) :
-    return render ( request , "home/memberhistory.html" )
+# def memberHistory(request) :
+#     return render ( request , "home/memberhistory.html" )
 
 
 def memberSearch(request) :
