@@ -454,8 +454,10 @@ def reportSeminar(request) :
 @csrf_exempt
 def userScreen(request) :
     key1 = User.objects.all()
-    print(key1)
-    return render(request, "home/userscreen.html", {'data': key1})
+    paginator = Paginator(key1, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, "home/userscreen.html", {'data': page_obj})
 
 
 
@@ -530,8 +532,10 @@ def edituser(request,id):
 @csrf_exempt
 def roleScreen(request) :
     roleData = role.objects.all()
-    #return HttpResponse("hello")
-    return render(request, "home/rolescreen.html", {'role':roleData})
+    paginator = Paginator(roleData, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, "home/rolescreen.html", {'data': page_obj })
 
 
 def role_form(request):
@@ -596,7 +600,7 @@ def editrole(request,id):
 @csrf_exempt
 def addSeminar(request) :
     keyseminar = addseminar_details.objects.all()
-    paginator = Paginator(keyseminar, 3)
+    paginator = Paginator(keyseminar, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, "home/seminardetails.html", {'data':page_obj })
