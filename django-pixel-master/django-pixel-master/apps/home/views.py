@@ -16,6 +16,7 @@ from apps.home.forms import ClientForm , SeminarRegistrationForm
 from apps.home.models import client_data , seminar_data ,usergroup,role,addseminar_details
 from datetime import date
 from django.core.files.storage import FileSystemStorage
+from django.core.files import File
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -136,23 +137,23 @@ def customer_form(request):
 
 
         if client_data.objects.exists():
-            latest_client_id = client_data.objects.latest('id')
-            client_id = latest_client_id.client_id.rsplit('-', 1)
-            incrementalclientid = int(client_id[1]) + 1
-            print(incrementalclientid)
+            latest_member_id = client_data.objects.latest('id')
+            member_id = latest_member_id.member_id.rsplit('-', 1)
+            incrementalmemberid = int(member_id[1]) + 1
+            print(incrementalmemberid)
 
         else:
-            incrementalclientid = 100000
+            incrementalmemberid = 100000
 
-        seq_id = incrementalclientid
+        seq_id = incrementalmemberid
         current_date = str(date.today()).replace("-", "")
-        client_id = str(current_date) + str('-') + str(incrementalclientid)
+        member_id = str(current_date) + str('-') + str(incrementalmemberid)
 
 
 
 
     reg_data = client_data (
-    client_id=client_id,
+    member_id=member_id,
     fname = fname,
     lname = lname,
     fathername=fathername,
@@ -234,7 +235,7 @@ def update_customer_form(request , client_uniqueid) :
     client_update.aadhar_number = request.POST.get('aadhar_number')
 
     client_update.client_uniqueid = client_uniqueid
-    client_data.photo_upload_path=request.FILES.get('photo_upload_path')
+    client_data.photo_upload_path=request.POST.get('photo_upload_path')
 
 
 
@@ -262,11 +263,7 @@ def update_customer_form(request , client_uniqueid) :
         #     incrementalclientid = 100000
 
        #
-    client_update.client_id = request.POST.get('client_id')
-
-
-
-
+    client_update.member_id = request.POST.get('member_id')
     client_update.save()
     return HttpResponseRedirect ( '/clientData/' + client_uniqueid )
 
@@ -493,7 +490,7 @@ def adduser_form(request):
     )
 
     user_data.save()
-    messages.success(request, username +" added successfully")
+    messages.success(request, username +" added successfully", fail_silently=True)
 
 
     return render ( request , "home/userscreen.html" )

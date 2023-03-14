@@ -11,7 +11,7 @@ from django.utils import timezone
 # Create your models here.
 
 class client_data(models.Model):
-    client_id=models.CharField(max_length=10000)
+    member_id=models.CharField(max_length=10000)
     fname = models.CharField(max_length=10000)                       # "2021-08-26T03:22:59.313Z"
     lname = models.CharField(max_length=10000)
     fathername =models.CharField(max_length=10000)
@@ -45,8 +45,8 @@ class client_data(models.Model):
     created_date = models.DateField(auto_now_add=True)
     seq_id =models.CharField(max_length=10000)
 
-    photo_upload_path=models.ImageField()
-    idproof_upload_path=models.ImageField()
+    photo_upload_path=models.CharField(max_length=10000)
+    idproof_upload_path=models.CharField(max_length=10000)
 
 
 

@@ -38,7 +38,7 @@
                         <div class="row align-items-center">
                              <div class="col-4">
                                  <label for="exampleInputEmail6" >Member ID</label>
-                           <input class="form-control" id="member_id" name="client_id" readonly required type="text"
+                           <input class="form-control" id="member_id" name="member_id" readonly required type="text"
                                        value="{{data.member_id}}" >
  </div>
                             <div class="col">
@@ -54,7 +54,7 @@
                             </div>
                             <div class="col">
 <!--                                 <img class="navbar-brand-dark mb-4" height="100" src="{{ ASSETS_ROOT }}/img/blog/profile photo.jpg">-->
-                                <a href="/{{data.photo_upload_path}}">{{data.photo_upload_path}}</a>
+                                <img src="/{{data.photo_upload_path}}">
                             </div>
 
                         </div>
@@ -266,7 +266,7 @@
                             </div>
                             <div class="col">
 <!--                                 <img class="navbar-brand-dark mb-4" height="100" src="{{ ASSETS_ROOT }}/img/blog/profile photo.jpg">-->
-                                <a href="{{data.idproof_upload_path}}">{{data.idproof_upload_path}}</a>
+                                <img src="{{data.idproof_upload_path}}">
                             </div>
 
 
