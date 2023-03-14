@@ -454,7 +454,7 @@ def reportSeminar(request) :
 @csrf_exempt
 def userScreen(request) :
     key1 = User.objects.all()
-    paginator = Paginator(key1, 10)
+    paginator = Paginator(key1, 5)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, "home/userscreen.html", {'data': page_obj})
