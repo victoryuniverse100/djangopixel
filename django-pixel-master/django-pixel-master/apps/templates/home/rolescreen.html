@@ -30,11 +30,19 @@
                      <div class="col-12 ">
                          {% if messages %}
                     {% for message in messages %}
-                    <div class="alert alert-{{message.tags}}">
+                    <div class="alert alert-{{message.tags}} m-2" id="msg" role="alert">
                         {{message}}
                     </div>
-                    {% endfor %}
-                    {% endif %}
+
+                         <script type="text/javascript">
+                             setTimeout(()=>{
+                             const sometext=document.getElementById('msg');
+                             sometext.style.display='none';
+                             },3000);
+                         </script>
+
+                         {% endfor %}
+                         {% endif %}
                          <button type="submit" id="addnewuser" class="btn btn-primary" style="float:right">Add Role</button>
                      </div>
                  </div>
