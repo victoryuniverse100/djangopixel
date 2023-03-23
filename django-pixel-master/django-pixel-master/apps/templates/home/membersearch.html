@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="row">
-<!--<form action="/customerFormData/"  method= "POST" enctype="multipart/form-data">-->
+<form action="/search/"  method= "POST" enctype="multipart/form-data">
     {% csrf_token %}
         <!-- Section -->
             <div class="section section-md pt-3" style="padding-bottom:15px !important">
@@ -46,20 +46,60 @@
                                 <div class="col">
                                     <select class="form-control" name="existmemberdrop" id="existmemberdrop" >
                                         <option>Select</option>
-                                        <option>ID</option>
-                                        <option>Firstname</option>
-                                        <option>Aadhar No</option>
-                                        <option>Gender</option>
-                                        <option>DOB</option>
-                                        <option>Country</option>
+
+                                        <option value="fname">Firstname </option>
+                                        <option value="idnumber">Aadhar No</option>
+                                        <option value="gender">Gender</option>
+                                        <option value="dob">DOB</option>
+                                        <option value="country">Country</option>
                                     </select>
                                 </div>
                                 <div class="col">
                                     <input type="text" class="form-control" name="existingmemberinput" id="existingmemberinput" >
-                                </div>
-                                <div class="col ">
-                                    <button type="button" id="searchButton" class="btn btn-primary" style="float:right !important">Search</button>
-                                </div>
+                             </div>
+                              <div class="col ">
+                                 <button type=" submit" id="searchButton" class="btn btn-primary" style="float:right !important">Search</button>
+
+                            </div>
+
+<!--               <div class="col-md-6 pull-right"  >-->
+<!--<table class="table">-->
+<!--      <tr>-->
+<!--                                         <th><input type="text"name="search"id="search" placeholder="search"class="form-control" </th>-->
+
+<!--<button type="submit">Search</button>-->
+<!--                                     </tr>-->
+<!--</table>-->
+<!--                   </div>-->
+                                 <table style="width:100%">
+
+                                     <tr>
+                                         <th>S.No</th>
+                                         <th>First Name</th>
+                                      </tr>
+                                       {% for i in data %}
+                                     <tbody id="mytable">
+                                     <tr>
+                                         <td>{{i.id}}</td>
+                                         <td>{{i.fname}}</td>
+                                         </tr>
+                                     </tbody>
+                                     {%endfor%}
+                                       </table>
+<!--                                <script>-->
+<!--                                $("document").ready(function(){-->
+<!--                                $('#search').keyup(function(){-->
+<!--                                alert("hi");-->
+<!--                                });-->
+<!--                                });-->
+<!--</script>-->
+
+
+
+
+
+
+
                             </div>
                         </div>
                     </div>
@@ -68,7 +108,10 @@
         </div>
         </form>
         </div>
+
+
+
+
+
         <!-- End of Section -->{% endblock content %}
     </main>
-
-

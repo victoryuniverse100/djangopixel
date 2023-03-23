@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^addroleFormData/', views.addrole_form, name='addrole_form'),
     url(r'^addseminarFormData/', views.addseminar_form, name='addseminar_form'),
     url(r'^seminarFormData/', views.seminar_form, name='seminar_form'),
+    url(r'^search/', views.search, name='search'),
 
 
 
@@ -66,6 +67,7 @@ urlpatterns = [
     path('addseminarformdata/<int:id>', views.addseminarView, name='addseminarformdata'),
     path('update_addseminar_form/<str:id>', views.update_addseminar_form),
     path('addseminareditdata/<int:id>', views.editaddseminar, name='addseminareditdata'),
+
 
 
 

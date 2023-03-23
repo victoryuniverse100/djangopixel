@@ -11,4 +11,5 @@ whitenoise==5.3.0
 django-environ==0.8.1
 django-bootstrap-modal-forms-2.2.0
 pillow==9.2.0
-
+localStoragePy-0.2.3
+django-simple-search

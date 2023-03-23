@@ -47,6 +47,7 @@ class client_data(models.Model):
 
     photo_upload_path=models.CharField(max_length=10000)
     idproof_upload_path=models.CharField(max_length=10000)
+    logged_userid = models.CharField(max_length=10000,default='your_default_value')
 
 
 
@@ -84,6 +85,7 @@ class seminar_data(models.Model):
     assistant_leader = models.CharField(max_length=10000)
     leader = models.CharField(max_length=10000)
     created_date = models.DateTimeField(blank=True, null=True)
+    logged_userid = models.CharField(max_length=10000)
 
 
 

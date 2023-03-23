@@ -2,8 +2,9 @@
 """
 Copyright (c) 2019 - present AppSeed.us
 """
-
+from django.db.models import Q
 import datetime
+import django_filters
 from django import template
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse , HttpResponseRedirect
@@ -21,8 +22,10 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.paginator import Paginator
+from localStoragePy import localStoragePy
 
 
+localStorage = localStoragePy('apps.home', 'db.sqlite3')
 
 @login_required ( login_url = "/login/" )
 def index(request) :
@@ -105,6 +108,7 @@ def customer_form(request):
     idname = request.POST.get('idname')
 
     client_uniqueid = fname + dob + idnumber
+    logged_userid = request.user.id
 
 
     context = {}
@@ -185,6 +189,8 @@ def customer_form(request):
     idproof_upload_path= idproof_upload_path,
 
     seq_id= seq_id,
+        logged_userid=logged_userid,
+
 
 
 
@@ -270,6 +276,7 @@ def update_customer_form(request , client_uniqueid) :
 
 @csrf_exempt
 def seminarRegistration(request) :
+
     if seminar_data.objects.exists ( ) :
         latest_reg_id = seminar_data.objects.latest ( 'id' )
         regid = latest_reg_id.regid.rsplit ( '-' , 1 )
@@ -280,7 +287,8 @@ def seminarRegistration(request) :
 
     current_date = str ( date.today ( ) ).replace ( "-" , "" )
     regid = str ( current_date ) + str ( '-' ) + str ( incrementalregid )
-    return render ( request , "home/seminarRegistration.html" , {'regid' : regid} )
+
+    return render ( request , "home/seminarRegistration.html" , {'regid' : regid})
 
 
 @csrf_exempt
@@ -329,6 +337,7 @@ def seminar_registration_save(request) :
     assistant_leader = request.POST.get ( 'assistant_leader' )
     leader = request.POST.get ( 'leader' )
     created_date = date.today ( )
+    logged_userid = request.user.id
 
     sem_reg_data = seminar_data (
         regid = regid ,
@@ -352,7 +361,8 @@ def seminar_registration_save(request) :
         team_leader = team_leader ,
         assistant_leader = assistant_leader ,
         leader = leader ,
-        created_date = created_date
+        created_date = created_date,
+        logged_userid=logged_userid,
 
     )
 
@@ -424,8 +434,6 @@ def update_seminar_registration_form(request , regid) :
 #     return render ( request , "home/memberhistory.html" )
 
 
-def memberSearch(request) :
-    return render ( request , "home/membersearch.html" )
 
 
 
@@ -447,11 +455,14 @@ def reportMember(request) :
 
 def reportSeminar(request) :
     return render ( request , "home/reportseminar.html" )
+def memberSearch(request) :
+    return render(request, "home/membersearch.html")
+
 
 @csrf_exempt
 def userScreen(request) :
     key1 = User.objects.all()
-    paginator = Paginator(key1, 5)
+    paginator = Paginator(key1, 10)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, "home/userscreen.html", {'data': page_obj})
@@ -474,6 +485,7 @@ def adduser_form(request):
     country =request.POST.get('country')
     location=request.POST.get('location')
     contact_no =request.POST.get('contact_no')
+    logged_userid =request.user.id
 
 
     user_data=User(
@@ -487,6 +499,7 @@ def adduser_form(request):
         country=country,
         location=location,
         contact_no=contact_no,
+        logged_userid=logged_userid,
     )
 
     user_data.save()
@@ -658,3 +671,15 @@ def editaddseminar(request,id):
     addseminaredit = addseminar_details.objects.get(id=id)
 
     return render(request, "home/addseminaredit.html", {'data':  addseminaredit})
+
+
+def search(request) :
+    searchcolumn = request.POST.get('existmemberdrop')
+    searchinput = request.POST.get('existingmemberinput')
+    filters = {
+        searchcolumn + '__icontains': searchinput
+    }
+    data = client_data.objects.filter(**filters)
+    print(data)
+
+    return render ( request , "home/membersearch.html",{'data':data})
