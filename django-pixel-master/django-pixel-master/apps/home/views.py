@@ -100,6 +100,7 @@ def customer_form(request):
     district = request.POST.get('district')
     state = request.POST.get('state')
     country =request.POST.get('country')
+
     postal_code = request.POST.get('postal_code')
     email_id = request.POST.get('email_id')
     contact_number = request.POST.get('contact_number')
@@ -120,6 +121,7 @@ def customer_form(request):
         fs = FileSystemStorage()
         file_ext=photo_upload.name.split('.')[1]
         photo = fs.save(settings.MEDIA_ROOT+client_uniqueid+'/photo/'+fname+'photo'+'.'+file_ext, photo_upload)
+
 
 
         idproof_upload = request.FILES['idproof_upload']
@@ -483,6 +485,9 @@ def adduser_form(request):
     usertype =request.POST.get('usertype')
     email =request.POST.get('email')
     country =request.POST.get('country')
+    a=request.session['country']=country
+    print(a)
+
     location=request.POST.get('location')
     contact_no =request.POST.get('contact_no')
     logged_userid =request.user.id
@@ -545,16 +550,20 @@ def roleScreen(request) :
     paginator = Paginator(roleData, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+
     return render(request, "home/rolescreen.html", {'data': page_obj })
 
 
 def role_form(request):
+
     return render(request, "home/addrole.html")
 
 def addrole_form(request):
     print(request.user.username)
     name = request.POST.get('name')
+
     role_type =request.POST.get('role_type')
+
     contact_no =request.POST.get('contact_no')
     country =request.POST.get('country')
     location=request.POST.get('location')
