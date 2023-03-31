@@ -1,0 +1,184 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Forms {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<main>
+
+    <div class="section section-md pb-0">
+        <div class="container">
+            <!-- Title -->
+            <div class="row">
+                <div class="col">
+                    <h2 class="h5"></h2>
+                </div>
+            </div>
+            <!-- End of Title -->
+        </div>
+    </div>
+
+      <div class="row">
+<form action="/searchseminar/"  method= "POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+   <div class="section pt-3" style="padding-bottom:15px !important">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-12 ">
+
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <label for="exampleInputEmail6">First Name</label>
+                                <input class="form-control" id="firstname" name="fname" readonly  type="text"
+                                       value="{{data.fname}}">
+                            </div>
+
+                            <div class="col">
+                                <label for="exampleInputEmail6">Gender</label>
+                                <select class="form-control" id="gender" name="gender"  readonly>
+                                    <option >Select</option>
+                                    <option {% if data.gender == 'Male' %} selected {% endif %} >Male</option>
+                                    <option {% if data.gender == 'Female' %} selected {% endif %}>Female</option>
+                                </select>
+                            </div>
+                             <div class="col">
+                                <label for="exampleInputEmail6">Date Of Birth</label>
+                                <input class="form-control" id="dob" name="dob" readonly="true"  type="date"
+                                       value="{{data.dob|date:'Y-m-d' }}">
+                            </div>
+                                <div class="col">
+                                 <label for="exampleInputEmail6">Town/City</label>
+                           <input class="form-control" id="town_city" name="town_city" readonly  type="text"
+                                       value="{{data.town_city}}">
+                        </div>
+                    </div>
+         </div>
+    </div>
+                 </div>
+
+   </div>
+
+
+  <div class="section pt-3" style="padding-bottom:15px !important">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-6 ">
+
+                        <div class="row align-items-center">
+                            <div class="col">
+                                 <label for="exampleInputEmail6">Contact Number</label>
+                            <input class="form-control" id="contact_number" name="contact_number" readonly  type="text"
+                                       value="{{data.contact_number}}">
+                            </div>
+
+                            <div class="col">
+                                 <label for="exampleInputEmail6">ID Proof Number</label>
+                            <input class="form-control" id="idnumber" name="idnumber" readonly  type="text"
+                                       value="{{data.idnumber}}">
+                            </div>
+ </div>
+         </div>
+    </div>
+                 </div>
+
+   </div>
+
+ <div class="section pt-3" style="padding-bottom:15px !important">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-12 ">
+
+                        <div class="row align-items-center">
+                            <div class="col">
+                                    <label for="exampleInputEmail6">Seminar ID</label>
+
+                                    <select class="form-control" name="payirchiid" id="payirchi-id" readonly="true">
+                                        <option>Select</option>
+                                        <option {% if data.payirchiid == '1' %} selected {% endif %} >1</option>
+                                        <option {% if data.payirchiid == '2' %} selected {% endif %} >2</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label for="exampleInputEmail6">Seminar Name</label>
+
+                                    <select class="form-control" name="payirchiname" id="payirchi-name" readonly="true">
+                                        <option>Select</option>
+                                        <option {% if data.payirchiname == 'Yogic Power' %} selected {% endif %} >Yogic Power</option>
+                                        <option {% if data.payirchiname == 'Vishudhi' %} selected {% endif %}  >Vishudhi</option>
+
+                                    </select>
+                                </div>
+                            <div class="col">
+                                    <label for="exampleInputEmail6">Payment Status</label>
+                                    <input type="text" class="form-control" name="payment_status" id="payment-status"
+                                           value="{{data.payment_status}}" readonly="true" >
+                                </div>
+                                <div class="col">
+                                 <label for="exampleInputEmail6">Seminar Location</label>
+                           <input class="form-control" id="town_city" name="town_city" readonly  type="text"
+                                       value="{{data.town_city}}">
+                        </div>
+                    </div>
+         </div>
+    </div>
+                 </div>
+
+   </div>
+
+     <div class="section pt-3" style="padding-bottom:15px !important">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-3 ">
+
+                        <div class="row align-items-center">
+                            <div class="col">
+                                 <label for="exampleInputEmail6">Payment Date</label>
+                            <input class="form-control" id="paymentdate" name="paymentdate" readonly  type="text"
+                                       value="{{data.paymentdate}}">
+                            </div>
+
+
+ </div>
+         </div>
+    </div>
+                 </div>
+
+   </div>
+
+
+
+<div class="container">
+                <div class="row">
+                    <div class="col-12 ">
+                         <p align="right">
+
+                                                 <button type="button" id="enroll" class="btn btn-primary" >Enroll</button>
+                                                 <button type="button" id="notenroll" class="btn btn-primary"  >Not Enroll</button>
+                                             </p>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+</form>
+
+      </div>
+       <!-- End of Section -->{% endblock content %}
+</main>
+
+
+

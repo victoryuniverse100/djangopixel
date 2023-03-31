@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="row">
-<!--<form action="/customerFormData/"  method= "POST" enctype="multipart/form-data">-->
+<form action="/searchseminar/"  method= "POST" enctype="multipart/form-data">
     {% csrf_token %}
         <!-- Section -->
         <div class="section section-md pt-3" style="padding-bottom:15px !important">
@@ -37,16 +37,60 @@
                             <div class="col">
                                 <select class="form-control" name="enrolldrop" id="enrolldrop" >
                                     <option>Select</option>
-                                    <option>Name</option>
-                                    <option>ID Proof Number</option>
+                                    <option value="fname">Name</option>
+                                    <option value="idnumber">ID Proof Number</option>
                                 </select>
                             </div>
                             <div class="col">
                                 <input type="text" class="form-control" name="enrollinput" id="enrollinput" >
                             </div>
                             <div class="col ">
-                                <button type="button" id="enrollsearchbutton" class="btn btn-primary" style="float:right !important">Search</button>
+                                <button type="submit" id="enrollsearchbutton" class="btn btn-primary" style="float:right !important">Search</button>
                             </div>
+
+                          <style>
+                                 table, th, td {
+                                 border:1px solid black;
+                                 height: 50px;
+                                 width: 90px;
+                                 text-align: center;
+                                 vertical-align: middle;
+                                 }
+</style>
+                                 <table style="width:100%">
+
+                                     <tr>
+                                         <th>S.No</th>
+                                         <th>First Name</th>
+                                         <th>Gender</th>
+                                         <th>ID Number</th>
+                                      </tr>
+                                       {% for i in data %}
+
+                                     <tr>
+                                         <td>{{i.id}}</td>
+                                         <td>{{i.fname}}</td>
+                                         <td>{{i.gender}}</td>
+                                          <td>{{i.idnumber}}</td>
+
+                                         <td>
+                                              <div class="col-12 ">
+                                                 <button type="button" id="viewrole" class="btn btn-primary" onclick="location.href='{% url 'searchseminarformdata' id=i.id  %}' ">View</button>
+
+                                             </div>
+                                         </td>
+
+                                         </tr>
+
+
+
+                                     {%endfor%}
+                                       </table>
+
+
+
+
+
                         </div>
                     </div>
                 </div>

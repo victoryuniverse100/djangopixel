@@ -64,7 +64,7 @@ class client_data(models.Model):
 class seminar_data(models.Model):
     # client_id=models.CharField(max_length=10000)
     regid = models.CharField(max_length=10000)                       # "2021-08-26T03:22:59.313Z"
-    clientid = models.CharField(max_length=10000)
+    memberid = models.CharField(max_length=10000)
     payirchiid =models.CharField(max_length=100)# 2082668
     payirchiname = models.CharField ( max_length = 10000 )
     first_payment = models.CharField ( max_length = 10000 )

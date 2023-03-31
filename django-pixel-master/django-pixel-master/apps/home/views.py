@@ -297,7 +297,7 @@ def seminarRegistration(request) :
 def seminar_registration_save(request) :
 
     regid = request.POST.get ( 'regid' )
-    clientid = '20221125-100001'  # request.POST.get('clientid')
+    memberid =  request.POST.get('memberid')
     payirchiid = request.POST.get ( 'payirchiid' )
     payirchiname = request.POST.get ( 'payirchiname' )
     first_payment = request.POST.get ( 'first_payment' )
@@ -343,7 +343,7 @@ def seminar_registration_save(request) :
 
     sem_reg_data = seminar_data (
         regid = regid ,
-        clientid = clientid ,
+        memberid = memberid ,
         payirchiid = payirchiid ,
         payirchiname = payirchiname ,
         first_payment = first_payment ,
@@ -385,7 +385,7 @@ def update_seminar_registration_form(request , regid) :
     seminar_registration_update = seminar_data.objects.get ( regid = regid )
 
     seminar_registration_update.regid = request.POST.get ( 'regid' )
-    seminar_registration_update.clientid = request.POST.get ( 'clientid' )
+    seminar_registration_update.memberid = request.POST.get ( 'memberid' )
     seminar_registration_update.payirchiid = request.POST.get ( 'payirchiid' )
     seminar_registration_update.payirchiname = request.POST.get ( 'payirchiname' )
     seminar_registration_update.first_payment = request.POST.get ( 'first_payment' )
@@ -692,3 +692,24 @@ def search(request) :
     print(data)
 
     return render ( request , "home/membersearch.html",{'data':data})
+
+def searchView(request,id):
+    searchview_data = client_data.objects.get(id=id)
+    print (searchview_data)
+    return render ( request , "home/view.html" , {'data' : searchview_data} )
+
+def searchseminar(request) :
+    searchcolumn = request.POST.get('enrolldrop')
+    searchinput = request.POST.get('enrollinput')
+    filters = {
+        searchcolumn + '__icontains': searchinput
+    }
+    data = client_data.objects.filter(**filters)
+    print(data)
+
+    return render ( request , "home/seminarondayenroll.html",{'data':data})
+
+def searchViewSeminar(request,id):
+    searchviewseminar_data = client_data.objects.get(id=id)
+    print (searchviewseminar_data)
+    return render ( request , "home/enroll.html" , {'data' : searchviewseminar_data} )

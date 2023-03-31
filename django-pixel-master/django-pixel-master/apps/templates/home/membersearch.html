@@ -48,7 +48,7 @@
                                         <option>Select</option>
 
                                         <option value="fname">Firstname </option>
-                                        <option value="idnumber">Aadhar No</option>
+                                        <option value="idnumber">ID Number</option>
                                         <option value="gender">Gender</option>
                                         <option value="dob">DOB</option>
                                         <option value="country">Country</option>
@@ -62,44 +62,44 @@
 
                             </div>
 
-<!--               <div class="col-md-6 pull-right"  >-->
-<!--<table class="table">-->
-<!--      <tr>-->
-<!--                                         <th><input type="text"name="search"id="search" placeholder="search"class="form-control" </th>-->
-
-<!--<button type="submit">Search</button>-->
-<!--                                     </tr>-->
-<!--</table>-->
-<!--                   </div>-->
+  <style>
+                                 table, th, td {
+                                 border:1px solid black;
+                                 height: 50px;
+                                 width: 90px;
+                                 text-align: center;
+                                 vertical-align: middle;
+                                 }
+</style>
                                  <table style="width:100%">
 
                                      <tr>
                                          <th>S.No</th>
                                          <th>First Name</th>
+                                         <th>Gender</th>
+                                         <th>ID Number</th>
                                       </tr>
                                        {% for i in data %}
-                                     <tbody id="mytable">
+
                                      <tr>
                                          <td>{{i.id}}</td>
                                          <td>{{i.fname}}</td>
+                                         <td>{{i.gender}}</td>
+                                          <td>{{i.idnumber}}</td>
+
+                                         <td>
+                                              <div class="col-12 ">
+                                                 <button type="button" id="viewrole" class="btn btn-primary"  onclick="location.href='{% url 'searchformdata' id=i.id  %}' ">View</button>
+
+                                             </div>
+                                         </td>
+
                                          </tr>
-                                     </tbody>
+
+
+
                                      {%endfor%}
                                        </table>
-<!--                                <script>-->
-<!--                                $("document").ready(function(){-->
-<!--                                $('#search').keyup(function(){-->
-<!--                                alert("hi");-->
-<!--                                });-->
-<!--                                });-->
-<!--</script>-->
-
-
-
-
-
-
-
                             </div>
                         </div>
                     </div>
