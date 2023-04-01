@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="row">
-<!--<form action="/customerFormData/"  method= "POST" enctype="multipart/form-data">-->
+<form action="/searchseminarreport/"  method= "POST" enctype="multipart/form-data">
     {% csrf_token %}
         <!-- Section -->
         <div class="section section-md pt-3" style="padding-bottom:15px !important">
@@ -37,15 +37,15 @@
                            <div class="col">
                                <select class="form-control" name="reportseminardrop" id="reportseminardrop" >
                                    <option>Select</option>
-                                   <option>Seminar ID</option>
-                                   <option>Seminar Name</option>
+                                   <option value="payirchiid">Seminar ID</option>
+                                   <option value="payirchiname">Seminar Name</option>
                                </select>
                             </div>
                            <div class="col">
                                <input type="text" class="form-control" name="reportseminarinput" id="reportseminarinput" >
                            </div>
                            <div class="col ">
-                               <button type="button" id="reportseminarsearchButton" class="btn btn-primary" style="float:right !important">Search</button>
+                               <button type="submit" id="reportseminarsearchButton" class="btn btn-primary" style="float:right !important">Search</button>
                            </div>
                        </div>
                    </div>
@@ -80,10 +80,11 @@
                                         <th>Enrolled</th>
                                         <th>Action</th>
                                     </tr>
+                                     {% for i in data %}
                                     <tr>
-                                        <td style="height: 1.3em; padding: 4px 6px;"></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{i.id}}</td>
+                                        <td>{{i.payirchiid}}</td>
+                                        <td>{{i.payirchiname}}</td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
@@ -96,24 +97,7 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td style="height: 1.3em; padding: 4px 6px;"></td>
-                                        <td ></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <div class="col-10 ">
-                                                <button type="button" id="reportseminarviewButton" class="btn btn-primary" style="float:right !important">View</button>
-                                            </div>
-
-
-                                        </td>
-                                    </tr>
+                                  {%endfor%}
                                 </table>
                             </div>
                         </div>

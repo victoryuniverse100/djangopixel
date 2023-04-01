@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="row">
-<!--<form action="/customerFormData/"  method= "POST" enctype="multipart/form-data">-->
+<form action="/searchmemberreport/"  method= "POST" enctype="multipart/form-data">
     {% csrf_token %}
         <!-- Section -->
         <div class="section section-md pt-3" style="padding-bottom:15px !important">
@@ -37,16 +37,17 @@
                             <div class="col">
                                 <select class="form-control" name="reportmemberdrop" id="reportmemberdrop" >
                                     <option>Select</option>
-                                    <option>ID Proof Number</option>
-                                    <option>First Name</option>
-                                    <option>Location</option>
+                                   <option value="fname">Firstname </option>
+                                    <option value="idnumber">ID Number</option>
+                                    <option value="gender">Gender</option>
+                                      <option value="country">Country</option>
                                 </select>
                             </div>
                             <div class="col">
                                 <input type="text" class="form-control" name="reportmemberinput" id="reportmemberinput" >
                             </div>
                             <div class="col ">
-                                <button type="button" id="reportmembersearchbutton" class="btn btn-primary" style="float:right !important">Search</button>
+                                <button type="submit" id="reportmembersearchbutton" class="btn btn-primary" style="float:right !important">Search</button>
                             </div>
                         </div>
                     </div>
@@ -78,33 +79,21 @@
                                        <th>ID Proof Number</th>
                                        <th>Action</th>
                                    </tr>
+                                    {% for i in data %}
                                    <tr>
-                                       <td style="height: 1.3em; padding: 4px 6px;"></td>
-                                       <td></td>
-                                       <td></td>
-                                       <td></td>
-                                       <td></td>
-                                       <td></td>
+                                       <td>{{i.id}}</td>
+                                       <td>{{i.fname}}</td>
+                                       <td>{{i.gender}}</td>
+                                       <td>{{i.country}}</td>
+                                       <td>{{i.education}}</td>
+                                       <td>{{i.idnumber}}</td>
                                        <td>
                                            <div class="col-10 ">
                                                <button type="button" id="viewreportmemberbutton" class="btn btn-primary" style="float:right !important">View</button>
                                            </div>
                                        </td>
                                    </tr>
-                                   <tr>
-                                       <td style="height: 1.3em; padding: 4px 6px;"></td>
-                                       <td ></td>
-                                       <td></td>
-                                       <td></td>
-                                       <td></td>
-                                       <td></td>
-                                       <td>
-                                           <div class="col-10 ">
-                                               <button type="button" id="viewreportmemberbutton" class="btn btn-primary" style="float:right !important">View</button>
-                                           </div>
-
-                                       </td>
-                                   </tr>
+                                  {%endfor%}
                                </table>
                            </div>
                        </div>

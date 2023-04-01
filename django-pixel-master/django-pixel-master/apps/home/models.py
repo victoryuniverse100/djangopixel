@@ -56,6 +56,7 @@ class client_data(models.Model):
 
 
 
+
     class Meta:
         db_table = 'client_registration'
 
@@ -86,6 +87,7 @@ class seminar_data(models.Model):
     leader = models.CharField(max_length=10000)
     created_date = models.DateTimeField(blank=True, null=True)
     logged_userid = models.CharField(max_length=10000)
+
 
 
 

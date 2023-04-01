@@ -21,7 +21,11 @@ urlpatterns = [
     url(r'^addseminarFormData/', views.addseminar_form, name='addseminar_form'),
     url(r'^seminarFormData/', views.seminar_form, name='seminar_form'),
     url(r'^search/', views.search, name='search'),
+    url(r'^searchmemberreport/', views.searchMemberReport, name='searchmemberreport'),
+    url(r'^searchseminarreport/', views.searchSeminarReport, name='searchseminarreport'),
+
     url(r'^searchseminar/', views.searchseminar, name='searchseminar'),
+    url(r'^searchtransfer/', views.searchtransfer, name='searchtransfer'),
 
 
 

@@ -698,6 +698,36 @@ def searchView(request,id):
     print (searchview_data)
     return render ( request , "home/view.html" , {'data' : searchview_data} )
 
+def searchMemberReport(request) :
+    searchcolumn = request.POST.get('reportmemberdrop')
+    searchinput = request.POST.get('reportmemberinput')
+    filters = {
+        searchcolumn + '__icontains': searchinput
+    }
+    data = client_data.objects.filter(**filters)
+    print(data)
+
+    return render ( request , "home/reportmember.html",{'data':data})
+
+def searchSeminarReport(request) :
+    searchcolumn = request.POST.get('reportseminardrop')
+    searchinput = request.POST.get('reportseminarinput')
+    filters = {
+        searchcolumn + '__icontains': searchinput
+    }
+    data = seminar_data.objects.filter(**filters)
+    print(data)
+
+    return render ( request , "home/reportseminar.html",{'data':data})
+
+
+
+
+
+
+
+
+
 def searchseminar(request) :
     searchcolumn = request.POST.get('enrolldrop')
     searchinput = request.POST.get('enrollinput')
@@ -713,3 +743,16 @@ def searchViewSeminar(request,id):
     searchviewseminar_data = client_data.objects.get(id=id)
     print (searchviewseminar_data)
     return render ( request , "home/enroll.html" , {'data' : searchviewseminar_data} )
+
+def searchtransfer(request) :
+    searchcolumn = request.POST.get('transferdrop')
+    searchinput = request.POST.get('transferinput')
+    filters = {
+        searchcolumn + '__icontains': searchinput
+    }
+    data = client_data.objects.filter(**filters)
+    # data1 = seminar_data.objects.filter(**filters)
+    print(data)
+    # print(data1)
+
+    return render ( request , "home/transferscreen.html",{'data':data})
