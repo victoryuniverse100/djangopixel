@@ -154,6 +154,7 @@ def customer_form(request):
         seq_id = incrementalmemberid
         current_date = str(date.today()).replace("-", "")
         member_id = str(current_date) + str('-') + str(incrementalmemberid)
+        request.session['member_id']=member_id
 
 
 
@@ -289,17 +290,21 @@ def seminarRegistration(request) :
 
     current_date = str ( date.today ( ) ).replace ( "-" , "" )
     regid = str ( current_date ) + str ( '-' ) + str ( incrementalregid )
+    mydata=addseminar_details.objects.all()
+    data =client_data.objects.all()
+    print(mydata)
 
-    return render ( request , "home/seminarRegistration.html" , {'regid' : regid})
+    return render ( request , "home/seminarRegistration.html" , {'regid' : regid,'mydata':mydata,'data':data})
 
 
 @csrf_exempt
 def seminar_registration_save(request) :
 
     regid = request.POST.get ( 'regid' )
-    memberid =  request.POST.get('memberid')
-    payirchiid = request.POST.get ( 'payirchiid' )
-    payirchiname = request.POST.get ( 'payirchiname' )
+    member_id =  request.session.get('member_id')
+    print(member_id)
+    seminarid = request.POST.get ( 'seminarid' )
+    seminarname = request.POST.get ( 'seminarname' )
     first_payment = request.POST.get ( 'first_payment' )
 
     second_payment = request.POST.get ( 'second_payment' )
@@ -343,9 +348,9 @@ def seminar_registration_save(request) :
 
     sem_reg_data = seminar_data (
         regid = regid ,
-        memberid = memberid ,
-        payirchiid = payirchiid ,
-        payirchiname = payirchiname ,
+        member_id = member_id ,
+        seminarid = seminarid ,
+        seminarname = seminarname ,
         first_payment = first_payment ,
         second_payment = second_payment ,
         third_payment = third_payment ,
@@ -386,8 +391,8 @@ def update_seminar_registration_form(request , regid) :
 
     seminar_registration_update.regid = request.POST.get ( 'regid' )
     seminar_registration_update.memberid = request.POST.get ( 'memberid' )
-    seminar_registration_update.payirchiid = request.POST.get ( 'payirchiid' )
-    seminar_registration_update.payirchiname = request.POST.get ( 'payirchiname' )
+    seminar_registration_update.seminarid = request.POST.get ( 'seminarid' )
+    seminar_registration_update.seminarname = request.POST.get ( 'seminarname' )
     seminar_registration_update.first_payment = request.POST.get ( 'first_payment' )
     seminar_registration_update.second_payment = request.POST.get ( 'second_payment' )
     seminar_registration_update.third_payment = request.POST.get ( 'third_payment' )

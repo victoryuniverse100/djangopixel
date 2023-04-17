@@ -38,28 +38,30 @@
                                           value="{{regid}}" readonly>
                                 </div>
                                 <div class="col">
-                                    <label for="exampleInputEmail6">Member ID</label>
-                                    <input type="text" class="form-control" name="memberid" id="memberid"
-                                        value="{{memberid}}" readonly>
+                                     <label for="exampleInputEmail6" >Member ID</label>
+                           <input class="form-control" id="member_id" name="member_id" readonly required type="text"
+                                       value="{{data.member_id}}" >
+<!--                                    <label for="exampleInputEmail6" >Member ID</label>-->
+<!--                           <input class="form-control" id="member_id" name="member_id" readonly required type="text"-->
+<!--                                       value="{{data.member_id}}" >-->
                                 </div>
 
 
                                 <div class="col">
                                     <label for="exampleInputEmail6">Seminar ID</label>
-
-                                    <select class="form-control" name="payirchiid" id="payirchi-id">
-                                        <option>Select</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                    </select>
+                                    <select class="form-control" name="seminarid" id="seminarid" >
+                                     {% for i in mydata %}
+                                     <option value="{{i.seminarid}}">{{i.seminarid}}</option>
+                                     {%endfor%}
+                                </select>
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Seminar Name</label>
 
-                                    <select class="form-control" name="payirchiname" id="payirchi-name">
-                                        <option>Select</option>
-                                        <option>Yogic Power</option>
-                                        <option>Vishudhi</option>
+                                    <select class="form-control" name="seminarname" id="seeminarname">
+                                      {% for i in mydata %}
+                                     <option value="{{i.seminarname}}">{{i.seminarname}}</option>
+                                     {%endfor%}
 
                                     </select>
                                 </div>
@@ -69,8 +71,83 @@
                 </div>
             </div>
 
+<div class="section section-md pt-4" style="padding-bottom:15px !important">
+             <div class="container">
+                 <div class="row">
+                     <div class="col-12 ">
+                         <div class="row align-items-center">
+                             <div class="col">
 
-            <div class="section pt-5" style="padding-bottom:15px !important">
+<!--                                  <style>-->
+<!--                                 table, th, td {-->
+<!--                                 border:1px solid black;-->
+<!--                                 height: 50px;-->
+<!--                                 width: 90px;-->
+<!--                                 text-align: center;-->
+<!--                                 vertical-align: middle;-->
+<!--                                 }-->
+<!--</style>-->
+<!--                               <script type="text/javascript">-->
+<!--function addRows(){-->
+<!--	var table = document.getElementById('pmttbl');-->
+<!--	var rowCount = table.rows.length;-->
+<!--	var cellCount = table.rows[0].cells.length;-->
+<!--	var row = table.insertRow(rowCount);-->
+<!--	for(var i =0; i <= cellCount; i++){-->
+<!--		var cell = 'cell'+i;-->
+<!--		cell = row.insertCell(i);-->
+<!--		var copycel = document.getElementById('col'+i).innerHTML;-->
+<!--		cell.innerHTML=copycel;-->
+
+<!--	}-->
+<!--}-->
+<!--function deleteRows(){-->
+<!--	var table = document.getElementById('pmttbl');-->
+<!--	var rowCount = table.rows.length;-->
+<!--	if(rowCount > '2'){-->
+<!--		var row = table.deleteRow(rowCount-1);-->
+<!--		rowCount&#45;&#45;;-->
+<!--	}-->
+<!--	else{-->
+<!--		alert('There should be atleast one row');-->
+<!--	}-->
+<!--}-->
+<!--</script>-->
+
+<!--	<table id="pmttbl"style="width:100%">-->
+<!--		<tr>-->
+<!--			<th>Payment Date</th>-->
+<!--			<th>Payment Amount</th>-->
+<!--            <th>Update Payment</th>-->
+
+<!--		</tr>-->
+<!--		<tr>-->
+<!--			<td id="col0"><input type="date" name="pmtdate[]" value="" /></td>-->
+<!--			<td id="col1"><input type="text" name="pmtamt[]" value="" /></td>-->
+<!--			<td><input type="button" value="Add Payment" onclick="addRows()" /></td>-->
+<!--<td><input type="button" value="Delete Row" onclick="deleteRows()" /></td>-->
+<!--		</tr>-->
+<!--	</table>-->
+<!--	<table>-->
+<!--		<tr>-->
+<!--			<td><input type="button" value="Add Payment" onclick="addRows()" /></td>-->
+<!--&lt;!&ndash;			<td><input type="button" value="Delete Row" onclick="deleteRows()" /></td>&ndash;&gt;-->
+<!--&lt;!&ndash;			<td><input type="submit" value="Submit" /></td>&ndash;&gt;-->
+<!--		</tr>-->
+<!--	</table>-->
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="section pt-5" style="padding-bottom:15px !important">
                 <div class="container">
                     <div class="row">
                         <div class="col-12 ">

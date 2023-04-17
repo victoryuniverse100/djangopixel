@@ -99,21 +99,19 @@
                             <div class="col">
                                     <label for="exampleInputEmail6">Seminar ID</label>
 
-                                    <select class="form-control" name="payirchiid" id="payirchi-id" readonly="true">
-                                        <option>Select</option>
-                                        <option {% if data.payirchiid == '1' %} selected {% endif %} >1</option>
-                                        <option {% if data.payirchiid == '2' %} selected {% endif %} >2</option>
-                                    </select>
+
+                                         <input class="form-control" id="seminariid" name="seminariid" readonly  type="text"
+                                       value="{{data.seminariid}}">
+
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Seminar Name</label>
 
-                                    <select class="form-control" name="payirchiname" id="payirchi-name" readonly="true">
-                                        <option>Select</option>
-                                        <option {% if data.payirchiname == 'Yogic Power' %} selected {% endif %} >Yogic Power</option>
-                                        <option {% if data.payirchiname == 'Vishudhi' %} selected {% endif %}  >Vishudhi</option>
 
-                                    </select>
+                                         <input class="form-control" id="seminarname" name="seminarname" readonly  type="text"
+                                       value="{{data.seminarname}}">
+
+
                                 </div>
                             <div class="col">
                                     <label for="exampleInputEmail6">Payment Status</label>
