@@ -291,10 +291,12 @@ def seminarRegistration(request) :
     current_date = str ( date.today ( ) ).replace ( "-" , "" )
     regid = str ( current_date ) + str ( '-' ) + str ( incrementalregid )
     mydata=addseminar_details.objects.all()
-    data =client_data.objects.all()
+    ldata = role.objects.filter(role_type='Leader').values()
+    aldata = role.objects.filter(role_type='Assistant Leader').values()
+    tldata = role.objects.filter(role_type='Team Leader').values()
     print(mydata)
 
-    return render ( request , "home/seminarRegistration.html" , {'regid' : regid,'mydata':mydata,'data':data})
+    return render ( request , "home/seminarRegistration.html" , {'regid' : regid,'mydata':mydata,'ldata':ldata,'aldata':aldata,'tldata':tldata})
 
 
 @csrf_exempt
@@ -310,35 +312,35 @@ def seminar_registration_save(request) :
     country=request.POST.get('country')
     seminarlocation=request.POST.get('seminarlocation')
 
-    first_payment = request.POST.get ( 'first_payment' )
-
-    second_payment = request.POST.get ( 'second_payment' )
-    third_payment = request.POST.get ( 'third_payment' )
-    fourth_payment = request.POST.get ( 'fourth_payment' )
-
-    first_paymentdt = request.POST.get ( 'first_payment_date' )
-    if first_paymentdt :
-        first_payment_date = first_paymentdt
-    else :
-        first_payment_date = None
-
-    second_paymentdt = request.POST.get ( 'second_payment_date' )
-    if second_paymentdt :
-        second_payment_date = second_paymentdt
-    else :
-        second_payment_date = None
-
-    third_paymentdt = request.POST.get ( 'third_payment_date' )
-    if third_paymentdt :
-        third_payment_date = third_paymentdt
-    else :
-        third_payment_date = None
-
-    fourth_paymentdt = request.POST.get ( 'fourth_payment_date' )
-    if fourth_paymentdt :
-        fourth_payment_date = fourth_paymentdt
-    else :
-        fourth_payment_date = None
+    # first_payment = request.POST.get ( 'first_payment' )
+    #
+    # second_payment = request.POST.get ( 'second_payment' )
+    # third_payment = request.POST.get ( 'third_payment' )
+    # fourth_payment = request.POST.get ( 'fourth_payment' )
+    #
+    # first_paymentdt = request.POST.get ( 'first_payment_date' )
+    # if first_paymentdt :
+    #     first_payment_date = first_paymentdt
+    # else :
+    #     first_payment_date = None
+    #
+    # second_paymentdt = request.POST.get ( 'second_payment_date' )
+    # if second_paymentdt :
+    #     second_payment_date = second_paymentdt
+    # else :
+    #     second_payment_date = None
+    #
+    # third_paymentdt = request.POST.get ( 'third_payment_date' )
+    # if third_paymentdt :
+    #     third_payment_date = third_paymentdt
+    # else :
+    #     third_payment_date = None
+    #
+    # fourth_paymentdt = request.POST.get ( 'fourth_payment_date' )
+    # if fourth_paymentdt :
+    #     fourth_payment_date = fourth_paymentdt
+    # else :
+    #     fourth_payment_date = None
 
     total = request.POST.get ( 'total' )
     balance = request.POST.get ( 'balance' )
@@ -360,14 +362,14 @@ def seminar_registration_save(request) :
         seminardate = seminardate,
         country = country,
         seminarlocation =seminarlocation,
-        first_payment = first_payment ,
-        second_payment = second_payment ,
-        third_payment = third_payment ,
-        fourth_payment = fourth_payment ,
-        first_payment_date = first_payment_date ,
-        second_payment_date = second_payment_date ,
-        third_payment_date = third_payment_date ,
-        fourth_payment_date = fourth_payment_date ,
+        # first_payment = first_payment ,
+        # second_payment = second_payment ,
+        # third_payment = third_payment ,
+        # fourth_payment = fourth_payment ,
+        # first_payment_date = first_payment_date ,
+        # second_payment_date = second_payment_date ,
+        # third_payment_date = third_payment_date ,
+        # fourth_payment_date = fourth_payment_date ,
 
         total = total ,
         balance = balance ,

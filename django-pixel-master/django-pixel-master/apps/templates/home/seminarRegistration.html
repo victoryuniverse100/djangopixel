@@ -112,6 +112,7 @@
                                      {%endfor%}
 
                                     </select>
+
                                 </div>
                         </div>
                     </div>
@@ -126,49 +127,41 @@
                         <div class="col-12 ">
 
                             <div class="row align-items-center">
-                                <div class="col">
+                               <div class="col">
                                     <label for="exampleInputEmail6">Introducer</label>
-                                    <input class="form-control" list="intrdcr" name="introducer" id="intro">
+                                    <input type="text" class="form-control" name="introducer" id="introducer">
+                                </div>
+                                 <div class="col">
+                                    <label for="exampleInputEmail6">Team Leader</label>
 
-                                    <datalist id="intrdcr">
-                                         <option value="Introducer name1">
-                                        <option value="Introducer name2">
-                                        <option value="Introducer name3">
-                                    </datalist>
+                                    <select class="form-control" name="team_leader" id="team_leader">
+                                      {% for i in tldata %}
+                                     <option value="{{i.name}}">{{i.name}}</option>
+                                     {%endfor%}
+
+                                    </select>
                                 </div>
 
                                 <div class="col">
-                                    <label class="custom-file-label" for="exampleInputEmail6">Team Leader</label>
-                                    <input list="tleaders" class="form-control" name="team_leader" id="tleader">
+                                    <label for="exampleInputEmail6">Assistant Leader</label>
 
-                                    <datalist id="tleaders">
-                                        <option value="Team leader name1">
-                                        <option value="Team leader name2">
-                                        <option value="Team leader name3">
-                                    </datalist>
+                                    <select class="form-control" name="assistant_leader" id="assistant_leader">
+                                      {% for i in aldata %}
+                                     <option value="{{i.name}}">{{i.name}}</option>
+                                     {%endfor%}
+
+                                    </select>
                                 </div>
 
                                 <div class="col">
-                                    <label class="custom-file-label" for="exampleInputEmail6">Assistant Leader</label>
-                                    <input class="form-control" list="assldrs" name="assistant_leader"
-                                           id="assistantleader">
+                                    <label for="exampleInputEmail6">Leader</label>
 
-                                    <datalist id="assldrs">
-                                        <option value="Assistant leader name1">
-                                        <option value="Assistant leader name2">
-                                        <option value="Assistant leader name3">
-                                    </datalist>
-                                </div>
+                                    <select class="form-control" name="leader" id="leader">
+                                      {% for i in ldata %}
+                                     <option value="{{i.name}}">{{i.name}}</option>
+                                     {%endfor%}
 
-                                <div class="col">
-                                    <label class="custom-file-label" for="exampleInputEmail6"> Leader</label>
-                                    <input class="form-control" list="ldrs" name="leader" id="leader">
-
-                                    <datalist id="ldrs">
-                                       <option value="Leader name1">
-                                        <option value="Leader name2">
-                                        <option value="Leader name3">
-                                    </datalist>
+                                    </select>
                                 </div>
                             </div>
                         </div>
