@@ -54,7 +54,7 @@
                             </div>
                             <div class="col">
 <!--                                 <img class="navbar-brand-dark mb-4" height="100" src="{{ ASSETS_ROOT }}/img/blog/profile photo.jpg">-->
-                                <img src="/{{data.photo_upload_path}}">
+                                <img src="/{{data.photo_upload_path.url}}">
                             </div>
 
                         </div>
@@ -280,11 +280,12 @@
 <div class="section pt-6" style="padding-bottom:15px !important">
 
                                 <div class="container">
+
                 <div class="row">
                     <div class="col-12 ">
                         <p align="right">
                         <button class="btn btn-primary" id="editButton" type="button">Edit</button>
-                        <button class="btn btn-primary" id="" type="button" onclick="location.href='{% url 'seminarRegistration' %}'">New Seminar Registration</button>
+                        <button class="btn btn-primary" id="" type="button" onclick="location.href='{% url 'seminarRegistration'   %}' ">New Seminar Registration</button>
                             <button class="btn btn-primary" id="updateButton" style="display:none" type="submit">Update</button></p>
                     </div>
                 </div>

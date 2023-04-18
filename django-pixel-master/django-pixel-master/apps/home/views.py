@@ -305,6 +305,11 @@ def seminar_registration_save(request) :
     print(member_id)
     seminarid = request.POST.get ( 'seminarid' )
     seminarname = request.POST.get ( 'seminarname' )
+    seminarfee =request.POST.get('seminarfee')
+    seminardate=request.POST.get('seminardate')
+    country=request.POST.get('country')
+    seminarlocation=request.POST.get('seminarlocation')
+
     first_payment = request.POST.get ( 'first_payment' )
 
     second_payment = request.POST.get ( 'second_payment' )
@@ -351,6 +356,10 @@ def seminar_registration_save(request) :
         member_id = member_id ,
         seminarid = seminarid ,
         seminarname = seminarname ,
+        seminarfee =seminarfee,
+        seminardate = seminardate,
+        country = country,
+        seminarlocation =seminarlocation,
         first_payment = first_payment ,
         second_payment = second_payment ,
         third_payment = third_payment ,
