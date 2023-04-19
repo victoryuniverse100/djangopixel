@@ -312,8 +312,8 @@ def seminar_registration_save(request) :
     country=request.POST.get('country')
     seminarlocation=request.POST.get('seminarlocation')
 
-    # first_payment = request.POST.get ( 'first_payment' )
-    #
+    first_payment = request.POST.getlist ( 'first_payment' )
+    first_payment_date =request.POST.getlist('first_payment_date')
     # second_payment = request.POST.get ( 'second_payment' )
     # third_payment = request.POST.get ( 'third_payment' )
     # fourth_payment = request.POST.get ( 'fourth_payment' )
@@ -362,11 +362,11 @@ def seminar_registration_save(request) :
         seminardate = seminardate,
         country = country,
         seminarlocation =seminarlocation,
-        # first_payment = first_payment ,
+        first_payment = first_payment ,
         # second_payment = second_payment ,
         # third_payment = third_payment ,
         # fourth_payment = fourth_payment ,
-        # first_payment_date = first_payment_date ,
+        first_payment_date = first_payment_date ,
         # second_payment_date = second_payment_date ,
         # third_payment_date = third_payment_date ,
         # fourth_payment_date = fourth_payment_date ,

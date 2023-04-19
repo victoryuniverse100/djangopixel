@@ -221,22 +221,31 @@ function deleteRows(){
 		<tr>
 			<th>Payment Date</th>
 			<th>Payment Amount</th>
-            <th>Update Payment</th>
+            <th>Total</th>
+            <th>Balance</th>
+            <th>Payment Status</th>
 
 		</tr>
 		<tr>
-			<td id="col0"><input type="date" name="pmtdate[]" value="" /></td>
-			<td id="col1"><input type="text" name="pmtamt[]" value="" /></td>
-			<td><input type="button" value="Add Payment" onclick="addRows()" /></td>
-<td><input type="button" value="Delete Row" onclick="deleteRows()" /></td>
-		</tr>
-	</table>
-	<table>
-		<tr>
-			<td><input type="button" value="Add Payment" onclick="addRows()" /></td>
-<!--			<td><input type="button" value="Delete Row" onclick="deleteRows()" /></td>-->
-<!--			<td><input type="submit" value="Submit" /></td>-->
-		</tr>
+			<td id="col0"><input type="date" class="form-control"name="first_payment_date" id="" /></td>
+			<td id="col1"><input type="text" class="form-control" name="first_payment" id=""/></td>
+            <td id="col2"><input type="text" class="form-control" name="total" id="total"/></td>
+            <td id="col3"><input type="text" class="form-control" name="balance" id="balance" /></td>
+            <td id="col4"><input type="text" class="form-control" name="payment_status" id="payment_status"/></td>
+      </tr>
+    </table>
+<input type="button" value="Add Payment" onclick="addRows()" />
+<input type="button" value="Delete Row" onclick="deleteRows()" />
+<!--<td id ="col2"><input type="button" value="Add Payment" onclick="addRows()" /></td>&ndash;&gt;-->
+<!--<td><input type="button" value="Delete Row" onclick="deleteRows()" /></td>-->
+
+<!--	</table>-->
+<!--&lt;!&ndash;	<table>&ndash;&gt;-->
+<!--&lt;!&ndash;		<tr>&ndash;&gt;-->
+<!--			<input type="button" value="Add Payment" onclick="addRows()" />-->
+<!--<input type="button" value="Delete " onclick="deleteRows()" />-->
+<!--&lt;!&ndash;			<td><input type="submit" value="Submit" /></td>&ndash;&gt;-->
+<!--		</tr>-->
 	</table>
 
 
@@ -322,34 +331,34 @@ function deleteRows(){
 <!--            </div>-->
 
 
-            <div class="section pt-5" style="padding-bottom:15px !important">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-9 ">
+<!--            <div class="section pt-5" style="padding-bottom:15px !important">-->
+<!--                <div class="container">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-9 ">-->
 
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <label for="exampleInputEmail6">Total</label>
-                                    <input type="text" class="form-control" name="total" id="total"
-                                           >
-                                </div>
-                                <div class="col">
-                                    <label for="exampleInputEmail6">Balance</label>
-                                    <input type="text" class="form-control" name="balance"
-                                           id="balance" >
-                                </div>
+<!--                            <div class="row align-items-center">-->
+<!--                                <div class="col">-->
+<!--                                    <label for="exampleInputEmail6">Total</label>-->
+<!--                                    <input type="text" class="form-control" name="total" id="total"-->
+<!--                                           >-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <label for="exampleInputEmail6">Balance</label>-->
+<!--                                    <input type="text" class="form-control" name="balance"-->
+<!--                                           id="balance" >-->
+<!--                                </div>-->
 
-                                <div class="col">
-                                    <label for="exampleInputEmail6">Payment Status</label>
-                                    <input type="text" class="form-control" name="payment_status" id="payment-status"
-                                           >
-                                </div>
+<!--                                <div class="col">-->
+<!--                                    <label for="exampleInputEmail6">Payment Status</label>-->
+<!--                                    <input type="text" class="form-control" name="payment_status" id="payment-status"-->
+<!--                                           >-->
+<!--                                </div>-->
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
 
 
 
