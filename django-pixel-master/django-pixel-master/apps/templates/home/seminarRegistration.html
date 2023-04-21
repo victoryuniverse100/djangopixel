@@ -74,8 +74,7 @@
                             <div class="row align-items-center">
                            <div class="col">
                                     <label for="exampleInputEmail6">Seminar Fee</label>
-
-                                    <select class="form-control" name="seminarfee" id="seeminarfee">
+                               <select class="form-control" name="seminarfee" id="seminarfee" onchange="updateDue()">
                                       {% for i in mydata %}
                                      <option value="{{i.seminarfee}}">{{i.seminarfee}}</option>
                                      {%endfor%}
@@ -190,6 +189,7 @@
                                  vertical-align: middle;
                                  }
 </style>
+
                                <script type="text/javascript">
 function addRows(){
 	var table = document.getElementById('pmttbl');
@@ -215,7 +215,27 @@ function deleteRows(){
 		alert('There should be atleast one row');
 	}
 }
+
+function updateDue() {
+
+    var total = parseInt(document.getElementById("seminarfee").value);
+    var val2 = parseInt(document.getElementById("first_payment").value);
+
+    // to make sure that they are numbers
+    if (!total) { total = 0; }
+    if (!val2) { val2 = 0; }
+
+    var ansD = document.getElementById("balance");
+    ansD.value = total - val2;
+
+}
+
+
+
+
 </script>
+
+
 
 	<table id="pmttbl"style="width:100%">
 		<tr>
@@ -227,11 +247,13 @@ function deleteRows(){
 
 		</tr>
 		<tr>
-			<td id="col0"><input type="date" class="form-control"name="first_payment_date" id="" /></td>
-			<td id="col1"><input type="text" class="form-control" name="first_payment" id=""/></td>
-            <td id="col2"><input type="text" class="form-control" name="total" id="total"/></td>
-            <td id="col3"><input type="text" class="form-control" name="balance" id="balance" /></td>
-            <td id="col4"><input type="text" class="form-control" name="payment_status" id="payment_status"/></td>
+			<td id="col0"><input type="date" class="form-control" name="first_payment_date" id="" /></td>
+			<td id="col1"><input type="text" class="form-control" name="first_payment" id="first_payment" onchange="updateDue()"/>
+
+            <td id="col2"><input type="text" class="form-control" name="total" id="total" /></td>
+         <td id="col3"><input type="text" class="form-control" name="balance" id="balance" onchange="updateDue()"/></td>
+
+            <td id="col4"><input type="text" class="form-control" name="payment_status" id="payment_status"onchange="checkValue()"/></td>
       </tr>
     </table>
 <input type="button" value="Add Payment" onclick="addRows()" />
@@ -246,9 +268,7 @@ function deleteRows(){
 <!--<input type="button" value="Delete " onclick="deleteRows()" />-->
 <!--&lt;!&ndash;			<td><input type="submit" value="Submit" /></td>&ndash;&gt;-->
 <!--		</tr>-->
-	</table>
-
-
+<!--	</table>-->
 
 
 

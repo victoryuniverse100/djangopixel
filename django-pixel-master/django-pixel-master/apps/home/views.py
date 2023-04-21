@@ -291,12 +291,13 @@ def seminarRegistration(request) :
     current_date = str ( date.today ( ) ).replace ( "-" , "" )
     regid = str ( current_date ) + str ( '-' ) + str ( incrementalregid )
     mydata=addseminar_details.objects.all()
+    data = client_data.objects.all()
     ldata = role.objects.filter(role_type='Leader').values()
     aldata = role.objects.filter(role_type='Assistant Leader').values()
     tldata = role.objects.filter(role_type='Team Leader').values()
     print(mydata)
 
-    return render ( request , "home/seminarRegistration.html" , {'regid' : regid,'mydata':mydata,'ldata':ldata,'aldata':aldata,'tldata':tldata})
+    return render ( request , "home/seminarRegistration.html" , {'regid' : regid,'mydata':mydata,'ldata':ldata,'aldata':aldata,'tldata':tldata,'data':data})
 
 
 @csrf_exempt
@@ -343,7 +344,8 @@ def seminar_registration_save(request) :
     #     fourth_payment_date = None
 
     total = request.POST.get ( 'total' )
-    balance = request.POST.get ( 'balance' )
+    balance = request.POST.get('balance')
+    print (balance)
     payment_status = request.POST.get ( 'payment_status' )
     introducer = request.POST.get ( 'introducer' )
 
@@ -372,7 +374,7 @@ def seminar_registration_save(request) :
         # fourth_payment_date = fourth_payment_date ,
 
         total = total ,
-        balance = balance ,
+        balance = balance,
         payment_status = payment_status ,
         introducer = introducer ,
 
