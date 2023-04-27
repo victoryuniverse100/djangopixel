@@ -218,18 +218,35 @@ function deleteRows(){
 
 function updateDue() {
 
-    var total = parseInt(document.getElementById("seminarfee").value);
-    var val2 = parseInt(document.getElementById("first_payment").value);
+    var seminarfee = parseInt(document.getElementById("seminarfee").value);
+    var first_payment = parseInt(document.getElementById("first_payment").value);
 
     // to make sure that they are numbers
-    if (!total) { total = 0; }
-    if (!val2) { val2 = 0; }
+    if (!seminarfee) { seminarfee = 0; }
+    if (!first_payment) { first_payment = 0; }
 
-    var ansD = document.getElementById("balance");
-    ansD.value = total - val2;
+    var balance = document.getElementById("balance");
+    var balance= seminarfee - first_payment;
 
-}
 
+  document.getElementById('balance').value = balance;
+
+  var status;
+  if (balance == 0) {
+    status = "Completed";
+  }
+  else {
+    status = "Partial Completed";
+  }
+
+document.getElementById('payment_status').textContent = status;
+
+console.log(balance);
+
+console.log(status);
+
+
+   }
 
 
 
@@ -253,7 +270,8 @@ function updateDue() {
             <td id="col2"><input type="text" class="form-control" name="total" id="total" /></td>
          <td id="col3"><input type="text" class="form-control" name="balance" id="balance" onchange="updateDue()"/></td>
 
-            <td id="col4"><input type="text" class="form-control" name="payment_status" id="payment_status"onchange="checkValue()"/></td>
+            <td id="col4"><input type="text" class="form-control" name="payment_status" id="payment_status"onchange="updateDue()"/></td>
+
       </tr>
     </table>
 <input type="button" value="Add Payment" onclick="addRows()" />
