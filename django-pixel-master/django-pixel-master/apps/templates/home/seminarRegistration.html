@@ -202,6 +202,32 @@ function addRows(){
 		cell = row.insertCell(i);
 		var copycel = document.getElementById('col'+i).innerHTML;
 		cell.innerHTML=copycel;
+var seminarfee = parseInt(document.getElementById("seminarfee").value);
+    var first_payment = parseInt(document.getElementById("first_payment").value);
+
+    // to make sure that they are numbers
+    if (!seminarfee) { seminarfee = 0; }
+    if (!first_payment) { first_payment = 0; }
+
+    var balance = document.getElementById("balance");
+    var balance= seminarfee - first_payment;
+
+
+  document.getElementById('balance').value = balance;
+
+  var status;
+  if (balance == 0) {
+    status = "Completed";
+  }
+  else {
+    status = "Partial Completed";
+  }
+
+document.getElementById('payment_status').textContent = status;
+
+console.log(balance);
+
+console.log(status);
 
 	}
 }
@@ -218,8 +244,7 @@ function deleteRows(){
 }
 
 function updateDue() {
-
-    var seminarfee = parseInt(document.getElementById("seminarfee").value);
+ var seminarfee = parseInt(document.getElementById("seminarfee").value);
     var first_payment = parseInt(document.getElementById("first_payment").value);
 
     // to make sure that they are numbers
@@ -248,6 +273,7 @@ console.log(status);
 
 
    }
+
 
 
 

@@ -14,7 +14,7 @@ from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 
 from apps.home.forms import ClientForm , SeminarRegistrationForm
-from apps.home.models import client_data , seminar_data ,usergroup,role,addseminar_details
+from apps.home.models import client_data , seminar_data ,usergroup,role,addseminar_details,payment_detail
 from datetime import date
 from django.core.files.storage import FileSystemStorage
 from django.core.files import File
@@ -309,7 +309,7 @@ def seminar_registration_save(request) :
 
 
     regid = request.POST.get ( 'regid' )
-    member_id =  request.session.get('member_id')
+    member_id =  request.POST.get('member_id')
     print(member_id)
     seminarid = request.POST.get ( 'seminarid' )
     seminarname = request.POST.get ( 'seminarname' )
@@ -394,22 +394,21 @@ def seminar_registration_save(request) :
 
     sem_reg_data.save( )
 
-    # member_id = request.session.get('member_id')
-    # print(member_id)
-    # seminarid = request.POST.get('seminarid')
-    # pay_data = payment_detail(
-    #     member_id=member_id,
-    #     seminarid=seminarid,
-    #     first_payment=first_payment,
-    #     first_payment_date=first_payment_date,
-    #     total=total,
-    #     balance=balance,
-    #     payment_status=payment_status,
-    #     logged_userid=logged_userid,
-    #     created_date=created_date,
-    #
-    # )
-    # pay_data.save()
+
+
+    pay_data = payment_detail(
+        member_id=member_id,
+        seminarid=seminarid,
+        first_payment=first_payment,
+        first_payment_date=first_payment_date,
+        total=total,
+        balance=balance,
+        payment_status=payment_status,
+        logged_userid=logged_userid,
+        created_date=created_date,
+
+    )
+    pay_data.save()
 
 
 
