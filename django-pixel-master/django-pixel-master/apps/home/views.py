@@ -394,6 +394,25 @@ def seminar_registration_save(request) :
 
     sem_reg_data.save( )
 
+    # member_id = request.session.get('member_id')
+    # print(member_id)
+    # seminarid = request.POST.get('seminarid')
+    # pay_data = payment_detail(
+    #     member_id=member_id,
+    #     seminarid=seminarid,
+    #     first_payment=first_payment,
+    #     first_payment_date=first_payment_date,
+    #     total=total,
+    #     balance=balance,
+    #     payment_status=payment_status,
+    #     logged_userid=logged_userid,
+    #     created_date=created_date,
+    #
+    # )
+    # pay_data.save()
+
+
+
     return HttpResponseRedirect ( '/seminarRegistrationDataView/' + regid )
 
 

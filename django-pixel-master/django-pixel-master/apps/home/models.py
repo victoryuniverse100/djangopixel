@@ -133,3 +133,19 @@ class role(models.Model):
 
     class Meta:
         db_table = 'add_role'
+
+class payment_detail(models.Model):
+    member_id=models.CharField(max_length=10000)
+    seminarid = models.CharField(max_length=10000)
+    first_payment_date = models.DateField(blank=True, null=True)
+    first_payment = models.CharField(max_length=10000)
+    total = models.CharField(max_length=10000)
+    balance = models.CharField(max_length=10000)
+    payment_status = models.CharField(max_length=10000)
+    payments_no =models.CharField(max_length=10000)
+    logged_userid = models.CharField(max_length=10000)
+
+    created_date = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        db_table = 'payment_data'
