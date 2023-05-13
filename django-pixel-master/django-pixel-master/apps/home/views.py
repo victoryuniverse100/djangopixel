@@ -296,12 +296,14 @@ def seminarRegistration(request) :
     mydata=addseminar_details.objects.all()
     semfdate=[{'value':instance.seminardate.strftime('%Y-%m-%d')}for instance in mydata]
     data = client_data.objects.all()
+    # memid=[instance.member_id for instance in client_data.objects.all()]
+    memid = client_data.objects.latest('member_id').member_id
     ldata = role.objects.filter(role_type='Leader').values()
     aldata = role.objects.filter(role_type='Assistant Leader').values()
     tldata = role.objects.filter(role_type='Team Leader').values()
     print(mydata)
 
-    return render ( request , "home/seminarRegistration.html" , {'regid' : regid,'mydata':mydata,'ldata':ldata,'aldata':aldata,'tldata':tldata,'data':data,'semfdate':semfdate})
+    return render ( request , "home/seminarRegistration.html" , {'regid' : regid,'mydata':mydata,'ldata':ldata,'aldata':aldata,'tldata':tldata,'data':data,'semfdate':semfdate,'memid':memid})
 @csrf_exempt
 def seminar_registration_save(request) :
 

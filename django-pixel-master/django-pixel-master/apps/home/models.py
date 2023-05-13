@@ -69,7 +69,7 @@ class seminar_data(models.Model):
     seminarid =models.CharField(max_length=100)# 2082668
     seminarname = models.CharField ( max_length = 10000 )
     seminarfee = models.CharField(max_length=10000)
-    seminardate = models.DateField(blank=True,null=True)
+    seminardate = models.CharField(max_length=10000)
     country = models.CharField(max_length=10000)
     seminarlocation = models.CharField(max_length=10000)
     first_payment = models.CharField ( max_length = 10000 )
