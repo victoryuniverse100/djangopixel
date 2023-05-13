@@ -114,14 +114,17 @@ def customer_form(request):
 
     context = {}
     if (request.method == 'POST'):
-
-
-
         photo_upload = request.FILES['photo_upload']
         fs = FileSystemStorage()
-        file_ext=photo_upload.name.split('.')[1]
-        photo = fs.save(settings.MEDIA_ROOT+client_uniqueid+'/photo/'+fname+'photo'+'.'+file_ext, photo_upload)
+        file_ext = photo_upload.name.split('.')[1]
+        photo = fs.save(settings.MEDIA_ROOT + client_uniqueid + '/photo/' + fname + 'photo' + '.' + file_ext,
+                        photo_upload)
 
+        # photo_upload = request.FILES['photo_upload']
+        # fs = FileSystemStorage()
+        # file_ext=photo_upload.name.split('.')[1]
+        # photo = fs.save(settings.MEDIA_ROOT + client_uniqueid+ '/photo/' +fname+ 'photo' + '.' +file_ext, photo_upload)
+        #
 
 
         idproof_upload = request.FILES['idproof_upload']
@@ -291,17 +294,17 @@ def seminarRegistration(request) :
     current_date = str ( date.today ( ) ).replace ( "-" , "" )
     regid = str ( current_date ) + str ( '-' ) + str ( incrementalregid )
     mydata=addseminar_details.objects.all()
+    semfdate=[{'value':instance.seminardate.strftime('%Y-%m-%d')}for instance in mydata]
     data = client_data.objects.all()
     ldata = role.objects.filter(role_type='Leader').values()
     aldata = role.objects.filter(role_type='Assistant Leader').values()
     tldata = role.objects.filter(role_type='Team Leader').values()
     print(mydata)
 
-    return render ( request , "home/seminarRegistration.html" , {'regid' : regid,'mydata':mydata,'ldata':ldata,'aldata':aldata,'tldata':tldata,'data':data})
-
-
+    return render ( request , "home/seminarRegistration.html" , {'regid' : regid,'mydata':mydata,'ldata':ldata,'aldata':aldata,'tldata':tldata,'data':data,'semfdate':semfdate})
 @csrf_exempt
 def seminar_registration_save(request) :
+
 
     regid = request.POST.get ( 'regid' )
     member_id =  request.session.get('member_id')
@@ -313,8 +316,8 @@ def seminar_registration_save(request) :
     country=request.POST.get('country')
     seminarlocation=request.POST.get('seminarlocation')
 
-    first_payment = request.POST.getlist ( 'first_payment' )
-    first_payment_date =request.POST.getlist('first_payment_date')
+    first_payment = request.POST.get ( 'first_payment' )
+    first_payment_date =request.POST.get('first_payment_date')
     # second_payment = request.POST.get ( 'second_payment' )
     # third_payment = request.POST.get ( 'third_payment' )
     # fourth_payment = request.POST.get ( 'fourth_payment' )
@@ -345,8 +348,9 @@ def seminar_registration_save(request) :
 
     total = request.POST.get ( 'total' )
     balance = request.POST.get('balance')
-    print (balance)
+
     payment_status = request.POST.get ( 'payment_status' )
+    print(payment_status)
     introducer = request.POST.get ( 'introducer' )
 
     team_leader = request.POST.get ( 'team_leader' )
@@ -386,9 +390,10 @@ def seminar_registration_save(request) :
 
     )
 
-    sem_reg_data.save ( )
+    sem_reg_data.save( )
 
     return HttpResponseRedirect ( '/seminarRegistrationDataView/' + regid )
+
 
 
 @csrf_exempt

@@ -84,10 +84,11 @@
 
                             <div class="col">
                                     <label for="exampleInputEmail6">Seminar Date</label>
+<!--<input type=date class="form-control"  name="seminardate" id="seminardate" >-->
 
                                     <select class="form-control" name="seminardate" id="seminardate">
-                                      {% for i in mydata %}
-                                     <option value="{{i.seminardate}}">{{i.seminardate}}</option>
+                                      {% for i in semfdate %}
+                                     <option value="{{i.value}} ">{{i.value}}</option>
                                      {%endfor%}
 
                                     </select>
