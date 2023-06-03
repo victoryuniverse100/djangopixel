@@ -191,118 +191,178 @@
                                  }
 </style>
 
-                               <script type="text/javascript">
-function addRows(){
-	var table = document.getElementById('pmttbl');
-	var rowCount = table.rows.length;
-	var cellCount = table.rows[0].cells.length;
-	var row = table.insertRow(rowCount);
-	for(var i =0; i <= cellCount; i++){
-		var cell = 'cell'+i;
-		cell = row.insertCell(i);
-		var copycel = document.getElementById('col'+i).innerHTML;
-		cell.innerHTML=copycel;
-var seminarfee = parseInt(document.getElementById("seminarfee").value);
-    var first_payment = parseInt(document.getElementById("first_payment").value);
+    <label>Sum: </label>
+    <span id="sum">0</span>
 
-    // to make sure that they are numbers
-    if (!seminarfee) { seminarfee = 0; }
-    if (!first_payment) { first_payment = 0; }
+<!--                               <script type="text/javascript">-->
+<!--function addRows(){-->
+<!--	var table = document.getElementById('pmttbl');-->
+<!--	var rowCount = table.rows.length;-->
+<!--	var cellCount = table.rows[0].cells.length;-->
+<!--	var row = table.insertRow(rowCount);-->
+<!--	for(var i =0; i <= cellCount; i++){-->
+<!--		var cell = 'cell'+i;-->
+<!--		cell = row.insertCell(i);-->
+<!--		var copycel = document.getElementById('col'+i).innerHTML;-->
+<!--		cell.innerHTML=copycel;-->
+<!--var seminarfee = parseInt(document.getElementById("seminarfee").value);-->
+<!--    var first_payment = parseInt(document.getElementById("first_payment").value);-->
 
-    var balance = document.getElementById("balance");
-    var balance= seminarfee - first_payment;
+<!--    // to make sure that they are numbers-->
+<!--    if (!seminarfee) { seminarfee = 0; }-->
+<!--    if (!first_payment) { first_payment = 0; }-->
 
-
-  document.getElementById('balance').value = balance;
-
-  var status;
-  if (balance == 0) {
-    status = "Completed";
-  }
-  else {
-    status = "Partial Completed";
-  }
-
-document.getElementById('payment_status').textContent = status;
-
-console.log(balance);
-
-console.log(status);
-
-	}
-}
-function deleteRows(){
-	var table = document.getElementById('pmttbl');
-	var rowCount = table.rows.length;
-	if(rowCount > '2'){
-		var row = table.deleteRow(rowCount-1);
-		rowCount--;
-	}
-	else{
-		alert('There should be atleast one row');
-	}
-}
-
-function updateDue() {
- var seminarfee = parseInt(document.getElementById("seminarfee").value);
-    var first_payment = parseInt(document.getElementById("first_payment").value);
-
-    // to make sure that they are numbers
-    if (!seminarfee) { seminarfee = 0; }
-    if (!first_payment) { first_payment = 0; }
-
-    var balance = document.getElementById("balance");
-    var balance= seminarfee - first_payment;
+<!--    var balance = document.getElementById("balance");-->
+<!--    var balance= seminarfee - first_payment;-->
 
 
-  document.getElementById('balance').value = balance;
+<!--  document.getElementById('balance').value = balance;-->
 
-  var status;
-  if (balance == 0) {
-    status = "Completed";
-  }
-  else {
-    status = "Partial Completed";
-  }
+<!--  var status;-->
+<!--  if (balance == 0) {-->
+<!--    status = "Completed";-->
+<!--  }-->
+<!--  else {-->
+<!--    status = "Partial Completed";-->
+<!--  }-->
 
-document.getElementById('payment_status').textContent = status;
+<!--document.getElementById('payment_status').textContent = status;-->
 
-console.log(balance);
+<!--console.log(balance);-->
 
-console.log(status);
+<!--console.log(status);-->
+
+<!--	}-->
+<!--}-->
+<!--function deleteRows(){-->
+<!--	var table = document.getElementById('pmttbl');-->
+<!--	var rowCount = table.rows.length;-->
+<!--	if(rowCount > '2'){-->
+<!--		var row = table.deleteRow(rowCount-1);-->
+<!--		rowCount&#45;&#45;;-->
+<!--	}-->
+<!--	else{-->
+<!--		alert('There should be atleast one row');-->
+<!--	}-->
+<!--}-->
+
+<!--function updateDue() {-->
+<!-- var seminarfee = parseInt(document.getElementById("seminarfee").value);-->
+<!--    var first_payment = parseInt(document.getElementById("first_payment").value);-->
+
+<!--    // to make sure that they are numbers-->
+<!--    if (!seminarfee) { seminarfee = 0; }-->
+<!--    if (!first_payment) { first_payment = 0; }-->
+
+<!--    var balance = document.getElementById("balance");-->
+<!--    var balance= seminarfee - first_payment;-->
 
 
-   }
+<!--  document.getElementById('balance').value = balance;-->
+
+<!--  var status;-->
+<!--  if (balance == 0) {-->
+<!--    status = "Completed";-->
+<!--  }-->
+<!--  else {-->
+<!--    status = "Partial Completed";-->
+<!--  }-->
+
+<!--document.getElementById('payment_status').textContent = status;-->
+
+<!--console.log(balance);-->
+
+<!--console.log(status);-->
+
+
+<!--   }-->
+<!--</script>-->
 
 
 
+    <!-- index.html -->
+    <!-- index.html -->
 
-</script>
+   <!-- index.html -->
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Table with Sum Calculation</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <table id="dynamic-table">
+        <thead>
+            <tr>
+                <th>Value</th>
 
-
-
-	<table id="pmttbl"style="width:100%">
-		<tr>
-			<th>Payment Date</th>
-			<th>Payment Amount</th>
-            <th>Total</th>
-            <th>Balance</th>
-            <th>Payment Status</th>
-
-		</tr>
-		<tr>
-			<td id="col0"><input type="date" class="form-control" name="first_payment_date" id="" /></td>
-			<td id="col1"><input type="text" class="form-control" name="first_payment" id="first_payment" onchange="updateDue()"/>
-
-            <td id="col2"><input type="text" class="form-control" name="total" id="total" /></td>
-         <td id="col3"><input type="text" class="form-control" name="balance" id="balance" onchange="updateDue()"/></td>
-
-            <td id="col4"><input type="text" class="form-control" name="payment_status" id="payment_status"onchange="updateDue()"/></td>
-
-      </tr>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- First row -->
+            <tr>
+                <td><input type="number" name="value[]" oninput="calculateSum()"></td>
+            </tr>
+        </tbody>
     </table>
-<input type="button" value="Add Payment" onclick="addRows()" />
-<input type="button" value="Delete Row" onclick="deleteRows()" />
+    <button onclick="addRow()">Add Row</button>
+    <br>
+    <label>Sum: </label>
+    <span id="sum">0</span>
+
+    <script>
+        function addRow() {
+            var table = $("#dynamic-table tbody");
+            var row = $("<tr>");
+            var value = $("<td>").html("<input type='number' name='value[]' oninput='calculateSum()'>");
+
+            row.append(value);
+            table.append(row);
+        }
+
+        function calculateSum() {
+            var sum = 0;
+            var table = $("#dynamic-table tbody");
+            table.find("tr").each(function () {
+                var value = parseInt($(this).find("td input").val()) || 0;
+                sum += value;
+            });
+
+            $("#sum").text(sum);
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+<!--	<table id="pmttbl"style="width:100%">-->
+<!--		<tr>-->
+<!--			<th>Payment Date</th>-->
+<!--			<th>Payment Amount</th>-->
+<!--            <th>Total</th>-->
+<!--            <th>Balance</th>-->
+<!--            <th>Payment Status</th>-->
+
+<!--		</tr>-->
+<!--		<tr>-->
+<!--			<td id="col0"><input type="date" class="form-control" name="first_payment_date" id="" /></td>-->
+<!--			<td id="col1"><input type="text" class="form-control" name="first_payment" id="first_payment" onchange="updateDue()"/>-->
+
+<!--            <td id="col2"><input type="text" class="form-control" name="total" id="total" /></td>-->
+<!--         <td id="col3"><input type="text" class="form-control" name="balance" id="balance" onchange="updateDue()"/></td>-->
+
+<!--            <td id="col4"><input type="text" class="form-control" name="payment_status" id="payment_status"onchange="updateDue()"/></td>-->
+
+<!--      </tr>-->
+<!--    </table>-->
+<!--<input type="button" value="Add Payment" onclick="addRows()" />-->
+<!--<input type="button" value="Delete Row" onclick="deleteRows()" />-->
 <!--<td id ="col2"><input type="button" value="Add Payment" onclick="addRows()" /></td>&ndash;&gt;-->
 <!--<td><input type="button" value="Delete Row" onclick="deleteRows()" /></td>-->
 
