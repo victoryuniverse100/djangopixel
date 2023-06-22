@@ -81,7 +81,7 @@ class seminar_data(models.Model):
     # third_payment_date = models.DateField (blank=True, null=True)
     # fourth_payment_date = models.DateField (blank=True, null=True)
 
-    total = models.CharField(max_length=10000)
+    # total = models.CharField(max_length=10000)
     balance = models.CharField(max_length=10000)
     payment_status = models.CharField(max_length=10000)
     introducer = models.CharField(max_length=10000)
@@ -139,7 +139,7 @@ class payment_detail(models.Model):
     seminarid = models.CharField(max_length=10000)
     first_payment_date = models.DateField(blank=True, null=True)
     first_payment = models.CharField(max_length=10000)
-    total = models.CharField(max_length=10000)
+    # total = models.CharField(max_length=10000)
     balance = models.CharField(max_length=10000)
     payment_status = models.CharField(max_length=10000)
     payments_no =models.CharField(max_length=10000)

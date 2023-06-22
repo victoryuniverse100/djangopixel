@@ -23,6 +23,8 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.paginator import Paginator
 from localStoragePy import localStoragePy
+from django.db.models import Sum
+from django.db.models import Count
 
 
 localStorage = localStoragePy('apps.home', 'db.sqlite3')
@@ -319,6 +321,7 @@ def seminar_registration_save(request) :
     seminarlocation=request.POST.get('seminarlocation')
 
     first_payment = request.POST.get ( 'first_payment' )
+    print(first_payment)
     first_payment_date =request.POST.get('first_payment_date')
     # second_payment = request.POST.get ( 'second_payment' )
     # third_payment = request.POST.get ( 'third_payment' )
@@ -348,7 +351,7 @@ def seminar_registration_save(request) :
     # else :
     #     fourth_payment_date = None
 
-    total = request.POST.get ( 'total' )
+    # total = request.POST.get ( 'total' )
     balance = request.POST.get('balance')
 
     payment_status = request.POST.get ( 'payment_status' )
@@ -360,6 +363,10 @@ def seminar_registration_save(request) :
     leader = request.POST.get ( 'leader' )
     created_date = date.today ( )
     logged_userid = request.user.id
+
+    # total_sum = payment_detail.objects.aggregate(sum_field=Count('first_payment'))
+    total_sum = payment_detail.objects.filter(member_id=member_id).count()
+    payments_no = total_sum
 
     sem_reg_data = seminar_data (
         regid = regid ,
@@ -379,7 +386,7 @@ def seminar_registration_save(request) :
         # third_payment_date = third_payment_date ,
         # fourth_payment_date = fourth_payment_date ,
 
-        total = total ,
+        # total = total ,
         balance = balance,
         payment_status = payment_status ,
         introducer = introducer ,
@@ -401,9 +408,12 @@ def seminar_registration_save(request) :
         seminarid=seminarid,
         first_payment=first_payment,
         first_payment_date=first_payment_date,
-        total=total,
+
         balance=balance,
         payment_status=payment_status,
+        payments_no  = payments_no,
+
+
         logged_userid=logged_userid,
         created_date=created_date,
 
