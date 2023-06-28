@@ -365,8 +365,10 @@ def seminar_registration_save(request) :
     logged_userid = request.user.id
 
     # total_sum = payment_detail.objects.aggregate(sum_field=Count('first_payment'))
-    total_sum = payment_detail.objects.filter(member_id=member_id).count()
-    payments_no = total_sum
+    total_sum = payment_detail.objects.filter(member_id=member_id,seminarid=seminarid).count()
+    payments_no = total_sum+1
+    print(payments_no)
+
 
     sem_reg_data = seminar_data (
         regid = regid ,
@@ -377,11 +379,11 @@ def seminar_registration_save(request) :
         seminardate = seminardate,
         country = country,
         seminarlocation =seminarlocation,
-        first_payment = first_payment ,
+        payment = payment ,
         # second_payment = second_payment ,
         # third_payment = third_payment ,
         # fourth_payment = fourth_payment ,
-        first_payment_date = first_payment_date ,
+        payment_date = payment_date ,
         # second_payment_date = second_payment_date ,
         # third_payment_date = third_payment_date ,
         # fourth_payment_date = fourth_payment_date ,
@@ -406,8 +408,8 @@ def seminar_registration_save(request) :
     pay_data = payment_detail(
         member_id=member_id,
         seminarid=seminarid,
-        first_payment=first_payment,
-        first_payment_date=first_payment_date,
+        payment=payment,
+        payment_date=payment_date,
 
         balance=balance,
         payment_status=payment_status,

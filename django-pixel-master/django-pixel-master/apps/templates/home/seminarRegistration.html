@@ -205,14 +205,14 @@ function addRows(){
 		var copycel = document.getElementById('col'+i).innerHTML;
 		cell.innerHTML=copycel;
 var seminarfee = parseInt(document.getElementById("seminarfee").value);
-    var first_payment = parseInt(document.getElementById("first_payment").value);
+    var payment = parseInt(document.getElementById("payment").value);
 
     // to make sure that they are numbers
     if (!seminarfee) { seminarfee = 0; }
-    if (!first_payment) { first_payment = 0; }
+    if (!payment) { payment = 0; }
 
     var balance = document.getElementById("balance");
-    var balance= seminarfee - first_payment;
+    var balance= seminarfee - payment;
 
 
   document.getElementById('balance').value = balance;
@@ -247,14 +247,14 @@ function deleteRows(){
 
 function updateDue() {
  var seminarfee = parseInt(document.getElementById("seminarfee").value);
-    var first_payment = parseInt(document.getElementById("first_payment").value);
+    var payment = parseInt(document.getElementById("payment").value);
 
     // to make sure that they are numbers
     if (!seminarfee) { seminarfee = 0; }
-    if (!first_payment) { first_payment = 0; }
+    if (!payment) { payment = 0; }
 
     var balance = document.getElementById("balance");
-    var balance= seminarfee - first_payment;
+    var balance= seminarfee - payment;
 
 
   document.getElementById('balance').value = balance;
@@ -301,8 +301,8 @@ console.log(payment_status);
 
 		</tr>
 		<tr>
-			<td id="col0"><input type="date" class="form-control" name="first_payment_date" id="" /></td>
-			<td id="col1"><input type="text" class="form-control" name="first_payment" id="first_payment" onchange="updateDue()"/>
+			<td id="col0"><input type="date" class="form-control" name="payment_date" id="" /></td>
+			<td id="col1"><input type="text" class="form-control" name="payment" id="first_payment" onchange="updateDue()"/>
 
 
          <td id="col3"><input type="text" class="form-control" name="balance" id="balance" onchange="updateDue()"/></td>
@@ -312,13 +312,12 @@ console.log(payment_status);
 
 
 
-            <div class="col-12 ">
-            <td id="col5">
-            <i class="fas fa-plus-circle" onclick="addRows()"></i>
-                <i class="fas fa-minus-circle" onclick="deleteRows()"></i>
+
+            <td>
+            <i class="fas fa-plus-circle" onclick="addRows()"/>
+                <i class="fas fa-minus-circle" onclick="deleteRows()"/>
 
 </td>
-            </div>
 
       </tr>
     </table>
