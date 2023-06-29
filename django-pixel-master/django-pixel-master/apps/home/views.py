@@ -750,8 +750,10 @@ def search(request) :
 
 def searchView(request,id):
     searchview_data = client_data.objects.get(id=id)
+    searchseminar_data=seminar_data.objects.filter(id=id)
     print (searchview_data)
-    return render ( request , "home/view.html" , {'data' : searchview_data} )
+    print (searchseminar_data)
+    return render ( request , "home/view.html" , {'data' : searchview_data,'semdata':searchseminar_data} )
 
 def searchMemberReport(request) :
     searchcolumn = request.POST.get('reportmemberdrop')
