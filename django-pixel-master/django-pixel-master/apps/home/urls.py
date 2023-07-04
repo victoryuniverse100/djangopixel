@@ -78,7 +78,7 @@ urlpatterns = [
     path('update_addseminar_form/<str:id>', views.update_addseminar_form),
     path('addseminareditdata/<int:id>', views.editaddseminar, name='addseminareditdata'),
 
-    path('searchformdata/<int:id>', views.searchView, name='searchformdata'),
+    path('searchformdata/<str:id>', views.searchView, name='searchformdata'),
     path('searchseminarformdata/<int:id>', views.searchViewSeminar, name='searchseminarformdata'),
 
 

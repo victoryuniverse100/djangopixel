@@ -749,6 +749,7 @@ def search(request) :
     return render ( request , "home/membersearch.html",{'data':data})
 
 def searchView(request,id):
+
     searchview_data = client_data.objects.get(id=id)
     searchseminar_data=seminar_data.objects.filter(id=id)
     print (searchview_data)
