@@ -320,9 +320,9 @@ def seminar_registration_save(request) :
     country=request.POST.get('country')
     seminarlocation=request.POST.get('seminarlocation')
 
-    first_payment = request.POST.get ( 'first_payment' )
-    print(first_payment)
-    first_payment_date =request.POST.get('first_payment_date')
+    payment = request.POST.get ( 'payment' )
+    print(payment)
+    payment_date =request.POST.get('payment_date')
     # second_payment = request.POST.get ( 'second_payment' )
     # third_payment = request.POST.get ( 'third_payment' )
     # fourth_payment = request.POST.get ( 'fourth_payment' )
@@ -748,10 +748,10 @@ def search(request) :
 
     return render ( request , "home/membersearch.html",{'data':data})
 
-def searchView(request,id):
+def searchView(request,member_id):
 
-    searchview_data = client_data.objects.get(id=id)
-    searchseminar_data=seminar_data.objects.filter(id=id)
+    searchview_data = client_data.objects.get(member_id=member_id)
+    searchseminar_data=seminar_data.objects.filter(member_id=member_id)
     print (searchview_data)
     print (searchseminar_data)
     return render ( request , "home/view.html" , {'data' : searchview_data,'semdata':searchseminar_data} )
