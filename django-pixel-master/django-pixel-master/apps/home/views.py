@@ -246,7 +246,7 @@ def update_customer_form(request , client_uniqueid) :
     client_update.email_id = request.POST.get('email_id')
     client_update.contact_number = request.POST.get('contact_number')
 
-    client_update.aadhar_number = request.POST.get('aadhar_number')
+    client_update.idnumber = request.POST.get('idnumber')
 
     client_update.client_uniqueid = client_uniqueid
     client_data.photo_upload_path=request.POST.get('photo_upload_path')
@@ -430,7 +430,7 @@ def seminar_registration_save(request) :
 
 @csrf_exempt
 def seminarRegistrationDataView(request , regid) :
-    registration_data = seminar_data.objects.get ( regid = regid )
+    registration_data = seminar_data.objects.filter ( regid = regid )
 
     return render ( request , "home/seminarregistrationview.html" , {'data' : registration_data} )
 
@@ -444,33 +444,33 @@ def update_seminar_registration_form(request , regid) :
     seminar_registration_update.seminarid = request.POST.get ( 'seminarid' )
     seminar_registration_update.seminarname = request.POST.get ( 'seminarname' )
     seminar_registration_update.first_payment = request.POST.get ( 'first_payment' )
-    seminar_registration_update.second_payment = request.POST.get ( 'second_payment' )
-    seminar_registration_update.third_payment = request.POST.get ( 'third_payment' )
-    seminar_registration_update.fourth_payment = request.POST.get ( 'fourth_payment' )
-
-    first_paymentdt = request.POST.get ( 'first_payment_date' )
-    if first_paymentdt :
-        seminar_registration_update.first_payment_date = first_paymentdt
-    else :
-        seminar_registration_update.first_payment_date = None
-
-    second_paymentdt = request.POST.get ( 'second_payment_date' )
-    if second_paymentdt :
-        seminar_registration_update.second_payment_date = second_paymentdt
-    else :
-        seminar_registration_update.second_payment_date = None
-
-    third_paymentdt = request.POST.get ( 'third_payment_date' )
-    if third_paymentdt :
-        seminar_registration_update.third_payment_date = third_paymentdt
-    else :
-        seminar_registration_update.third_payment_date = None
-
-    fourth_paymentdt = request.POST.get ( 'fourth_payment_date' )
-    if fourth_paymentdt :
-        seminar_registration_update.fourth_payment_date = fourth_paymentdt
-    else :
-        seminar_registration_update.fourth_payment_date = None
+    # seminar_registration_update.second_payment = request.POST.get ( 'second_payment' )
+    # seminar_registration_update.third_payment = request.POST.get ( 'third_payment' )
+    # seminar_registration_update.fourth_payment = request.POST.get ( 'fourth_payment' )
+    #
+    # first_paymentdt = request.POST.get ( 'first_payment_date' )
+    # if first_paymentdt :
+    #     seminar_registration_update.first_payment_date = first_paymentdt
+    # else :
+    #     seminar_registration_update.first_payment_date = None
+    #
+    # second_paymentdt = request.POST.get ( 'second_payment_date' )
+    # if second_paymentdt :
+    #     seminar_registration_update.second_payment_date = second_paymentdt
+    # else :
+    #     seminar_registration_update.second_payment_date = None
+    #
+    # third_paymentdt = request.POST.get ( 'third_payment_date' )
+    # if third_paymentdt :
+    #     seminar_registration_update.third_payment_date = third_paymentdt
+    # else :
+    #     seminar_registration_update.third_payment_date = None
+    #
+    # fourth_paymentdt = request.POST.get ( 'fourth_payment_date' )
+    # if fourth_paymentdt :
+    #     seminar_registration_update.fourth_payment_date = fourth_paymentdt
+    # else :
+    #     seminar_registration_update.fourth_payment_date = None
 
     seminar_registration_update.total = request.POST.get ( 'total' )
     seminar_registration_update.balance = request.POST.get ( 'balance' )

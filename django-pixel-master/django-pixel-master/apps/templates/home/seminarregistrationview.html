@@ -39,117 +39,113 @@
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Member ID</label>
-                                    <input type="text" class="form-control" name="clientid" id="clientid"
+                                    <input type="text" class="form-control" name="memberid" id="memberid"
                                          value="{{data.memberid}}"  readonly="true">
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Seminar ID</label>
 
-                                    <select class="form-control" name="payirchiid" id="payirchi-id" readonly="true">
-                                        <option>Select</option>
-                                        <option {% if data.payirchiid == '1' %} selected {% endif %} >1</option>
-                                        <option {% if data.payirchiid == '2' %} selected {% endif %} >2</option>
-                                    </select>
+                                    <input type="text" class="form-control" name="seminarid" id="seminarid"
+                                         value="{{data.seminarid}}"  readonly="true">
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Seminar Name</label>
 
-                                    <select class="form-control" name="payirchiname" id="payirchi-name" readonly="true">
-                                        <option>Select</option>
-                                        <option {% if data.payirchiname == 'Yogic Power' %} selected {% endif %} >Yogic Power</option>
-                                        <option {% if data.payirchiname == 'Vishudhi' %} selected {% endif %}  >Vishudhi</option>
-
-                                    </select>
+                                    <input type="text" class="form-control" name="seminarname" id="seminarname"
+                                         value="{{data.seminarname}}"  readonly="true">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-            <div class="section pt-5" style="padding-bottom:15px !important">
+             <div class="section section-md pt-0" style="padding-bottom:15px !important">
                 <div class="container">
+
                     <div class="row">
                         <div class="col-12 ">
 
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <label for="exampleInputEmail6">First Payment</label>
-                                    <input type="text" class="form-control" name="first_payment" id="first-payment"
-                                          value="{{data.first_payment}}" readonly="true" >
+                                    <label for="exampleInputEmail6">Seminar Fee</label>
+                                    <input type="text" class="form-control" name="seminarfee" id="seminarfee"
+                                           value="{{data.seminarfee}}" readonly="true">
                                 </div>
                                 <div class="col">
-                                    <label for="exampleInputEmail6">First Payment Date</label>
-                                    <input type="date" class="form-control" name="first_payment_date" id="first-payment-date"
-                                            value="{{data.first_payment_date|date:'Y-m-d' }}" readonly="true" >
+                                    <label for="exampleInputEmail6">Seminar Date</label>
+                                    <input type="text" class="form-control" name="seminardate" id="seminardate"
+                                         value="{{data.seminardate}}"  readonly="true">
                                 </div>
                                 <div class="col">
-                                    <label for="exampleInputEmail6">Second Payment</label>
-                                    <input type="text" class="form-control" name="second_payment" id="second-payment"
-                                           value="{{data.second_payment}}" readonly="true" >
+                                    <label for="exampleInputEmail6">Seminar Country</label>
+
+                                    <input type="text" class="form-control" name="country" id="country"
+                                         value="{{data.country}}"  readonly="true">
                                 </div>
                                 <div class="col">
-                                    <label for="exampleInputEmail6">Second Payment Date</label>
-                                    <input type="date" class="form-control" name="second_payment_date" id="second-payment-date"
-                                           value="{{data.second_payment_date|date:'Y-m-d' }}" readonly="true" >
+                                    <label for="exampleInputEmail6">Seminar Location</label>
 
+                                    <input type="text" class="form-control" name="seminarlocation" id="seminarlocation"
+                                         value="{{data.seminarlocation}}"  readonly="true">
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="section pt-0" style="padding-bottom:15px !important">
+               <div class="section section-md pt-0" style="padding-bottom:15px !important">
                 <div class="container">
+
                     <div class="row">
                         <div class="col-12 ">
 
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <label for="exampleInputEmail6">Third Payment</label>
-                                    <input type="text" class="form-control" name="third_payment" id="third-payment"
-                                           value="{{data.third_payment}}" readonly="true" >
+                                    <label for="exampleInputEmail6">Introducer</label>
+                                    <input type="text" class="form-control" name="introducer" id="introducer"
+                                           value="{{data.introducer}}" readonly="true">
                                 </div>
                                 <div class="col">
-                                    <label for="exampleInputEmail6">Third Payment Date</label>
-                                    <input type="date" class="form-control" name="third_payment_date" id="third-payment-date"
-                                           value="{{data.third_payment_date|date:'Y-m-d' }}" readonly="true" >
-
+                                    <label for="exampleInputEmail6">Team Leader</label>
+                                    <input type="text" class="form-control" name="team_leader" id="team_leader"
+                                         value="{{data.team_leader}}"  readonly="true">
                                 </div>
                                 <div class="col">
-                                    <label for="exampleInputEmail6">Fourth Payment</label>
-                                    <input type="text" class="form-control" name="fourth_payment" id="fourth-payment"
-                                           value="{{data.fourth_payment}}" readonly="true" >
+                                    <label for="exampleInputEmail6">Assistant Leader</label>
+
+                                    <input type="text" class="form-control" name="assistant_leader" id="assitant_leader"
+                                         value="{{data.assistant_leader}}"  readonly="true">
                                 </div>
                                 <div class="col">
-                                    <label for="exampleInputEmail6">Fourth Payment Date</label>
-                                    <input type="date" class="form-control" name="fourth_payment_date" id="fourth-payment-date"
-                                           value="{{data.fourth_payment_date|date:'Y-m-d' }}" readonly="true" >
+                                    <label for="exampleInputEmail6">Leader</label>
 
+                                    <input type="text" class="form-control" name="leader" id="leader"
+                                         value="{{data.leader}}"  readonly="true">
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-
-            <div class="section pt-5" style="padding-bottom:15px !important">
+               <div class="section section-md pt-0" style="padding-bottom:15px !important">
                 <div class="container">
+
                     <div class="row">
-                        <div class="col-9 ">
+                        <div class="col-12 ">
 
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <label for="exampleInputEmail6">Total</label>
-                                    <input type="text" class="form-control" name="total" id="total"
-                                          value="{{data.total}}" readonly="true" >
+                                    <label for="exampleInputEmail6">Payment Date</label>
+                                    <input type="text" class="form-control" name="payment_date" id="payment_date"
+                                          value="{{data.payment_date}}" readonly="true" >
+                                </div>
+
+                                <div class="col">
+                                    <label for="exampleInputEmail6">Payment </label>
+                                    <input type="text" class="form-control" name="payment" id="payment"
+                                          value="{{data.payment}}" readonly="true" >
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Balance</label>
@@ -170,60 +166,136 @@
             </div>
 
 
-            <div class="section pt-5" style="padding-bottom:15px !important">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12 ">
 
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <label for="exampleInputEmail6">Introducer</label>
-                                    <input class="form-control" list="intrdcr" name="introducer" id="introducer" value="{{data.introducer}}" readonly="true">
+<!--            <div class="section pt-5" style="padding-bottom:15px !important">-->
+<!--                <div class="container">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-12 ">-->
 
-                                    <datalist  id="intrdcr">
-                                        <option value="introducer1">
-                                        <option value="introducer2">
-                                        <option value="introducer3">
-                                    </datalist>
-                                </div>
+<!--                            <div class="row align-items-center">-->
+<!--                                <div class="col">-->
+<!--                                    <label for="exampleInputEmail6">Payment</label>-->
+<!--                                    <input type="text" class="form-control" name="payment" id="payment"-->
+<!--                                          value="{{data.payment}}" readonly="true" >-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <label for="exampleInputEmail6">Payment Date</label>-->
+<!--                                    <input type="date" class="form-control" name="first_payment_date" id="payment-date"-->
+<!--                                            value="{{data.first_payment_date|date:'Y-m-d' }}" readonly="true" >-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <label for="exampleInputEmail6">Second Payment</label>-->
+<!--                                    <input type="text" class="form-control" name="second_payment" id="second-payment"-->
+<!--                                           value="{{data.second_payment}}" readonly="true" >-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <label for="exampleInputEmail6">Second Payment Date</label>-->
+<!--                                    <input type="date" class="form-control" name="second_payment_date" id="second-payment-date"-->
+<!--                                           value="{{data.second_payment_date|date:'Y-m-d' }}" readonly="true" >-->
 
-                                <div class="col">
-                                    <label class="custom-file-label" for="exampleInputEmail6">Team Leader</label>
-                                    <input class="form-control" list="tleaders" name="team_leader" id="teamleader" value="{{data.team_leader}}" readonly="true">
+<!--                                </div>-->
 
-                                    <datalist  id="tleaders">
-                                        <option value="Team leader1">
-                                        <option value="Team leader2">
-                                        <option value="Team leader3">
-                                    </datalist>
-                                </div>
 
-                                <div class="col">
-                                    <label class="custom-file-label" for="exampleInputEmail6">Assistant Leader</label>
-                                    <input class="form-control" list="assldrs" name="assistant_leader" id="assistantleader" value="{{data.assistant_leader}}" readonly="true">
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
 
-                                    <datalist  id="assldrs">
-                                        <option value="assistant leader1">
-                                        <option value="assistant leader2">
-                                        <option value="assistant leader3">
-                                    </datalist>
-                                </div>
+<!--            <div class="section pt-0" style="padding-bottom:15px !important">-->
+<!--                <div class="container">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-12 ">-->
 
-                                <div class="col">
-                                    <label class="custom-file-label" for="exampleInputEmail6"> Leader</label>
-                                    <input class="form-control" list="ldrs" name="leader" id="leader" value="{{data.leader}}" readonly="true">
+<!--                            <div class="row align-items-center">-->
+<!--                                <div class="col">-->
+<!--                                    <label for="exampleInputEmail6">Third Payment</label>-->
+<!--                                    <input type="text" class="form-control" name="third_payment" id="third-payment"-->
+<!--                                           value="{{data.third_payment}}" readonly="true" >-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <label for="exampleInputEmail6">Third Payment Date</label>-->
+<!--                                    <input type="date" class="form-control" name="third_payment_date" id="third-payment-date"-->
+<!--                                           value="{{data.third_payment_date|date:'Y-m-d' }}" readonly="true" >-->
 
-                                    <datalist  id="ldrs">
-                                        <option value="leader1">
-                                        <option value="leader2">
-                                        <option value="leader3">
-                                    </datalist>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <label for="exampleInputEmail6">Fourth Payment</label>-->
+<!--                                    <input type="text" class="form-control" name="fourth_payment" id="fourth-payment"-->
+<!--                                           value="{{data.fourth_payment}}" readonly="true" >-->
+<!--                                </div>-->
+<!--                                <div class="col">-->
+<!--                                    <label for="exampleInputEmail6">Fourth Payment Date</label>-->
+<!--                                    <input type="date" class="form-control" name="fourth_payment_date" id="fourth-payment-date"-->
+<!--                                           value="{{data.fourth_payment_date|date:'Y-m-d' }}" readonly="true" >-->
+
+<!--                                </div>-->
+
+
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+
+
+
+
+<!--            <div class="section pt-5" style="padding-bottom:15px !important">-->
+<!--                <div class="container">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-12 ">-->
+
+<!--                            <div class="row align-items-center">-->
+<!--                                <div class="col">-->
+<!--                                    <label for="exampleInputEmail6">Introducer</label>-->
+<!--                                    <input class="form-control" list="intrdcr" name="introducer" id="introducer" value="{{data.introducer}}" readonly="true">-->
+
+<!--                                    <datalist  id="intrdcr">-->
+<!--                                        <option value="introducer1">-->
+<!--                                        <option value="introducer2">-->
+<!--                                        <option value="introducer3">-->
+<!--                                    </datalist>-->
+<!--                                </div>-->
+
+<!--                                <div class="col">-->
+<!--                                    <label class="custom-file-label" for="exampleInputEmail6">Team Leader</label>-->
+<!--                                    <input class="form-control" list="tleaders" name="team_leader" id="teamleader" value="{{data.team_leader}}" readonly="true">-->
+
+<!--                                    <datalist  id="tleaders">-->
+<!--                                        <option value="Team leader1">-->
+<!--                                        <option value="Team leader2">-->
+<!--                                        <option value="Team leader3">-->
+<!--                                    </datalist>-->
+<!--                                </div>-->
+
+<!--                                <div class="col">-->
+<!--                                    <label class="custom-file-label" for="exampleInputEmail6">Assistant Leader</label>-->
+<!--                                    <input class="form-control" list="assldrs" name="assistant_leader" id="assistantleader" value="{{data.assistant_leader}}" readonly="true">-->
+
+<!--                                    <datalist  id="assldrs">-->
+<!--                                        <option value="assistant leader1">-->
+<!--                                        <option value="assistant leader2">-->
+<!--                                        <option value="assistant leader3">-->
+<!--                                    </datalist>-->
+<!--                                </div>-->
+
+<!--                                <div class="col">-->
+<!--                                    <label class="custom-file-label" for="exampleInputEmail6"> Leader</label>-->
+<!--                                    <input class="form-control" list="ldrs" name="leader" id="leader" value="{{data.leader}}" readonly="true">-->
+
+<!--                                    <datalist  id="ldrs">-->
+<!--                                        <option value="leader1">-->
+<!--                                        <option value="leader2">-->
+<!--                                        <option value="leader3">-->
+<!--                                    </datalist>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
 
 
             <div class="container">
