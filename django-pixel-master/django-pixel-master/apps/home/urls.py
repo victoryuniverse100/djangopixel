@@ -61,7 +61,7 @@ urlpatterns = [
 
 
     url ( r'^seminarRegistrationDataSave/' , views.seminar_registration_save , name = 'seminar_registration_form' ) ,
-    path('seminarRegistrationDataView/<int:regid>', views.seminarRegistrationDataView),
+    path('seminarRegistrationDataView/<int:id>', views.seminarRegistrationDataView),
     path('updateSeminarRegistrationData/<str:regid>', views.update_seminar_registration_form),
 
 

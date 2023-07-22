@@ -429,8 +429,8 @@ def seminar_registration_save(request) :
 
 
 @csrf_exempt
-def seminarRegistrationDataView(request , regid) :
-    registration_data = seminar_data.objects.filter ( regid = regid )
+def seminarRegistrationDataView(request , id) :
+    registration_data = seminar_data.objects.get( id = id )
 
     return render ( request , "home/seminarregistrationview.html" , {'data' : registration_data} )
 
