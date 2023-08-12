@@ -439,38 +439,12 @@ def seminarRegistrationDataView(request , id) :
 def update_seminar_registration_form(request , regid) :
     seminar_registration_update = seminar_data.objects.get ( regid = regid )
 
+
     seminar_registration_update.regid = request.POST.get ( 'regid' )
-    seminar_registration_update.memberid = request.POST.get ( 'memberid' )
+    seminar_registration_update.member_id = request.POST.get ( 'member_id' )
     seminar_registration_update.seminarid = request.POST.get ( 'seminarid' )
     seminar_registration_update.seminarname = request.POST.get ( 'seminarname' )
-    seminar_registration_update.first_payment = request.POST.get ( 'first_payment' )
-    # seminar_registration_update.second_payment = request.POST.get ( 'second_payment' )
-    # seminar_registration_update.third_payment = request.POST.get ( 'third_payment' )
-    # seminar_registration_update.fourth_payment = request.POST.get ( 'fourth_payment' )
-    #
-    # first_paymentdt = request.POST.get ( 'first_payment_date' )
-    # if first_paymentdt :
-    #     seminar_registration_update.first_payment_date = first_paymentdt
-    # else :
-    #     seminar_registration_update.first_payment_date = None
-    #
-    # second_paymentdt = request.POST.get ( 'second_payment_date' )
-    # if second_paymentdt :
-    #     seminar_registration_update.second_payment_date = second_paymentdt
-    # else :
-    #     seminar_registration_update.second_payment_date = None
-    #
-    # third_paymentdt = request.POST.get ( 'third_payment_date' )
-    # if third_paymentdt :
-    #     seminar_registration_update.third_payment_date = third_paymentdt
-    # else :
-    #     seminar_registration_update.third_payment_date = None
-    #
-    # fourth_paymentdt = request.POST.get ( 'fourth_payment_date' )
-    # if fourth_paymentdt :
-    #     seminar_registration_update.fourth_payment_date = fourth_paymentdt
-    # else :
-    #     seminar_registration_update.fourth_payment_date = None
+    seminar_registration_update.payment = request.POST.get ( 'payment' )
 
     seminar_registration_update.total = request.POST.get ( 'total' )
     seminar_registration_update.balance = request.POST.get ( 'balance' )

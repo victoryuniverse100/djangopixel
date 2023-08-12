@@ -60,8 +60,8 @@ urlpatterns = [
 
 
 
-    url ( r'^seminarRegistrationDataSave/' , views.seminar_registration_save , name = 'seminar_registration_form' ) ,
-    path('seminarRegistrationDataView/<int:id>', views.seminarRegistrationDataView),
+    url(r'^seminarRegistrationDataSave/', views.seminar_registration_save, name='seminar_registration_form'),
+    path('seminarRegistrationDataView/<int:id>', views.seminarRegistrationDataView,name='seminarRegistrationDataView'),
     path('updateSeminarRegistrationData/<str:regid>', views.update_seminar_registration_form),
 
 
@@ -92,8 +92,7 @@ urlpatterns = [
 
     re_path('registration/', views.registration, name="registration"),
 
-# if settings.DEBUG:
-#     urlpatterns += static(settings,MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
 
 
 ]
