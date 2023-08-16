@@ -40,11 +40,9 @@
 
                             <div class="col">
                                 <label for="exampleInputEmail6">Gender</label>
-                                <select class="form-control" id="gender" name="gender"  readonly>
-                                    <option >Select</option>
-                                    <option {% if data.gender == 'Male' %} selected {% endif %} >Male</option>
-                                    <option {% if data.gender == 'Female' %} selected {% endif %}>Female</option>
-                                </select>
+                                 <input class="form-control" id="gender" name="gender" readonly  type="text"
+                                       value="{{data.gender}}">
+
                             </div>
                              <div class="col">
                                 <label for="exampleInputEmail6">Date Of Birth</label>
@@ -100,8 +98,8 @@
                                     <label for="exampleInputEmail6">Seminar ID</label>
 
 
-                                         <input class="form-control" id="seminariid" name="seminariid" readonly  type="text"
-                                       value="{{data.seminariid}}">
+                                         <input class="form-control" id="seminarid" name="seminarid" readonly  type="text"
+                                       value="{{data1.seminarid}}">
 
                                 </div>
                                 <div class="col">
