@@ -767,13 +767,21 @@ def searchSeminarReport(request) :
 def searchseminar(request) :
     searchcolumn = request.POST.get('enrolldrop')
     searchinput = request.POST.get('enrollinput')
-    filters = {
+    searchcolumn1 = request.POST.get('enrolldrop1'),
+    searchinput1= request.POST.get('enrollinput1')
+    filters1 = {
         searchcolumn + '__icontains': searchinput
     }
-    data = client_data.objects.filter(**filters)
+    filters2 ={
+        searchcolumn1 + '__icontains': searchinput1
+    }
+    data = client_data.objects.filter(**filters1)
+    data1 = client_data.objects.filter(**filters2)
+    combined_data=zip(data,data1)
+
     print(data)
 
-    return render ( request , "home/seminarondayenroll.html",{'data':data})
+    return render ( request , "home/seminarondayenroll.html",{'data':combined_data})
 
 def searchViewSeminar(request,id):
     searchviewseminar_data = client_data.objects.get(id=id)

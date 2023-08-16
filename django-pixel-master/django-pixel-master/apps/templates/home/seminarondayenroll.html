@@ -44,9 +44,24 @@
                             <div class="col">
                                 <input type="text" class="form-control" name="enrollinput" id="enrollinput" >
                             </div>
+                              <div class="col">
+                                <label for="exampleInputEmail6" >Search Seminar Input</label>
+                            </div>
+                            <div class="col">
+                                <select class="form-control" name="enrolldrop1" id="enrolldrop1" >
+                                    <option>Select</option>
+                                    <option value="seminarname">Seminar Name</option>
+                                    <option value="seminarid">Seminar ID</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="enrollinput1" id="enrollinput1" >
+                            </div>
                             <div class="col ">
                                 <button type="submit" id="enrollsearchbutton" class="btn btn-primary" style="float:right !important">Search</button>
                             </div>
+
+
 
                           <style>
                                  table, th, td {
@@ -64,6 +79,7 @@
                                          <th>First Name</th>
                                          <th>Gender</th>
                                          <th>ID Number</th>
+                                         <th>Seminar ID</th>
                                       </tr>
                                        {% for i in data %}
 
@@ -72,10 +88,11 @@
                                          <td>{{i.fname}}</td>
                                          <td>{{i.gender}}</td>
                                           <td>{{i.idnumber}}</td>
+                                         <td>{{i.seminarid}}</td>
 
                                          <td>
                                               <div class="col-12 ">
-                                                 <button type="button" id="viewrole" class="btn btn-primary" onclick="location.href='{% url 'searchseminarformdata' id=i.id  %}' ">View</button>
+                                                 <button type="button" id="view" class="btn btn-primary" onclick="location.href='{% url 'searchseminarformdata' id=i.id  %}' ">View</button>
 
                                              </div>
                                          </td>
