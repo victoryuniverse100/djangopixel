@@ -8,23 +8,21 @@
 {% block content %}
 
 <main>
-
-
-    <div class="section section-md pb-0">
+  <div class="section section-md pb-0">
         <div class="container">
             <!-- Title -->
             <div class="row">
                 <div class="col">
-                    <h3 class="h5">Seminar Registration Form</h3>
+                    <h3 class="h5"></h3>
                 </div>
             </div>
             <!-- End of Title -->
         </div>
     </div>
     <div class="row">
+
         <form action="/updateSeminarRegistrationData/{{data.id }}" method="POST">{% csrf_token %}
             <!-- Section -->
-<input name="created_date" type="hidden" value="{{data.created_date |date:'Y-m-d'}}">
             <div class="section section-md pt-0" style="padding-bottom:15px !important">
                 <div class="container">
 
@@ -35,24 +33,24 @@
                                 <div class="col">
                                     <label for="exampleInputEmail6">Reg ID</label>
                                     <input type="text" class="form-control" name="regid" id="regid"
-                                           value="{{data.regid}}" readonly="true">
+                                           value="{{data.regid}}" >
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Member ID</label>
                                     <input type="text" class="form-control" name="member_id" id="member_id"
-                                         value="{{data.member_id}}"  readonly="true">
+                                         value="{{data.member_id}}">
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Seminar ID</label>
 
                                     <input type="text" class="form-control" name="seminarid" id="seminarid"
-                                         value="{{data.seminarid}}"  readonly="true">
+                                         value="{{data.seminarid}}">
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Seminar Name</label>
 
                                     <input type="text" class="form-control" name="seminarname" id="seminarname"
-                                         value="{{data.seminarname}}"  readonly="true">
+                                         value="{{data.seminarname}}">
                                 </div>
                             </div>
                         </div>
@@ -69,24 +67,24 @@
                                 <div class="col">
                                     <label for="exampleInputEmail6">Seminar Fee</label>
                                     <input type="text" class="form-control" name="seminarfee" id="seminarfee"
-                                           value="{{data.seminarfee}}" readonly="true">
+                                           value="{{data.seminarfee}}">
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Seminar Date</label>
                                     <input type="text" class="form-control" name="seminardate" id="seminardate"
-                                         value="{{data.seminardate}}"  readonly="true">
+                                         value="{{data.seminardate}}">
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Seminar Country</label>
 
                                     <input type="text" class="form-control" name="country" id="country"
-                                         value="{{data.country}}"  readonly="true">
+                                         value="{{data.country}}">
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Seminar Location</label>
 
                                     <input type="text" class="form-control" name="seminarlocation" id="seminarlocation"
-                                         value="{{data.seminarlocation}}"  readonly="true">
+                                         value="{{data.seminarlocation}}">
                                 </div>
                             </div>
                         </div>
@@ -104,24 +102,24 @@
                                 <div class="col">
                                     <label for="exampleInputEmail6">Introducer</label>
                                     <input type="text" class="form-control" name="introducer" id="introducer"
-                                           value="{{data.introducer}}" readonly="true">
+                                           value="{{data.introducer}}" >
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Team Leader</label>
                                     <input type="text" class="form-control" name="team_leader" id="team_leader"
-                                         value="{{data.team_leader}}"  readonly="true">
+                                         value="{{data.team_leader}}">
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Assistant Leader</label>
 
                                     <input type="text" class="form-control" name="assistant_leader" id="assitant_leader"
-                                         value="{{data.assistant_leader}}"  readonly="true">
+                                         value="{{data.assistant_leader}}">
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Leader</label>
 
                                     <input type="text" class="form-control" name="leader" id="leader"
-                                         value="{{data.leader}}"  readonly="true">
+                                         value="{{data.leader}}">
                                 </div>
                             </div>
                         </div>
@@ -139,24 +137,24 @@
                                 <div class="col">
                                     <label for="exampleInputEmail6">Payment Date</label>
                                     <input type="text" class="form-control" name="payment_date" id="payment_date"
-                                          value="{{data.payment_date}}" readonly="true" >
+                                          value="{{data.payment_date}}">
                                 </div>
 
                                 <div class="col">
                                     <label for="exampleInputEmail6">Payment </label>
                                     <input type="text" class="form-control" name="payment" id="payment"
-                                          value="{{data.payment}}" readonly="true" >
+                                          value="{{data.payment}}"  >
                                 </div>
                                 <div class="col">
                                     <label for="exampleInputEmail6">Balance</label>
                                     <input type="text" class="form-control" name="balance"
-                                           id="balance" value="{{data.balance}}" readonly="true" >
+                                           id="balance" value="{{data.balance}}" >
                                 </div>
 
                                 <div class="col">
                                     <label for="exampleInputEmail6">Payment Status</label>
                                     <input type="text" class="form-control" name="payment_status" id="payment-status"
-                                           value="{{data.payment_status}}" readonly="true" >
+                                           value="{{data.payment_status}}" >
                                 </div>
 
                             </div>
@@ -172,20 +170,23 @@
                 <div class="row">
                     <div class="col-12 ">
                          <button class="btn btn-primary" id="editButton" type="button">Edit</button>
-                            <button class="btn btn-primary" id="updateButton" style="display:none" type="submit">Update</button>
+                        <button class="btn btn-primary" id="updateButton" style="display:none" type="submit">Update</button>
                          <button class="btn btn-primary" id="editButton" type="button" onclick="history.back()" >Back</button></p>
-
+                    </div>
                 </div>
-            </div>
-    </div>
-    </form>
-    </div>
 
+            </div>
+
+
+              </form>
+    </div>
+ <!-- End of Section -->
 
 </main>
+
+
+
 {% endblock content %}
-
-
 
 
 

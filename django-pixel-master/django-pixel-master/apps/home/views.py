@@ -434,10 +434,14 @@ def seminarRegistrationDataView(request , id) :
 
     return render ( request , "home/seminarregistrationview.html" , {'data' : registration_data} )
 
+def editSemReg(request,id):
+    semregedit_data = seminar_data.objects.get(id=id)
+    return render(request, "home/seminarregistrationedit.html", {'data': semregedit_data})
+
 
 @csrf_exempt
-def update_seminar_registration_form(request , regid) :
-    seminar_registration_update = seminar_data.objects.get ( regid = regid )
+def update_seminar_registration_form(request , id) :
+    seminar_registration_update = seminar_data.objects.get ( id = id )
 
 
     seminar_registration_update.regid = request.POST.get ( 'regid' )
@@ -458,7 +462,7 @@ def update_seminar_registration_form(request , regid) :
 
     seminar_registration_update.save ( )
 
-    return HttpResponseRedirect ( '/seminarRegistrationDataView/' + regid )
+    return HttpResponseRedirect('/seminarRegistrationDataView/' + id)
 
 @csrf_exempt
 # def memberHistory(request) :
